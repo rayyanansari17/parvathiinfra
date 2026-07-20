@@ -1,132 +1,207 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Volume2, VolumeX, ChevronDown } from 'lucide-react';
-import { CAPTIONS, CHAPTERS, WALKTHROUGH_FILM } from '@/lib/walkthroughData';
+import { ChevronDown } from 'lucide-react';
+import { FILM_SCENES } from '@/lib/walkthroughData';
 
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * Scroll-scrubbed cinematic film for THE VIEW.
- * Pins a 500vh tall section; scroll progress scrubs video.currentTime.
- * Captions fade in synced to currentTime waypoints. Symmetrical
- * Parvathi Infra flags animate in at the "Entering the Gate" chapter.
+ * Scroll-scrubbed cinematic image film for THE VIEW.
+ * Pins a section for (scenes * 100vh); scroll progress drives:
+ *   1. crossfades between successive high-res JPGs
+ *   2. per-scene Ken Burns (scale + translate) motion
+ *   3. caption / chapter / progress-bar state
+ * Zero <video>. Fully deterministic, resolution-independent.
  */
-export default function WalkthroughFilm({ src = WALKTHROUGH_FILM }) {
+export default function WalkthroughFilm() {
         const wrapRef = useRef(null);
         const pinRef = useRef(null);
-        const videoRef = useRef(null);
-        const [duration, setDuration] = useState(0);
-        const [current, setCurrent] = useState(0);
-        const [muted, setMuted] = useState(true);
-        const [reduced] = useState(
+        const layerRefs = useRef([]);
+        const imgRefs = useRef([]);
+
+        const scenes = FILM_SCENES;
+        const sceneCount = scenes.length;
+
+        const [progress, setProgress] = useState(0); // 0..1 across whole film
+        const [ready, setReady] = useState(false);
+        const [loaded, setLoaded] = useState(0);
+
+        const reduced = useMemo(
                 () =>
                         typeof window !== 'undefined' &&
                         window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+                [],
         );
 
-        // Discover duration once metadata is loaded.
+        // Preload all images before wiring ScrollTrigger — avoids pop-in.
         useEffect(() => {
-                const v = videoRef.current;
-                if (!v) return undefined;
-                const onLoaded = () => setDuration(v.duration || 0);
-                v.addEventListener('loadedmetadata', onLoaded);
-                if (v.readyState >= 1) onLoaded();
-                return () => v.removeEventListener('loadedmetadata', onLoaded);
-        }, []);
+                let cancelled = false;
+                let done = 0;
+                scenes.forEach((s) => {
+                        const im = new Image();
+                        im.onload = () => {
+                                done += 1;
+                                if (!cancelled) {
+                                        setLoaded(done);
+                                        if (done === sceneCount) setReady(true);
+                                }
+                        };
+                        im.onerror = () => {
+                                done += 1;
+                                if (!cancelled) {
+                                        setLoaded(done);
+                                        if (done === sceneCount) setReady(true);
+                                }
+                        };
+                        im.src = s.src;
+                });
+                return () => {
+                        cancelled = true;
+                };
+        }, [scenes, sceneCount]);
 
-        // ScrollTrigger scrub wiring.
+        // GSAP scroll-scrub: opacities of layers + Ken Burns transforms.
         useLayoutEffect(() => {
-                if (!duration || reduced) return undefined;
-                const v = videoRef.current;
+                if (!ready || reduced) return undefined;
                 const ctx = gsap.context(() => {
                         const st = ScrollTrigger.create({
                                 trigger: wrapRef.current,
                                 start: 'top top',
-                                end: () => `+=${window.innerHeight * 5}`,
+                                end: () => `+=${window.innerHeight * sceneCount}`,
                                 pin: pinRef.current,
-                                scrub: 0.6,
+                                scrub: 0.8,
                                 anticipatePin: 1,
+                                invalidateOnRefresh: true,
                                 onUpdate: (self) => {
-                                        if (!v) return;
-                                        const t = self.progress * duration;
-                                        v.currentTime = t;
-                                        setCurrent(t);
+                                        const p = self.progress;
+                                        setProgress(p);
+                                        // Segment progress: which scene + local t within it.
+                                        const segLen = 1 / sceneCount;
+                                        for (let i = 0; i < sceneCount; i += 1) {
+                                                const segStart = i * segLen;
+                                                const local = (p - segStart) / segLen; // -inf..+inf
+                                                // Opacity: fade in over first 30% of segment, hold, fade out over last 30%.
+                                                let op;
+                                                if (i === 0) {
+                                                        // First scene: full opacity at start, fade near end.
+                                                        op = local < 0.7 ? 1 : Math.max(0, 1 - (local - 0.7) / 0.3);
+                                                } else if (i === sceneCount - 1) {
+                                                        // Last scene: fade in, then hold.
+                                                        op = local < 0 ? 0 : Math.min(1, local / 0.3);
+                                                } else {
+                                                        if (local < 0) op = 0;
+                                                        else if (local < 0.3) op = local / 0.3;
+                                                        else if (local < 0.7) op = 1;
+                                                        else if (local < 1) op = 1 - (local - 0.7) / 0.3;
+                                                        else op = 0;
+                                                }
+                                                const layer = layerRefs.current[i];
+                                                if (layer) layer.style.opacity = op.toFixed(3);
+
+                                                // Ken Burns: interpolate x/y/scale from .from → .to across the segment
+                                                // (kept alive during hold + fade for smoothness).
+                                                const t = Math.max(0, Math.min(1, local));
+                                                const { from, to } = scenes[i];
+                                                const x = from.x + (to.x - from.x) * t;
+                                                const y = from.y + (to.y - from.y) * t;
+                                                const sc = from.scale + (to.scale - from.scale) * t;
+                                                const img = imgRefs.current[i];
+                                                if (img) {
+                                                        img.style.transform = `translate3d(${x}%, ${y}%, 0) scale(${sc.toFixed(4)})`;
+                                                }
+                                        }
                                 },
                         });
+                        // Refresh once after mount to catch any layout shift.
+                        requestAnimationFrame(() => ScrollTrigger.refresh());
                         return () => st.kill();
                 }, wrapRef);
                 return () => ctx.revert();
-        }, [duration, reduced]);
+        }, [ready, reduced, sceneCount, scenes]);
 
-        // Reduced-motion → let the video autoplay naturally; skip pinning.
-        useEffect(() => {
-                if (!reduced) return undefined;
-                const v = videoRef.current;
-                if (v) {
-                        v.loop = true;
-                        v.play().catch(() => {});
-                        const onT = () => setCurrent(v.currentTime);
-                        v.addEventListener('timeupdate', onT);
-                        return () => v.removeEventListener('timeupdate', onT);
-                }
-                return undefined;
-        }, [reduced]);
+        // Active scene index derived from progress.
+        const activeIdx = Math.min(
+                sceneCount - 1,
+                Math.max(0, Math.floor(progress * sceneCount + 0.0001)),
+        );
+        const activeScene = scenes[activeIdx];
 
-        // Which caption is active right now?
-        const activeCaptionIdx = (() => {
-                let idx = 0;
-                for (let i = 0; i < CAPTIONS.length; i += 1) {
-                        if (current >= CAPTIONS[i].time) idx = i;
-                }
-                return idx;
-        })();
-        const activeCaption = CAPTIONS[activeCaptionIdx];
+        // Parvathi flags visible during "Entering the Gate" scene (index 2).
+        const flagsVisible = activeIdx === 2;
 
-        // Flags are visible during the "Entering the Gate" chapter (roughly 8s-13s).
-        const flagsVisible = current >= 7.5 && current <= 13.5;
-
-        const progressPct = duration ? (current / duration) * 100 : 0;
-
-        const jumpTo = (t) => {
+        const jumpToScene = (i) => {
                 const wrap = wrapRef.current;
-                if (!wrap || !duration) return;
-                const totalScroll = window.innerHeight * 5;
-                const y = wrap.offsetTop + (t / duration) * totalScroll;
+                if (!wrap) return;
+                const totalScroll = window.innerHeight * sceneCount;
+                const y = wrap.offsetTop + (i / sceneCount) * totalScroll + 4;
                 window.scrollTo({ top: y, behavior: 'smooth' });
         };
+
+        const progressPct = Math.min(100, Math.max(0, progress * 100));
 
         return (
                 <section
                         ref={wrapRef}
                         data-testid="walkthrough-film-wrap"
                         className="relative w-full"
-                        style={{ height: reduced ? '100svh' : '600vh' }}
+                        style={{ height: reduced ? '100svh' : `${sceneCount * 100}vh` }}
                 >
                         <div
                                 ref={pinRef}
                                 className="relative flex h-[100svh] w-full items-center justify-center overflow-hidden bg-ink"
                         >
-                                {/* Video */}
-                                <video
-                                        ref={videoRef}
-                                        data-testid="walkthrough-film-video"
-                                        src={src}
-                                        muted={muted}
-                                        playsInline
-                                        preload="auto"
-                                        className="absolute inset-0 h-full w-full object-cover"
-                                        poster="/assets/walkthrough/aerial-master-plan.jpeg"
-                                />
+                                {/* Image layers */}
+                                {scenes.map((s, i) => (
+                                        <div
+                                                key={s.src}
+                                                ref={(el) => (layerRefs.current[i] = el)}
+                                                className="absolute inset-0"
+                                                style={{
+                                                        opacity: i === 0 ? 1 : 0,
+                                                        willChange: 'opacity',
+                                                }}
+                                                data-testid={`film-layer-${i}`}
+                                        >
+                                                <img
+                                                        ref={(el) => (imgRefs.current[i] = el)}
+                                                        src={s.src}
+                                                        alt={s.title}
+                                                        draggable={false}
+                                                        className="absolute inset-0 h-full w-full object-cover select-none"
+                                                        style={{
+                                                                transform: `translate3d(${s.from.x}%, ${s.from.y}%, 0) scale(${s.from.scale})`,
+                                                                transformOrigin: 'center center',
+                                                                willChange: 'transform',
+                                                        }}
+                                                />
+                                        </div>
+                                ))}
 
                                 {/* Cinematic gradient + grain */}
-                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/20 to-ink/95" />
+                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/25 to-ink/95" />
                                 <div className="pointer-events-none absolute inset-0 grain-overlay" />
                                 <div className="pointer-events-none absolute inset-x-0 top-0 h-[8vh] bg-[#020202]" />
                                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[8vh] bg-[#020202]" />
 
-                                {/* Flags overlay — visible during Gate chapter */}
+                                {/* Preload indicator */}
+                                {!ready && (
+                                        <div
+                                                data-testid="film-loading"
+                                                className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 bg-ink text-ivory-dim"
+                                        >
+                                                <div className="micro-label">Loading Cinematic Film</div>
+                                                <div className="h-px w-40 bg-white/10">
+                                                        <div
+                                                                className="h-full bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#AA771C] transition-[width]"
+                                                                style={{ width: `${(loaded / sceneCount) * 100}%` }}
+                                                        />
+                                                </div>
+                                        </div>
+                                )}
+
+                                {/* Parvathi flags at gate scene */}
                                 <AnimatePresence>
                                         {flagsVisible && (
                                                 <>
@@ -139,47 +214,48 @@ export default function WalkthroughFilm({ src = WALKTHROUGH_FILM }) {
                                 {/* Caption card */}
                                 <AnimatePresence mode="wait">
                                         <motion.div
-                                                key={activeCaptionIdx}
-                                                initial={{ opacity: 0, y: 20 }}
+                                                key={activeIdx}
+                                                initial={{ opacity: 0, y: 22 }}
                                                 animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: -8 }}
+                                                exit={{ opacity: 0, y: -10 }}
                                                 transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                                                data-testid={`caption-${activeCaptionIdx}`}
+                                                data-testid={`caption-${activeIdx}`}
                                                 className="pointer-events-none absolute left-6 bottom-24 max-w-xl md:left-16 md:bottom-32"
                                         >
                                                 <div className="micro-label mb-3">
-                                                        Chapter {String(activeCaptionIdx + 1).padStart(2, '0')} /
-                                                        {String(CAPTIONS.length).padStart(2, '0')}
+                                                        Chapter {String(activeIdx + 1).padStart(2, '0')} /
+                                                        {String(sceneCount).padStart(2, '0')}
                                                 </div>
                                                 <h2 className="font-display text-3xl leading-tight tracking-[0.06em] text-ivory md:text-5xl">
-                                                        <span className="gold-foil-text">{activeCaption.title}</span>
+                                                        <span className="gold-foil-text">{activeScene.title}</span>
                                                 </h2>
                                                 <p className="mt-4 max-w-md font-serif-elegant text-lg italic text-ivory-dim md:text-xl">
-                                                        {activeCaption.copy}
+                                                        {activeScene.copy}
                                                 </p>
                                         </motion.div>
                                 </AnimatePresence>
 
-                                {/* Vertical progress rail */}
+                                {/* Vertical chapter rail */}
                                 <div className="pointer-events-auto absolute right-6 top-1/2 -translate-y-1/2 flex flex-col items-center gap-4 md:right-10">
-                                        {CHAPTERS.map((ch, i) => {
-                                                const active = i === activeCaptionIdx;
-                                                const seek = CAPTIONS[Math.min(i, CAPTIONS.length - 1)]?.time || 0;
+                                        {scenes.map((s, i) => {
+                                                const active = i === activeIdx;
                                                 return (
                                                         <button
-                                                                key={ch.n}
+                                                                key={s.src}
                                                                 type="button"
-                                                                onClick={() => jumpTo(seek)}
+                                                                onClick={() => jumpToScene(i)}
                                                                 data-testid={`chapter-dot-${i}`}
-                                                                aria-label={`Jump to ${ch.label}`}
+                                                                aria-label={`Jump to ${s.chapter}`}
                                                                 className="group flex items-center gap-3"
                                                         >
                                                                 <span
                                                                         className={`hidden text-right font-ui text-[0.6rem] uppercase tracking-[0.32em] transition-opacity md:block ${
-                                                                                active ? 'opacity-100 text-gold' : 'opacity-0 text-ivory-dim group-hover:opacity-70'
+                                                                                active
+                                                                                        ? 'opacity-100 text-gold'
+                                                                                        : 'opacity-0 text-ivory-dim group-hover:opacity-70'
                                                                         }`}
                                                                 >
-                                                                        {String(ch.n).padStart(2, '0')} · {ch.label}
+                                                                        {String(i + 1).padStart(2, '0')} · {s.chapter}
                                                                 </span>
                                                                 <span
                                                                         className={`h-2 w-2 rounded-full border transition-all ${
@@ -197,7 +273,7 @@ export default function WalkthroughFilm({ src = WALKTHROUGH_FILM }) {
                                 <div className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 flex items-center gap-4 md:bottom-8">
                                         <button
                                                 type="button"
-                                                onClick={() => jumpTo(CAPTIONS[Math.max(0, activeCaptionIdx - 1)].time)}
+                                                onClick={() => jumpToScene(Math.max(0, activeIdx - 1))}
                                                 data-testid="film-prev"
                                                 className="gold-underline text-[0.65rem] uppercase tracking-[0.32em] text-ivory-dim hover:text-ivory"
                                         >
@@ -211,28 +287,15 @@ export default function WalkthroughFilm({ src = WALKTHROUGH_FILM }) {
                                         </div>
                                         <button
                                                 type="button"
-                                                onClick={() =>
-                                                        jumpTo(
-                                                                CAPTIONS[Math.min(CAPTIONS.length - 1, activeCaptionIdx + 1)].time,
-                                                        )
-                                                }
+                                                onClick={() => jumpToScene(Math.min(sceneCount - 1, activeIdx + 1))}
                                                 data-testid="film-next"
                                                 className="gold-underline text-[0.65rem] uppercase tracking-[0.32em] text-ivory-dim hover:text-ivory"
                                         >
                                                 Next →
                                         </button>
-                                        <button
-                                                type="button"
-                                                onClick={() => setMuted((m) => !m)}
-                                                data-testid="film-mute"
-                                                aria-label={muted ? 'Unmute' : 'Mute'}
-                                                className="ml-2 flex h-8 w-8 items-center justify-center border border-[rgba(201,162,75,0.4)] text-ivory-dim hover:border-gold hover:text-gold"
-                                        >
-                                                {muted ? <VolumeX size={14} /> : <Volume2 size={14} />}
-                                        </button>
                                 </div>
 
-                                {/* Top-right skip to layout */}
+                                {/* Skip to layout */}
                                 <button
                                         type="button"
                                         data-testid="film-skip-to-layout"
@@ -245,8 +308,8 @@ export default function WalkthroughFilm({ src = WALKTHROUGH_FILM }) {
                                         Skip to Layout ↓
                                 </button>
 
-                                {/* Scroll hint (only on chapter 1) */}
-                                {activeCaptionIdx === 0 && (
+                                {/* Scroll hint (first chapter only) */}
+                                {activeIdx === 0 && (
                                         <div className="absolute bottom-24 left-1/2 -translate-x-1/2 text-center text-ivory-dim md:bottom-32">
                                                 <div className="text-[0.6rem] uppercase tracking-[0.4em]">Scroll to Enter</div>
                                                 <ChevronDown className="mx-auto mt-2 animate-bounce" size={16} />
@@ -259,7 +322,6 @@ export default function WalkthroughFilm({ src = WALKTHROUGH_FILM }) {
 
 // ------------------------------------------------------------------
 // Parvathi Infra flag — vector logo (no text/AI rendering).
-// A deep-blue banner with a gold crown + skyline crest and the wordmark.
 // ------------------------------------------------------------------
 function ParvathiFlag({ side }) {
         const isLeft = side === 'left';
@@ -319,7 +381,6 @@ function ParvathiFlag({ side }) {
                                                         : 'polygon(0 4%, 100% 0, 100% 100%, 4% 96%)',
                                         }}
                                 >
-                                        {/* Gold fringe top + bottom */}
                                         <div
                                                 className="absolute inset-x-0 top-0 h-[3px]"
                                                 style={{
@@ -334,7 +395,6 @@ function ParvathiFlag({ side }) {
                                                                 'linear-gradient(90deg,#8A6D2F,#FCF6BA 50%,#8A6D2F)',
                                                 }}
                                         />
-                                        {/* Crest — gold crown + skyline */}
                                         <svg
                                                 viewBox="0 0 130 180"
                                                 className="absolute inset-0 h-full w-full"
@@ -347,7 +407,6 @@ function ParvathiFlag({ side }) {
                                                                 <stop offset="100%" stopColor="#6B4E1C" />
                                                         </linearGradient>
                                                 </defs>
-                                                {/* Crown */}
                                                 <path
                                                         d="M45 42 L52 30 L58 40 L65 26 L72 40 L78 30 L85 42 L82 52 L48 52 Z"
                                                         fill={`url(#piCrestG-${side})`}
@@ -355,14 +414,12 @@ function ParvathiFlag({ side }) {
                                                         strokeWidth="0.6"
                                                 />
                                                 <circle cx="65" cy="24" r="2" fill="#FCF6BA" />
-                                                {/* Skyline / buildings */}
                                                 <g fill="none" stroke={`url(#piCrestG-${side})`} strokeWidth="1.2">
                                                         <rect x="46" y="60" width="10" height="30" />
                                                         <rect x="58" y="52" width="14" height="38" />
                                                         <rect x="74" y="58" width="10" height="32" />
                                                         <line x1="42" y1="90" x2="88" y2="90" />
                                                 </g>
-                                                {/* Text */}
                                                 <text
                                                         x="65"
                                                         y="118"

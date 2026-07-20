@@ -5,6 +5,70 @@ export const WORDMARK_IMG = '/assets/walkthrough/the-view-wordmark.jpeg';
 export const AERIAL_IMG = '/assets/walkthrough/aerial-master-plan.jpeg';
 export const SCALE_MODEL_IMG = '/assets/walkthrough/scale-model-hero.jpeg';
 
+// High-res cinematic image sequence (replaces film.mp4).
+// Each scene defines its own Ken Burns motion for a bespoke, non-repeating feel.
+// { from / to } are normalised [x, y, scale] anchors interpolated across the scene.
+export const FILM_SCENES = [
+        {
+                src: '/assets/walkthrough/page-1.jpg',
+                title: 'THE VIEW',
+                copy: 'On a scenic hill, where the future is moving.',
+                chapter: 'Sky Approach',
+                from: { x: 0, y: -2, scale: 1.14 },
+                to:   { x: 0, y:  2, scale: 1.02 },
+        },
+        {
+                src: '/assets/walkthrough/page-2.jpg',
+                title: 'The Grand Arch',
+                copy: 'Where first impressions become lasting statements.',
+                chapter: 'The Arch Reveal',
+                from: { x: -3, y: 0, scale: 1.16 },
+                to:   { x:  3, y: 0, scale: 1.04 },
+        },
+        {
+                src: '/assets/walkthrough/page-3.jpg',
+                title: 'A Grand Arrival',
+                copy: 'Welcomed by Parvathi Infra. A statement of belonging.',
+                chapter: 'Entering the Gate',
+                from: { x: 0, y: 3, scale: 1.20 },
+                to:   { x: 0, y: 0, scale: 1.00 },
+        },
+        {
+                src: '/assets/walkthrough/page-4.jpg',
+                title: '45 Exclusive Plots',
+                copy: '30-ft tree-lined avenues. 100% Vastu.',
+                chapter: 'The Avenue',
+                from: { x:  4, y: 0, scale: 1.08 },
+                to:   { x: -4, y: 0, scale: 1.14 },
+        },
+        {
+                src: '/assets/walkthrough/page-5.jpg',
+                title: 'Elegant Clubhouse',
+                copy: '2,220 sq.ft clubhouse & infinity-edge pool.',
+                chapter: 'Clubhouse & Pool',
+                from: { x: 0, y: -3, scale: 1.10 },
+                to:   { x: 0, y:  3, scale: 1.02 },
+        },
+        {
+                src: '/assets/walkthrough/page-6.jpg',
+                title: 'Open-Air Amphitheatre',
+                copy: 'Cultural & social gatherings under the sky.',
+                chapter: 'Amphitheatre',
+                from: { x: -4, y:  2, scale: 1.06 },
+                to:   { x:  4, y: -2, scale: 1.14 },
+        },
+        {
+                src: '/assets/walkthrough/page-7.jpg',
+                title: 'The View Point',
+                copy: 'A Scenic Address for a Selective Few.',
+                chapter: 'View Point',
+                from: { x: 0, y:  0, scale: 1.02 },
+                to:   { x: 0, y: -2, scale: 1.18 },
+        },
+];
+
+export const FILM_IMAGES = FILM_SCENES.map((s) => s.src);
+
 // Real plot sizes (sq. yds) from the brochure legend. 45 plots total.
 export const PLOT_SIZES = [
         371.21, 200, 233.33, 200, 200, 200, 200, 200, 200, 200, // 1-10
