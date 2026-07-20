@@ -62,6 +62,17 @@ Non-negotiables:
 - `brochure_requests` — `{id, name, phone, email, created_at}`
 - `chat_messages` — `{id, session_id, role, content, created_at}`
 
+## What's been implemented — 20 Feb 2026 (Content pivot to Parvathi Infra)
+- ✅ **Site pivoted from flagship-first to brand-first**. Content now leads with **Parvathi Infra Developers** (parent company) per the official Premium Website Brief PDF; THE VIEW remains the flagship. Founder credit added: **Mr. C. Goutham Yadav**. Established year: 2019.
+- ✅ **Location correction across entire site**: THE VIEW is at **Kothur, on NH-44 (Bengaluru Highway)** — NOT Kadthal/Srisailam. Google map iframe q=Kothur, all copy updated. Grep confirms zero 'Kadthal'/'Srisailam'/'Presentation' remnants.
+- ✅ **Preloader**: SVG wordmark now animates **PARVATHI INFRA** with subtitle 'Creating Landmarks · Building Trust' (was 'THE VIEW' / 'A Parvathi Infra Presentation').
+- ✅ **Home page**: Hero 'Creating Landmarks. Building Trust.' + HMDA & FCDA subtext. New sections: 6-tile Highlights band (2019 · 8+ · 2 Lakh+ · Multiple · HMDA & FCDA · Landmark), 3-card Journey teaser, expanded Approvals marquee (HMDA, FCDA, Clear Title, 100% Vastu, RERA, Premium Infra, Landmark Developments), 4-card Portfolio grid (THE VIEW + Airport Town + Metro City + Arokah), refreshed Flagship + Walkthrough teasers.
+- ✅ **About page** fully rewritten: hero + founder pill row, Vision/Mission split, 6-value grid (Integrity · Trust · Transparency · Excellence · Innovation · Customer First), 3-step Journey timeline (2019 / 2019–2022 / 2023 →), Collaborations panel with Green Homes (Chilkoor · Moinabad · Shankarpally · Jadcherla · Kothur) + 90,000+ sq. yds stat, Past Projects grid.
+- ✅ **Projects page**: THE VIEW updated to Kothur/NH-44/HMDA & FCDA; other three projects wired from new PAST_PROJECTS source.
+- ✅ **Global spacing tightened**: py-32 md:py-40 → py-24 md:py-28 across TheView + Gallery + Home + About sections.
+- ✅ **Gallery hero arrow flakiness FIXED** (iteration 6 regression): autoplay.stop() called before every manual scrollPrev/Next/To. Fade duration 30 → 45. Non-selected slide captions opacity 0 to prevent text overlap. Testing agent verified 6-forward + 6-back clicks advance monotonically.
+- ✅ Testing agent iteration 7: **100% pass** (backend 8/8 pytest + all frontend acceptance criteria).
+
 ## What's been implemented — 20 Feb 2026 (Walkthrough refactor)
 - ✅ **Interactive Walkthrough — GSAP image-sequence film**. Replaced the blurry HTML5 `<video>` (film.mp4) with a **scroll-scrubbed 7-scene image sequence** using GSAP ScrollTrigger:
   - `/app/frontend/src/lib/walkthroughData.js` — new `FILM_SCENES` array (page-1.jpg … page-7.jpg) each with title, copy, chapter label, and per-scene Ken Burns anchors (from/to translate + scale).
