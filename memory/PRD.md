@@ -62,7 +62,14 @@ Non-negotiables:
 - `brochure_requests` — `{id, name, phone, email, created_at}`
 - `chat_messages` — `{id, session_id, role, content, created_at}`
 
-## What's been implemented — 20 Feb 2026
+## What's been implemented — 20 Feb 2026 (Walkthrough refactor)
+- ✅ **Interactive Walkthrough — GSAP image-sequence film**. Replaced the blurry HTML5 `<video>` (film.mp4) with a **scroll-scrubbed 7-scene image sequence** using GSAP ScrollTrigger:
+  - `/app/frontend/src/lib/walkthroughData.js` — new `FILM_SCENES` array (page-1.jpg … page-7.jpg) each with title, copy, chapter label, and per-scene Ken Burns anchors (from/to translate + scale).
+  - `/app/frontend/src/components/site/WalkthroughFilm.jsx` — full rewrite. Preloads all 7 images, pins the section for `sceneCount × 100vh`, cross-fades layer opacities and animates Ken Burns transforms on scroll. Chapter rail, prev/next, skip-to-layout, and Parvathi flags overlay on Chapter 3 all retained.
+  - Removed `film.mp4` (~12 MB) and dead `WALKTHROUGH_FILM` / `CAPTIONS` / `CHAPTERS` constants.
+  - Testing agent (iteration_5): 100% pass, zero console errors, verified all 11 checkpoints (no `<video>`, all 7 layers, chapter dots, jump-to-scene, gate flags, skip-to-layout, pin release).
+
+## What's been implemented — earlier
 - ✅ Backend (`/app/backend/server.py`) — leads, brochure-request, Aria chatbot with session context (Claude Sonnet 4.5), history endpoint. 100% pytest green (8/8).
 - ✅ Tailwind theme (obsidian + gold) + fonts (Cinzel / Cormorant Garamond / Jost) wired in `index.css`, `tailwind.config.js`, `public/index.html`.
 - ✅ Global chrome: cinematic SVG stroke-draw preloader, luxury nav with scroll frost, custom gold cursor, gold-pulse WhatsApp float, footer.

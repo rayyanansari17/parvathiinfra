@@ -1,6 +1,5 @@
 // Data for the /the-view/walkthrough page.
 
-export const WALKTHROUGH_FILM = '/assets/walkthrough/film.mp4';
 export const WORDMARK_IMG = '/assets/walkthrough/the-view-wordmark.jpeg';
 export const AERIAL_IMG = '/assets/walkthrough/aerial-master-plan.jpeg';
 export const SCALE_MODEL_IMG = '/assets/walkthrough/scale-model-hero.jpeg';
@@ -145,31 +144,9 @@ export const AMENITY_HOTSPOTS = [
         { code: 'I', name: 'View Point',            x: 30.0, y: 43.0, blurb: 'Panoramic terrace on the highest ridge — the "view" the brand is named for.' },
 ];
 
-// Cinematic caption waypoints keyed to video.currentTime (seconds).
-// Tune these to your final film's cuts.
-export const CAPTIONS = [
-        { time: 0.0,  title: 'THE VIEW',                    copy: 'On a scenic hill, where the future is moving.' },
-        { time: 5.0,  title: 'The Grand Arch',              copy: 'Where first impressions become lasting statements.' },
-        { time: 9.0,  title: 'A Grand Arrival',             copy: 'Welcomed by Parvathi Infra. A statement of belonging.' },
-        { time: 14.0, title: '45 Exclusive Plots',          copy: '30-ft tree-lined avenues. 100% Vastu.' },
-        { time: 20.0, title: 'Elegant Clubhouse',           copy: '2,220 sq.ft clubhouse & infinity-edge pool.' },
-        { time: 26.0, title: 'Open-Air Amphitheatre',       copy: 'Cultural & social gatherings under the sky.' },
-        { time: 31.0, title: 'The View Point',              copy: 'A Scenic Address for a Selective Few.' },
-        { time: 37.0, title: 'Own Before the City Arrives', copy: 'Book your private site visit.' },
-];
-
-// Chapter rail dots — same order as CAPTIONS. Nine chapters per spec (last one is Outro alt view of #8).
-export const CHAPTERS = [
-        { n: 1, label: 'Sky Approach' },
-        { n: 2, label: 'The Arch Reveal' },
-        { n: 3, label: 'Entering the Gate' },
-        { n: 4, label: 'The Avenue' },
-        { n: 5, label: 'Clubhouse & Pool' },
-        { n: 6, label: 'Amphitheatre' },
-        { n: 7, label: 'View Point' },
-        { n: 8, label: 'Parks & Lawns' },
-        { n: 9, label: 'Outro' },
-];
+// Cinematic caption waypoints — DEPRECATED (kept as reference; not used by
+// the new image-sequence film, which reads its captions from FILM_SCENES).
+// Left intentionally empty to keep the module surface minimal.
 
 // Nearest amenities per plot (very simple heuristic by row).
 export function nearestAmenities(plotNo) {
