@@ -55,7 +55,6 @@ export const BROCHURE = {
 
 export const HOME_PAGE = {
         root: 'home-page',
-        heroVideo: 'home-hero-video',
         heroTitle: 'home-hero-title',
         heroScrollHint: 'home-hero-scroll-hint',
         statsBand: 'home-stats-band',
@@ -75,7 +74,6 @@ export const PROJECTS_PAGE = {
 
 export const THE_VIEW_PAGE = {
         root: 'theview-page',
-        heroVideo: 'theview-hero-video',
         masterPlan: 'theview-master-plan',
         amenities: 'theview-amenities',
         connectivity: 'theview-connectivity',
