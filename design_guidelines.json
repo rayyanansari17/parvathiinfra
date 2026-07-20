@@ -1,0 +1,192 @@
+{
+  "project_name": "Parvathi Infra Developers - THE VIEW",
+  "theme": "dark",
+  "general_ui_ux_design_guidelines": [
+    "Benchmark against world's top developers (Sobha, Lodha, Six Senses). Must feel crore-plus, cinematic, obsessively crafted, never templated.",
+    "Non-negotiables: deep obsidian black + champagne/metallic gold theme. Restrained, editorial with lots of negative space.",
+    "Use buttery-smooth momentum scrolling (Lenis) and cinematic scroll-driven storytelling.",
+    "All interactive and key informational elements MUST include a data-testid attribute to facilitate robust automated testing.",
+    "NEVER use complete transparent background in header, overlays, or surfaces with content underneath it.",
+    "Gold is an accent, not a flood. Obsidian + negative space carry the elegance.",
+    "Provide guidelines for .js/.jsx files (not .tsx)."
+  ],
+  "colors": {
+    "backgrounds": {
+      "obsidian": "#0A0A0A",
+      "obsidian-2": "#101010",
+      "obsidian-3": "#161513",
+      "ink": "#050505"
+    },
+    "text": {
+      "ivory": "#F5F1E8",
+      "ivory-dim": "#CFC7B5"
+    },
+    "accents": {
+      "gold": "#C9A24B",
+      "gold-bright": "#E8C978",
+      "gold-deep": "#8A6D2F"
+    },
+    "gradients": {
+      "gold-foil": "linear-gradient(92deg,#BF953F 0%,#FCF6BA 22%,#B38728 45%,#FBF5B7 68%,#AA771C 100%)"
+    },
+    "prohibited": ["purple-on-white", "muddy dark gradients"]
+  },
+  "typography": {
+    "primary": {
+      "family": "Cinzel",
+      "usage": "Display, logotype, hero caps",
+      "style": "uppercase, letter-spacing +0.06em"
+    },
+    "secondary": {
+      "family": "Cormorant Garamond",
+      "usage": "Elegant serif sub-headlines, pull-quotes",
+      "style": "Italics for emphasis"
+    },
+    "tertiary": {
+      "family": "Jost",
+      "fallback": "Outfit",
+      "usage": "Body, UI, labels",
+      "style": "Uppercase micro-labels wide tracking +0.18em"
+    }
+  },
+  "spacing_and_rhythm": {
+    "philosophy": "Restraint = luxury. Massive negative space around key elements. 2-3x more padding than standard designs.",
+    "containers": "Max-width 1440px with generous side margins (px-6 md:px-12 lg:px-24).",
+    "vertical_rhythm": "py-24 md:py-32 or py-40 for major sections."
+  },
+  "visual_enhancers": {
+    "borders": "Hairline gold dividers (1px solid #8A6D2F or #C9A24B opacity-30).",
+    "section_numbers": "Small uppercase section index numbers (01/02/03) using Jost, wide tracking.",
+    "shimmer": "Subtle shimmer effect on headlines using background-clip: text with animated background-position."
+  },
+  "motion": {
+    "easing": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "duration": "0.6s to 1.2s glides",
+    "text_reveal": "Line-by-line clip-up reveals with slight blur-in.",
+    "image_reveal": "Clip-path wipe or scale 1.08 -> 1 on scroll.",
+    "hover_states": "Gold underline draw + magnetic pull on hover.",
+    "scrolling": "Lenis for buttery-smooth momentum scrolling.",
+    "cursor": "Custom cursor: gold dot + trailing ring (moves with slight delay)."
+  },
+  "components": {
+    "navigation": {
+      "style": "Global nav. Transparent over hero, frosted (backdrop-blur-md bg-obsidian/70) on scroll. Hairline bottom border on scroll.",
+      "links": "Jost, uppercase, wide tracking, hover: gold underline draw."
+    },
+    "buttons": {
+      "primary": "Pill or sharp. Obsidian background with gold-foil border or gold text. Magnetic pull effect on hover.",
+      "secondary": "Text only with gold underline draw on hover."
+    },
+    "cards": {
+      "style": "Borderless or hairline gold border. Image reveal on hover (scale up). Dark obsidian backgrounds.",
+      "content": "Negative space inside cards. P-8 or P-12."
+    },
+    "forms": {
+      "style": "Minimalist. Floating labels, hairline bottom border inputs. No standard boxes.",
+      "states": "Focus: bright gold border. Success state: gold glow/check."
+    },
+    "chatbot_widget": {
+      "style": "Floating widget, bottom right. Dark theme with gold accents.",
+      "icon": "Custom AI icon (no generic emojis), pulsing gold ring."
+    },
+    "preloader": {
+      "style": "Cinematic preloader. Obsidian background.",
+      "animation": "Animated brand wordmark reveal. Progress bar in gold-foil gradient."
+    },
+    "interactive_master_plan": {
+      "style": "Night-aerial master layout plan image. SVG overlay for plots.",
+      "interactivity": "Hover plot highlights. Tooltips with plot details. Available/Sold toggle."
+    }
+  },
+  "layouts": {
+    "Home": [
+      "Cinematic preloader -> Full-screen hero video background with gold-foil headline.",
+      "Brand statement pull-quote reveal (Cormorant Garamond, italic).",
+      "The View flagship spotlight teaser with animated counters.",
+      "Stats band (animated counters for acres, plots, etc).",
+      "Projects preview 3-up grid with clip-path image reveals.",
+      "Contact CTA band with lead form."
+    ],
+    "About_Us": [
+      "Hero with scale-model hill image or architectural abstract.",
+      "Scroll-animated vertical timeline of Parvathi Infra.",
+      "Testimonials slider."
+    ],
+    "Projects": [
+      "Filterable grid of projects.",
+      "Large imagery, minimal text. Hover to reveal details."
+    ],
+    "The_View": [
+      "Hero video (drone/model MP4) with overture stats.",
+      "Cinematic scroll-scrubbed drone flythrough with pinned parallax and gold captions.",
+      "Swappable VideoSlot player for grand entrance full-bleed.",
+      "Interactive Master Plan (hover plot highlights, tooltips, available/sold toggle).",
+      "Amenities editorial masonry/horizontal-scroll gallery (clubhouse, arch, amphitheatre - use premium stand-in images with gold-on-black placeholder frame treatment).",
+      "Infrastructure icon grid.",
+      "Location & connectivity with Google Map embed + animated drive-time counters.",
+      "Landmarks strip.",
+      "Investment section with EMI calculator.",
+      "Gallery lightbox.",
+      "Testimonials slider.",
+      "Contact + FAQ accordion."
+    ],
+    "Gallery": [
+      "Lightbox grid with category filters (Exteriors, Interiors, Amenities).",
+      "Masonry layout, lazy loaded."
+    ],
+    "Contact": [
+      "Split layout: Left form (minimalist), Right Map & contact details (WhatsApp, address).",
+      "Sticky enquiry bar and floating WhatsApp button with gold ring pulse."
+    ]
+  },
+  "media": {
+    "image_urls": [
+      {
+        "url": "https://images.pexels.com/photos/24805054/pexels-photo-24805054.jpeg",
+        "category": "hero/exterior",
+        "description": "Modern luxury villa at dusk with illuminated pool. Use for Home hero fallback or Projects grid."
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1757439402375-2f2a4ab0dc75",
+        "category": "amenities/exterior",
+        "description": "Luxury pool and patio area at night. Use for amenities or Gallery."
+      },
+      {
+        "url": "https://images.pexels.com/photos/33529500/pexels-photo-33529500.jpeg",
+        "category": "interiors/clubhouse",
+        "description": "Spacious living room featuring luxurious decor. Use as premium stand-in for clubhouse."
+      },
+      {
+        "url": "https://images.pexels.com/photos/26729557/pexels-photo-26729557.jpeg",
+        "category": "interiors/bar",
+        "description": "Luxurious modern bar counter. Use for amenities."
+      },
+      {
+        "url": "https://images.pexels.com/photos/2747599/pexels-photo-2747599.jpeg",
+        "category": "abstract/architecture",
+        "description": "Minimalist concrete architecture. Use for About Us background or editorial sections."
+      },
+      {
+        "url": "https://images.pexels.com/photos/5688203/pexels-photo-5688203.jpeg",
+        "category": "location/hills",
+        "description": "Picturesque view of bright sundown sky over vast mountainous area. Use for Location & Connectivity section."
+      }
+    ],
+    "stand_in_guidance": "For missing renders (clubhouse, arch, amphitheatre), use the provided premium stock imagery framed with a delicate gold border on an obsidian background. Add a small 'Artist Impression' micro-label in Jost."
+  },
+  "3d_libraries_and_tools": [
+    "framer-motion: For line-by-line clip-up text reveals, scroll animations, image reveals, and page transitions.",
+    "lenis: For smooth momentum scrolling.",
+    "lucide-react: For crisp, minimal icons (styled with gold accents).",
+    "react-use: For scroll position, window sizing hooks."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Always use 'data-testid' for all interactive elements.",
+    "Do not center-align the main App container. Left-align for human reading flow, center only for specific visual impact (like hero text).",
+    "Avoid generic 'AI slop' gradients. Use the specific gold-foil linear-gradient ONLY for highlighted text or borders.",
+    "Use glass-morphism (backdrop-blur-md) with #050505/70 for sticky headers and overlapping cards.",
+    "Use pill-shaped or sharp buttons based on the defined component rules. Add magnetic pull animation using framer-motion.",
+    "For the chatbot, do NOT use robot or brain emojis. Use a minimalist geometric icon or custom SVG in gold.",
+    "Component files should be in Javascript (.js or .jsx), not TypeScript."
+  ]
+}
