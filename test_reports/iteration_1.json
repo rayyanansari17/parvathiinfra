@@ -1,0 +1,48 @@
+{
+  "summary": "Full backend + frontend E2E test of Parvathi Infra 'THE VIEW' luxury real-estate site. All 8 backend pytest cases (health/leads/brochure/chat) and all 41 UI checks (preloader, hero, nav, brochure modal + PDF link, chatbot with Aria replies + localStorage persistence across reload, lead form validation + submission, The View master-plan with filters/hover/amenities(8)/connectivity(7)/FAQ accordion, Gallery filter + lightbox, Contact page + form, WhatsApp float href, mobile nav toggle + no horizontal scroll at 375px) passed. Chat replies are contextually correct (mentions 200-388 sq. yards, Vastu, etc.). No blocking issues found.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "/api/leads (POST)", "issue": "Returns 200 instead of 201 on resource creation (semantic, not blocking)."},
+      {"endpoint": "/api/brochure-request (POST)", "issue": "Returns 200 instead of 201 on resource creation (semantic, not blocking)."}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Home / TheView", "issues": ["Console warning: 'Please ensure that the container has a non-static position, like relative, fixed, or absolute to ensure scroll offset is calculated correctly.' — from framer-motion useScroll on TheView hero. Harmless, but should add position:relative to the heroRef container or wrap it, per warning."]}
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "(Optional) Return 201 status for POST /api/leads and /api/brochure-request to follow REST conventions.",
+    "(Optional) Silence framer-motion useScroll warning on /the-view by ensuring the target ref container has non-static positioning.",
+    "(Content) SITE.whatsappNumber is still the placeholder 919000000000 — replace with the real number before launch.",
+    "(Content) BROCHURE_PAGES references /assets/brochure/page-01.png … page-07.png and BROCHURE download link points to /assets/brochure.pdf — confirm these static assets exist in /app/frontend/public/assets (not verified in this test)."
+  ],
+  "critical_code_review_comments": [
+    "server.py: Chat endpoint history is folded into system prompt AND LlmChat is re-initialized per call — because a fresh LlmChat instance is created every call, session memory relies entirely on this manual transcript injection. Works, but consider using LlmChat's own memory or capping transcript length to avoid unbounded system prompt growth over long sessions.",
+    "server.py: create_lead / create_brochure_request return the created Pydantic model directly which is fine, but the status_code default is 200; use @api_router.post(..., status_code=201) for proper REST semantics.",
+    "server.py: No rate limiting on public POST endpoints (/leads, /brochure-request, /chat) — potential spam/LLM-cost abuse vector on a public marketing site. Recommend a lightweight IP-based limiter (slowapi) before production.",
+    "server.py: EMERGENT_LLM_KEY missing returns 500 only inside /chat call path — good, but log/warn at startup if absent.",
+    "Frontend BrochureModal.jsx: closing the modal (reset) is called on background click AND on close button. Since reset() clears form state, users who close accidentally lose their inputs; consider preserving until an explicit intent. Minor UX.",
+    "Frontend Chatbot.jsx: LocalStorage HISTORY_KEY is written on every message change, unbounded; over long usage it can grow — consider truncating to last N messages.",
+    "Frontend LeadForm.jsx: name & phone inputs use HTML5 `required` — so the 'empty submit shows error' visual state ('Name and phone are required.') is unreachable via normal UI (browser blocks). Either remove required or drop the JS check. Not a bug, just dead code path.",
+    "Frontend TheView.jsx: Master-plan hover state mutates fill via imperative setAttribute AND has framer-motion transition — inconsistent; harmless but redundant.",
+    "Frontend siteData.js: WhatsApp number 919000000000 is a placeholder ('TODO: replace with real number') — will fail in production."
+  ],
+  "updated_files": [
+    "/app/backend/tests/backend_test.py (created)"
+  ],
+  "success_rate": {"backend": "100% (8/8 pytest)", "frontend": "100% (41/41 UI checks after retest)"},
+  "test_credentials": "N/A — public marketing site.",
+  "seed_data_creation": "Automated tests inserted several TEST_-prefixed lead & brochure documents (kept for main-agent inspection; not cleaned up).",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Backend pytest lives at /app/backend/tests/backend_test.py — 8 tests, all green. Uses REACT_APP_BACKEND_URL. Chat test verifies plot-size reply + multi-turn context + history. Note: initial UI Playwright run had 2 spurious failures caused by overlapping modal/lightbox exit animations in the *test script*, not product bugs — always ensure previous modal/lightbox is fully closed (or navigate via page.goto to a fresh URL) before clicking underlying nav/toggle buttons. A retest with clean navigation passed 12/12. Framer-motion emits a benign useScroll warning on /the-view — consider fixing but not blocking.",
+  "rca of the issue": "N/A — no product bugs detected."
+}
