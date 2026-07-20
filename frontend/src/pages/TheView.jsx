@@ -239,7 +239,7 @@ export default function TheView() {
                                 </Reveal>
                         </section>
 
-                        {/* ============================ MASTER PLAN — TWO PANELS ============================ */}
+                        {/* ============================ MASTER PLAN, TWO PANELS ============================ */}
                         <section className="border-t border-[rgba(201,162,75,0.15)] bg-obsidian py-32 md:py-40">
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>

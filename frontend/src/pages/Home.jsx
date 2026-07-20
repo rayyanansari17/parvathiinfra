@@ -73,7 +73,7 @@ export default function Home() {
                                                         A Scenic Address
                                                         <br />
                                                         for a{' '}
-                                                        <span className="gold-foil-text italic font-serif-elegant">
+                                                        <span className="gold-foil-text italic font-serif-elegant inline-block min-w-[6ch] text-left">
                                                                 <Typewriter
                                                                         words={[
                                                                                 'Selective',
