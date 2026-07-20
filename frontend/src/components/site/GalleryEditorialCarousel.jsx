@@ -13,17 +13,40 @@ import { ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
  */
 export default function GalleryEditorialCarousel({ slides, onOpen }) {
         const [emblaRef, emblaApi] = useEmblaCarousel(
-                { loop: true, duration: 30 },
+                { loop: true, duration: 45 },
                 [
                         Fade(),
-                        Autoplay({ delay: 5500, stopOnInteraction: true, stopOnMouseEnter: true }),
+                        Autoplay({ delay: 5500, stopOnInteraction: false, stopOnMouseEnter: true }),
                 ],
         );
         const [selected, setSelected] = useState(0);
 
-        const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
-        const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
-        const scrollTo = useCallback((i) => emblaApi && emblaApi.scrollTo(i), [emblaApi]);
+        // Stop autoplay before any manual navigation to avoid the plugin
+        // race-condition where the first manual click gets swallowed.
+        const stopAutoplay = useCallback(() => {
+                if (!emblaApi) return;
+                const autoplay = emblaApi.plugins()?.autoplay;
+                if (autoplay && typeof autoplay.stop === 'function') autoplay.stop();
+        }, [emblaApi]);
+
+        const scrollPrev = useCallback(() => {
+                if (!emblaApi) return;
+                stopAutoplay();
+                emblaApi.scrollPrev();
+        }, [emblaApi, stopAutoplay]);
+        const scrollNext = useCallback(() => {
+                if (!emblaApi) return;
+                stopAutoplay();
+                emblaApi.scrollNext();
+        }, [emblaApi, stopAutoplay]);
+        const scrollTo = useCallback(
+                (i) => {
+                        if (!emblaApi) return;
+                        stopAutoplay();
+                        emblaApi.scrollTo(i);
+                },
+                [emblaApi, stopAutoplay],
+        );
 
         useEffect(() => {
                 if (!emblaApi) return undefined;
@@ -64,11 +87,12 @@ export default function GalleryEditorialCarousel({ slides, onOpen }) {
                                                                 <div className="pointer-events-none absolute inset-0 grain-overlay opacity-40" />
                                                                 <div className="pointer-events-none absolute inset-x-0 top-0 h-[8vh] bg-gradient-to-b from-ink/85 to-transparent" />
 
-                                                                {/* Caption */}
-                                                                <div className="absolute bottom-16 left-6 max-w-2xl md:bottom-24 md:left-16">
-                                                                        <div className="micro-label mb-3 text-gold">
-                                                                                {s.cat}
-                                                                        </div>
+                                                                {/* Caption — fades with selection to avoid mid-transition text overlap */}
+                                                                <div
+                                                                        className="absolute bottom-16 left-6 max-w-2xl transition-opacity duration-700 md:bottom-24 md:left-16"
+                                                                        style={{ opacity: selected === i ? 1 : 0 }}
+                                                                >
+                                                                        <div className="micro-label mb-3 text-gold">{s.cat}</div>
                                                                         <h2 className="font-display text-3xl leading-tight tracking-[0.08em] text-ivory md:text-5xl">
                                                                                 <span className="gold-foil-text">{s.title}</span>
                                                                         </h2>

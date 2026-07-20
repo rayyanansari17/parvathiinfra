@@ -159,7 +159,7 @@ export default function TheView() {
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ delay: 2.6, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
                                         >
-                                                <div className="micro-label mb-6">Flagship · Kadthal</div>
+                                                <div className="micro-label mb-6">Flagship · Kothur · NH-44</div>
                                                 <h1 className="max-w-5xl font-display text-5xl leading-[1.02] tracking-[0.08em] text-ivory sm:text-7xl md:text-8xl lg:text-[8.5rem]">
                                                         THE <span className="gold-foil-text">VIEW</span>
                                                 </h1>
@@ -239,7 +239,7 @@ export default function TheView() {
                         </section>
 
                         {/* ============================ MASTER PLAN, TWO PANELS ============================ */}
-                        <section className="border-t border-[rgba(201,162,75,0.15)] bg-obsidian py-32 md:py-40">
+                        <section className="border-t border-[rgba(201,162,75,0.15)] bg-obsidian py-24 md:py-28">
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
                                                 <SectionIndex n={2} label="Master Plan" />
@@ -266,7 +266,7 @@ export default function TheView() {
                                                         />
                                                         <figcaption className="flex flex-wrap items-center justify-between gap-4 border-t border-[rgba(201,162,75,0.2)] bg-ink px-6 py-4">
                                                                 <span className="micro-label">
-                                                                        Master Layout · 45 Plots · 3.6 Acres · Kadthal
+                                                                        Master Layout · Kothur · HMDA & FCDA Approved
                                                                 </span>
                                                                 <span className="text-[0.6rem] uppercase tracking-[0.32em] text-ivory-dim/70">
                                                                         Artist Impression · Indicative
@@ -287,7 +287,7 @@ export default function TheView() {
                         {/* ============================ AMENITIES ============================ */}
                         <section
                                 data-testid={THE_VIEW_PAGE.amenities}
-                                className="bg-ink py-32 md:py-40"
+                                className="bg-ink py-24 md:py-28"
                         >
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
@@ -305,7 +305,7 @@ export default function TheView() {
                         </section>
 
                         {/* ============================ INFRASTRUCTURE ============================ */}
-                        <section className="border-y border-[rgba(201,162,75,0.15)] bg-obsidian py-32 md:py-40">
+                        <section className="border-y border-[rgba(201,162,75,0.15)] bg-obsidian py-24 md:py-28">
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
                                                 <SectionIndex n={4} label="Infrastructure" />
@@ -332,26 +332,26 @@ export default function TheView() {
                         {/* ============================ CONNECTIVITY ============================ */}
                         <section
                                 data-testid={THE_VIEW_PAGE.connectivity}
-                                className="bg-ink py-32 md:py-40"
+                                className="bg-ink py-24 md:py-28"
                         >
                                 <div className="mx-auto grid max-w-[1440px] gap-16 px-6 md:grid-cols-2 md:px-12 lg:px-24">
                                         <Reveal>
                                                 <SectionIndex n={5} label="Location & Connectivity" />
                                                 <h2 className="font-display text-3xl leading-tight tracking-[0.12em] text-ivory md:text-5xl">
-                                                        Kadthal,
+                                                        Kothur,
                                                         <br />
                                                         <span className="gold-foil-text">the coordinates matter.</span>
                                                 </h2>
                                                 <p className="mt-6 max-w-md font-serif-elegant text-lg italic text-ivory-dim">
-                                                        On the Srisailam Highway, minutes from the Regional Ring Road
-                                                        and moments from the emerging Fourth City.
+                                                        Directly on NH-44 (Bengaluru Highway), ~30 minutes to RGI Airport,
+                                                        near the proposed Fourth City growth corridor.
                                                 </p>
 
                                                 <div className="mt-10 aspect-video overflow-hidden border border-[rgba(201,162,75,0.25)]">
                                                         <iframe
                                                                 data-testid="theview-map-embed"
                                                                 title="THE VIEW Location Map"
-                                                                src="https://www.google.com/maps?q=Kadthal,+Telangana&output=embed"
+                                                                src="https://www.google.com/maps?q=Kothur,+Telangana&output=embed"
                                                                 className="h-full w-full grayscale"
                                                                 loading="lazy"
                                                         />
@@ -387,7 +387,7 @@ export default function TheView() {
                         {/* ============================ GALLERY / EDITORIAL ============================ */}
                         <section
                                 data-testid={THE_VIEW_PAGE.gallery}
-                                className="border-t border-[rgba(201,162,75,0.15)] bg-obsidian py-32 md:py-40"
+                                className="border-t border-[rgba(201,162,75,0.15)] bg-obsidian py-24 md:py-28"
                         >
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
@@ -422,7 +422,7 @@ export default function TheView() {
                         </section>
 
                         {/* ============================ FAQ ============================ */}
-                        <section data-testid={THE_VIEW_PAGE.faq} className="bg-ink py-32 md:py-40">
+                        <section data-testid={THE_VIEW_PAGE.faq} className="bg-ink py-24 md:py-28">
                                 <div className="mx-auto max-w-[1000px] px-6 md:px-12">
                                         <Reveal>
                                                 <SectionIndex n={7} label="Frequently Asked" />
@@ -458,7 +458,7 @@ export default function TheView() {
                         </section>
 
                         {/* ============================ CONTACT CTA ============================ */}
-                        <section className="border-t border-[rgba(201,162,75,0.15)] bg-obsidian py-32 md:py-40">
+                        <section className="border-t border-[rgba(201,162,75,0.15)] bg-obsidian py-24 md:py-28">
                                 <div className="mx-auto max-w-[1000px] px-6 md:px-12">
                                         <Reveal>
                                                 <SectionIndex n={8} label="Book a Private Preview" />

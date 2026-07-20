@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Play } from 'lucide-react';
+import { Play, ArrowRight } from 'lucide-react';
 import { Reveal, SectionIndex } from '@/components/site/Reveal';
-import Typewriter from '@/components/site/Typewriter';
 import LeadForm from '@/components/site/LeadForm';
 import {
         STATS,
         APPROVALS,
+        PARVATHI_HIGHLIGHTS,
+        PAST_PROJECTS,
+        JOURNEY,
         SITE,
         STOCK,
         MASTER_PLAN_IMAGE,
@@ -17,9 +19,9 @@ import { HOME_PAGE } from '@/constants/testIds';
 export default function Home() {
         return (
                 <div data-testid={HOME_PAGE.root} className="bg-ink">
-                        {/* ============================ HERO (no video) ============================ */}
+                        {/* ============================ HERO ============================ */}
                         <section className="relative min-h-[100svh] w-full overflow-hidden">
-                                {/* Layered background: obsidian + gold radial + ridge silhouette + grain */}
+                                {/* Layered background */}
                                 <div
                                         className="absolute inset-0"
                                         style={{
@@ -58,58 +60,45 @@ export default function Home() {
                                 {/* Hair-line horizon */}
                                 <div className="absolute left-0 right-0 top-[46%] mx-auto h-px w-[86%] max-w-[1200px] bg-gradient-to-r from-transparent via-[rgba(201,162,75,0.35)] to-transparent" />
 
-                                <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-end px-6 pb-28 pt-32 md:px-12 lg:px-24">
+                                <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-end px-6 pb-24 pt-32 md:px-12 lg:px-24">
                                         <motion.div
                                                 initial={{ opacity: 0, y: 40 }}
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ delay: 2.8, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
                                         >
-                                                <div className="micro-label mb-6">A Parvathi Infra Presentation</div>
+                                                <div className="micro-label mb-6">Parvathi Infra Developers · Est. 2019</div>
                                                 <h1
                                                         data-testid={HOME_PAGE.heroTitle}
-                                                        className="max-w-5xl font-display text-4xl leading-[1.05] tracking-[0.06em] text-ivory sm:text-6xl md:text-7xl lg:text-[6.5rem]"
+                                                        className="max-w-5xl font-display text-4xl leading-[1.05] tracking-[0.06em] text-ivory sm:text-6xl md:text-7xl lg:text-[6.25rem]"
                                                 >
-                                                        A Scenic Address
+                                                        Creating <span className="gold-foil-text italic font-serif-elegant">Landmarks.</span>
                                                         <br />
-                                                        for a{' '}
-                                                        <span className="gold-foil-text italic font-serif-elegant inline-block min-w-[6ch] text-left">
-                                                                <Typewriter
-                                                                        words={[
-                                                                                'Selective',
-                                                                                'Discerning',
-                                                                                'Rare',
-                                                                                'Curated',
-                                                                        ]}
-                                                                        typeSpeed={90}
-                                                                        deleteSpeed={45}
-                                                                        holdMs={1700}
-                                                                />
-                                                        </span>{' '}
-                                                        Few
+                                                        Building Trust.
                                                 </h1>
 
-                                                <p className="mt-8 max-w-xl font-serif-elegant text-xl italic text-ivory-dim md:text-2xl">
-                                                        45 exclusive villa plots. 3.6 acres. One view that reshapes
-                                                        how you see home.
+                                                <p className="mt-8 max-w-2xl font-serif-elegant text-xl italic text-ivory-dim md:text-2xl">
+                                                        Premium HMDA &amp; FCDA Approved developments with high-quality
+                                                        infrastructure — legally transparent, strategically located, built to appreciate.
                                                 </p>
 
                                                 <div className="mt-10 flex flex-wrap items-center gap-5">
                                                         <Link
-                                                                to="/the-view"
+                                                                to="/projects"
+                                                                data-testid="home-hero-portfolio-button"
                                                                 className="group inline-flex items-center gap-4 border border-[rgba(201,162,75,0.5)] bg-gold-foil px-8 py-3.5 text-[0.7rem] uppercase tracking-[0.32em] text-ink transition-transform hover:-translate-y-0.5"
                                                         >
-                                                                Enter The View
+                                                                Explore Our Portfolio
                                                                 <span className="h-px w-6 bg-ink transition-all group-hover:w-10" />
                                                         </Link>
                                                         <Link
-                                                                to="/the-view/walkthrough"
-                                                                data-testid="home-hero-walkthrough-button"
+                                                                to="/the-view"
+                                                                data-testid="home-hero-theview-button"
                                                                 className="group inline-flex items-center gap-3 gold-underline text-[0.7rem] uppercase tracking-[0.32em] text-ivory-dim hover:text-ivory"
                                                         >
                                                                 <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(201,162,75,0.5)] transition-colors group-hover:border-gold">
-                                                                        <Play size={12} className="text-gold" />
+                                                                        <ArrowRight size={12} className="text-gold" />
                                                                 </span>
-                                                                ▶ Take the Walkthrough
+                                                                Meet our Flagship · THE VIEW
                                                         </Link>
                                                 </div>
                                         </motion.div>
@@ -119,62 +108,80 @@ export default function Home() {
                                         data-testid={HOME_PAGE.heroScrollHint}
                                         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center"
                                 >
-                                        <div className="text-[0.6rem] uppercase tracking-[0.4em] text-ivory-dim">
-                                                Scroll
-                                        </div>
+                                        <div className="text-[0.6rem] uppercase tracking-[0.4em] text-ivory-dim">Scroll</div>
                                         <div className="mx-auto mt-3 h-10 w-px bg-gradient-to-b from-gold to-transparent" />
                                 </div>
                         </section>
 
-                        {/* ============================ MARQUEE ============================ */}
-                        <div className="border-y border-[rgba(201,162,75,0.15)] bg-obsidian-2 py-6 overflow-hidden">
+                        {/* ============================ APPROVALS MARQUEE ============================ */}
+                        <div
+                                data-testid="approvals-marquee"
+                                className="border-y border-[rgba(201,162,75,0.15)] bg-obsidian-2 py-6 overflow-hidden"
+                        >
                                 <div className="marquee-track">
                                         {[...Array(2)].map((_, dup) => (
                                                 <div key={dup} className="flex items-center gap-16 pr-16">
-                                                        {APPROVALS.concat(['Vastu Compliant', 'Gated Villa Plots', 'HMDA Layout']).map(
-                                                                (a, i) => (
-                                                                        <span
-                                                                                key={`${dup}-${i}`}
-                                                                                className="whitespace-nowrap font-display text-lg tracking-[0.32em] text-ivory-dim"
-                                                                        >
-                                                                                {a} <span className="mx-6 text-gold">◆</span>
-                                                                        </span>
-                                                                ),
-                                                        )}
+                                                        {APPROVALS.map((a, i) => (
+                                                                <span
+                                                                        key={`${dup}-${i}`}
+                                                                        className="whitespace-nowrap font-display text-lg tracking-[0.32em] text-ivory-dim"
+                                                                >
+                                                                        {a} <span className="mx-6 text-gold">◆</span>
+                                                                </span>
+                                                        ))}
                                                 </div>
                                         ))}
                                 </div>
                         </div>
 
-                        {/* ============================ PULL QUOTE ============================ */}
-                        <section className="mx-auto max-w-[1200px] px-6 py-32 md:px-12 md:py-40">
-                                <Reveal>
-                                        <SectionIndex n={1} label="Prologue" />
-                                        <p className="font-serif-elegant text-3xl italic leading-[1.35] text-ivory md:text-5xl">
-                                                “Some homes are addresses. A rare few are{' '}
-                                                <span className="gold-foil-text not-italic font-display tracking-[0.06em]">
-                                                        landmarks
-                                                </span>
-                                                . THE VIEW is the latter, where the horizon meets the hearth,
-                                                and every plot is drawn like a sonnet.”
-                                        </p>
-                                        <div className="mt-8 flex items-center gap-4">
-                                                <div className="h-px w-16 bg-gold" />
-                                                <span className="micro-label">The Parvathi Studio</span>
+                        {/* ============================ HIGHLIGHTS BAND ============================ */}
+                        <section
+                                data-testid="home-highlights"
+                                className="border-b border-[rgba(201,162,75,0.15)] bg-ink py-20 md:py-24"
+                        >
+                                <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
+                                        <Reveal>
+                                                <SectionIndex n={1} label="Why Parvathi Infra" />
+                                                <h2 className="max-w-3xl font-display text-3xl leading-tight tracking-[0.08em] text-ivory md:text-5xl">
+                                                        Eight years of quiet, deliberate <span className="gold-foil-text">landmark-making</span>.
+                                                </h2>
+                                                <p className="mt-6 max-w-2xl font-serif-elegant text-lg italic text-ivory-dim md:text-xl">
+                                                        Founded in 2019 in Hyderabad under the leadership of {SITE.founder},
+                                                        Parvathi Infra Developers delivers premium plotted developments that
+                                                        combine legal transparency, superior infrastructure, strategic
+                                                        locations and exceptional investment potential.
+                                                </p>
+                                        </Reveal>
+
+                                        <div className="mt-14 grid grid-cols-2 gap-px bg-[rgba(201,162,75,0.12)] md:grid-cols-3 lg:grid-cols-6">
+                                                {PARVATHI_HIGHLIGHTS.map((h, i) => (
+                                                        <div
+                                                                key={h.label}
+                                                                data-testid={`home-highlight-${i}`}
+                                                                className="bg-ink px-5 py-8 text-center md:px-6 md:py-10"
+                                                        >
+                                                                <div className="font-display text-2xl leading-none tracking-[0.04em] md:text-3xl">
+                                                                        <span className="gold-foil-text">{h.k}</span>
+                                                                </div>
+                                                                <div className="mt-4 text-[0.65rem] uppercase tracking-[0.28em] text-ivory-dim">
+                                                                        {h.label}
+                                                                </div>
+                                                        </div>
+                                                ))}
                                         </div>
-                                </Reveal>
+                                </div>
                         </section>
 
                         {/* ============================ STATS ============================ */}
                         <section
                                 data-testid={HOME_PAGE.statsBand}
-                                className="border-y border-[rgba(201,162,75,0.15)] bg-obsidian"
+                                className="border-b border-[rgba(201,162,75,0.15)] bg-obsidian"
                         >
                                 <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-px bg-[rgba(201,162,75,0.1)] md:grid-cols-4">
                                         {STATS.map((s, i) => (
                                                 <div
                                                         key={i}
-                                                        className="bg-obsidian px-6 py-14 text-center md:px-10 md:py-20"
+                                                        className="bg-obsidian px-6 py-12 text-center md:px-10 md:py-16"
                                                 >
                                                         <div className="font-display text-4xl tracking-[0.06em] text-ivory md:text-6xl">
                                                                 <span className="gold-foil-text">{s.value}</span>
@@ -186,24 +193,70 @@ export default function Home() {
                                 </div>
                         </section>
 
-                        {/* ============================ FLAGSHIP TEASER ============================ */}
-                        <section className="relative overflow-hidden bg-ink py-32 md:py-40">
-                                <div className="mx-auto grid max-w-[1440px] items-center gap-20 px-6 md:grid-cols-2 md:px-12 lg:px-24">
+                        {/* ============================ JOURNEY TEASER ============================ */}
+                        <section
+                                data-testid="home-journey"
+                                className="bg-ink py-24 md:py-28"
+                        >
+                                <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
-                                                <SectionIndex n={2} label="Flagship Venture" />
+                                                <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+                                                        <div>
+                                                                <SectionIndex n={2} label="Our Journey" />
+                                                                <h2 className="font-display text-3xl leading-tight tracking-[0.08em] text-ivory md:text-5xl">
+                                                                        From a Hyderabad studio,
+                                                                        <br />
+                                                                        to a <span className="gold-foil-text">2 Lakh+ sq. yd</span> footprint.
+                                                                </h2>
+                                                        </div>
+                                                        <Link
+                                                                to="/about"
+                                                                className="gold-underline text-[0.72rem] uppercase tracking-[0.32em] text-ivory-dim hover:text-ivory"
+                                                        >
+                                                                Read the full story →
+                                                        </Link>
+                                                </div>
+                                        </Reveal>
+
+                                        <div className="mt-14 grid gap-8 md:grid-cols-3">
+                                                {JOURNEY.map((j, i) => (
+                                                        <Reveal key={j.year} delay={i * 0.08}>
+                                                                <div className="group h-full border border-[rgba(201,162,75,0.2)] bg-obsidian-2 p-8 transition-colors hover:border-gold">
+                                                                        <div className="font-display text-[0.75rem] tracking-[0.32em] text-gold">
+                                                                                {j.year}
+                                                                        </div>
+                                                                        <div className="mt-4 font-display text-xl tracking-[0.14em] text-ivory md:text-2xl">
+                                                                                {j.title}
+                                                                        </div>
+                                                                        <p className="mt-4 font-serif-elegant text-base italic leading-relaxed text-ivory-dim">
+                                                                                {j.copy}
+                                                                        </p>
+                                                                </div>
+                                                        </Reveal>
+                                                ))}
+                                        </div>
+                                </div>
+                        </section>
+
+                        {/* ============================ FLAGSHIP TEASER ============================ */}
+                        <section className="relative overflow-hidden border-y border-[rgba(201,162,75,0.15)] bg-obsidian py-24 md:py-28">
+                                <div className="mx-auto grid max-w-[1440px] items-center gap-16 px-6 md:grid-cols-2 md:px-12 lg:px-24">
+                                        <Reveal>
+                                                <SectionIndex n={3} label="Flagship Venture" />
                                                 <h2 className="font-display text-4xl leading-tight tracking-[0.08em] text-ivory md:text-5xl">
                                                         THE <span className="gold-foil-text">VIEW</span>
+                                                        <br />
+                                                        <span className="text-2xl md:text-3xl">at Kothur</span>
                                                 </h2>
-                                                <p className="mt-6 font-serif-elegant text-2xl italic leading-relaxed text-ivory-dim">
-                                                        Kadthal’s most quietly celebrated address, a gated 3.6 acre
-                                                        canvas of 45 villa plots overlooking the ridgeline, moments
-                                                        from the Srisailam Highway and the emerging Fourth City.
+                                                <p className="mt-6 font-serif-elegant text-xl italic leading-relaxed text-ivory-dim md:text-2xl">
+                                                        Tomorrow’s landmark, today. An HMDA &amp; FCDA approved premium
+                                                        venture on NH-44 (Bengaluru Highway) — one of Telangana’s fastest-growing investment corridors.
                                                 </p>
                                                 <ul className="mt-8 space-y-3 text-sm text-ivory-dim">
                                                         {[
-                                                                '2,220 sq.ft. clubhouse & signature swimming pool',
-                                                                '100% Vastu-compliant, HMDA & TG RERA approved',
-                                                                'RGI Airport · 45 min. Fab City · 35 min. 4th City · 25 min',
+                                                                'HMDA & FCDA Approved · Clear legal title',
+                                                                'Wide blacktop roads, underground services, avenue plantation',
+                                                                '~30 min to RGI Airport · Direct NH-44 access · Near Fourth City corridor',
                                                         ].map((b) => (
                                                                 <li key={b} className="flex items-start gap-3">
                                                                         <span className="mt-2 h-px w-6 bg-gold" />
@@ -229,11 +282,11 @@ export default function Home() {
                                                                 alt="THE VIEW scale model"
                                                                 className="h-full w-full object-cover transition-transform duration-[1.6s] hover:scale-105"
                                                         />
-                                                        <div className="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent" />
+                                                        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent" />
                                                         <div className="absolute bottom-6 left-6 right-6">
-                                                                <div className="micro-label mb-2">Scale Model · Kadthal</div>
+                                                                <div className="micro-label mb-2">Kothur · NH-44</div>
                                                                 <div className="font-display text-xl tracking-[0.16em] text-ivory">
-                                                                        45 PLOTS · 3.6 ACRES
+                                                                        HMDA · FCDA · CLEAR TITLE
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -242,31 +295,28 @@ export default function Home() {
                         </section>
 
                         {/* ============================ WALKTHROUGH TEASER ============================ */}
-                        <section className="border-t border-[rgba(201,162,75,0.15)] bg-obsidian-2">
+                        <section className="bg-obsidian-2">
                                 <Link
                                         to="/the-view/walkthrough"
                                         data-testid="home-walkthrough-card"
                                         className="group relative block w-full overflow-hidden"
                                         aria-label="Take the cinematic walkthrough of THE VIEW"
                                 >
-                                        <div className="mx-auto grid max-w-[1440px] items-center gap-10 px-6 py-24 md:grid-cols-[1fr_1.2fr] md:px-12 md:py-32 lg:px-24">
+                                        <div className="mx-auto grid max-w-[1440px] items-center gap-10 px-6 py-20 md:grid-cols-[1fr_1.2fr] md:px-12 md:py-24 lg:px-24">
                                                 <div className="text-left">
                                                         <div className="micro-label mb-4">Cinematic Walkthrough</div>
                                                         <h2 className="font-display text-3xl leading-tight tracking-[0.1em] text-ivory md:text-5xl">
                                                                 Step through the{' '}
-                                                                <span className="gold-foil-text italic font-serif-elegant">
-                                                                        gates
-                                                                </span>
-                                                                , without leaving your chair.
+                                                                <span className="gold-foil-text italic font-serif-elegant">gates</span>,
+                                                                without leaving your chair.
                                                         </h2>
                                                         <p className="mt-6 max-w-md font-serif-elegant text-lg italic text-ivory-dim">
-                                                                A three minute guided tour beginning at our entrance arch,
-                                                                followed by a plot walkthrough and a choice of where to
-                                                                explore next.
+                                                                A cinematic scroll-driven tour of THE VIEW — from the entrance
+                                                                arch to the ridge, in seven curated scenes.
                                                         </p>
                                                         <div className="mt-8 inline-flex items-center gap-4 border border-[rgba(201,162,75,0.5)] bg-gold-foil px-8 py-3.5 text-[0.7rem] uppercase tracking-[0.32em] text-ink">
                                                                 <Play size={14} />
-                                                                ▶ Take the Walkthrough
+                                                                Take the Walkthrough
                                                                 <span className="h-px w-6 bg-ink transition-all group-hover:w-12" />
                                                         </div>
                                                 </div>
@@ -311,19 +361,22 @@ export default function Home() {
                                 </Link>
                         </section>
 
-                        {/* ============================ PROJECTS ============================ */}
+                        {/* ============================ PORTFOLIO GRID ============================ */}
                         <section
                                 data-testid={HOME_PAGE.projectsGrid}
-                                className="border-t border-[rgba(201,162,75,0.15)] bg-obsidian py-32 md:py-40"
+                                className="border-t border-[rgba(201,162,75,0.15)] bg-ink py-24 md:py-28"
                         >
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
                                                 <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
                                                         <div>
-                                                                <SectionIndex n={3} label="Portfolio" />
+                                                                <SectionIndex n={4} label="Portfolio" />
                                                                 <h2 className="font-display text-3xl tracking-[0.14em] text-ivory md:text-5xl">
                                                                         Selected <span className="gold-foil-text">Works</span>
                                                                 </h2>
+                                                                <p className="mt-4 max-w-xl font-serif-elegant text-base italic text-ivory-dim md:text-lg">
+                                                                        Delivered ventures and the flagship in the making.
+                                                                </p>
                                                         </div>
                                                         <Link
                                                                 to="/projects"
@@ -334,35 +387,39 @@ export default function Home() {
                                                 </div>
                                         </Reveal>
 
-                                        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10 lg:grid-cols-4">
+                                        <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10 lg:grid-cols-4">
                                                 {[
                                                         {
                                                                 title: 'THE VIEW',
-                                                                sub: 'Kadthal · Villa Plots',
+                                                                sub: 'Kothur · Flagship · HMDA & FCDA',
                                                                 img: MASTER_PLAN_IMAGE,
                                                                 to: '/the-view',
+                                                                status: 'Now Selling',
                                                         },
                                                         {
-                                                                title: 'AIRPORT TOWN',
-                                                                sub: 'Shamshabad · Delivered',
+                                                                title: PAST_PROJECTS[0].title,
+                                                                sub: PAST_PROJECTS[0].sub,
                                                                 img: STOCK.architecture,
                                                                 to: '/projects',
+                                                                status: PAST_PROJECTS[0].status,
                                                         },
                                                         {
-                                                                title: 'METRO CITY',
-                                                                sub: 'Growth Corridor · Delivered',
+                                                                title: PAST_PROJECTS[1].title,
+                                                                sub: PAST_PROJECTS[1].sub,
                                                                 img: STOCK.clubhouse,
                                                                 to: '/projects',
+                                                                status: PAST_PROJECTS[1].status,
                                                         },
                                                         {
-                                                                title: 'AROKAH',
-                                                                sub: 'The Mountain View · Coming Soon',
+                                                                title: PAST_PROJECTS[2].title,
+                                                                sub: PAST_PROJECTS[2].sub,
                                                                 img: STOCK.hills,
                                                                 to: '/projects',
+                                                                status: PAST_PROJECTS[2].status,
                                                         },
                                                 ].map((p, i) => (
-                                                        <Reveal key={p.title} delay={i * 0.1}>
-                                                                <Link to={p.to} className="group block h-full">
+                                                        <Reveal key={p.title} delay={i * 0.08}>
+                                                                <Link to={p.to} data-testid={`home-project-card-${i}`} className="group block h-full">
                                                                         <div className="relative aspect-[4/5] w-full overflow-hidden border border-[rgba(201,162,75,0.2)]">
                                                                                 <img
                                                                                         src={p.img}
@@ -370,9 +427,12 @@ export default function Home() {
                                                                                         className="h-full w-full object-cover transition-transform duration-[1.6s] group-hover:scale-110"
                                                                                 />
                                                                                 <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/25 to-transparent" />
+                                                                                <span className="absolute right-4 top-4 border border-[rgba(201,162,75,0.5)] bg-ink/60 px-3 py-1 text-[0.55rem] uppercase tracking-[0.28em] text-gold backdrop-blur-md">
+                                                                                        {p.status}
+                                                                                </span>
                                                                                 <div className="absolute bottom-6 left-6 right-6">
                                                                                         <div className="micro-label mb-2">{p.sub}</div>
-                                                                                        <div className="font-display text-2xl tracking-[0.14em] text-ivory">
+                                                                                        <div className="font-display text-lg tracking-[0.14em] text-ivory md:text-2xl">
                                                                                                 {p.title}
                                                                                         </div>
                                                                                 </div>
@@ -385,7 +445,7 @@ export default function Home() {
                         </section>
 
                         {/* ============================ CONTACT CTA ============================ */}
-                        <section className="relative overflow-hidden py-32 md:py-40">
+                        <section className="relative overflow-hidden py-24 md:py-28">
                                 <div className="absolute inset-0">
                                         <img
                                                 src={STOCK.hills}
@@ -396,15 +456,14 @@ export default function Home() {
                                 </div>
                                 <div className="relative mx-auto max-w-[1000px] px-6 md:px-12">
                                         <Reveal>
-                                                <SectionIndex n={4} label="Enquire" />
+                                                <SectionIndex n={5} label="Enquire" />
                                                 <h2 className="font-display text-4xl leading-tight tracking-[0.1em] text-ivory md:text-6xl">
                                                         A private preview,
                                                         <br />
                                                         <span className="gold-foil-text">on your terms.</span>
                                                 </h2>
                                                 <p className="mt-6 max-w-2xl font-serif-elegant text-xl italic text-ivory-dim md:text-2xl">
-                                                        Share your details. Our concierge will call within the hour to
-                                                        arrange a chauffeured site visit to Kadthal.
+                                                        Share your details. Our team will reach out to arrange a chauffeured site visit to Kothur.
                                                 </p>
                                         </Reveal>
                                         <div className="mt-14">

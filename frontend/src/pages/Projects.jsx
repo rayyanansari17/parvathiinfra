@@ -1,57 +1,57 @@
 import { Link } from 'react-router-dom';
 import { Reveal, SectionIndex } from '@/components/site/Reveal';
-import { STOCK, MASTER_PLAN_IMAGE } from '@/lib/siteData';
+import { STOCK, MASTER_PLAN_IMAGE, PAST_PROJECTS } from '@/lib/siteData';
 import { PROJECTS_PAGE } from '@/constants/testIds';
 
 const PROJECTS = [
         {
                 id: 'the-view',
                 title: 'THE VIEW',
-                sub: 'Kadthal · Villa Plots · 3.6 acres',
+                sub: 'Kothur · Flagship · HMDA & FCDA Approved',
                 status: 'Now Selling',
                 img: MASTER_PLAN_IMAGE,
                 to: '/the-view',
                 testid: PROJECTS_PAGE.projectCardTheView,
-                copy: 'Our flagship · 45 exclusive villa plots overlooking the ridgeline near Srisailam Highway. TG RERA, HMDA, 100% Vastu.',
+                copy: 'Our flagship at Kothur, on NH-44 (Bengaluru Highway). HMDA & FCDA approved with clear legal title, wide blacktop roads, underground services and avenue plantation.',
         },
         {
-                id: 'airport-town',
-                title: 'AIRPORT TOWN',
-                sub: 'Shamshabad Corridor · Gated Layout',
-                status: 'Delivered',
+                id: PAST_PROJECTS[0].id,
+                title: PAST_PROJECTS[0].title,
+                sub: PAST_PROJECTS[0].sub,
+                status: PAST_PROJECTS[0].status,
                 img: STOCK.architecture,
                 to: '/contact',
-                copy: 'A tranquil residential township minutes from RGI Airport, drawn for families who value the pause between arrival and unpacking.',
+                copy: PAST_PROJECTS[0].copy,
         },
         {
-                id: 'metro-city',
-                title: 'METRO CITY',
-                sub: 'Southern Growth Corridor · Plotted Community',
-                status: 'Delivered',
+                id: PAST_PROJECTS[1].id,
+                title: PAST_PROJECTS[1].title,
+                sub: PAST_PROJECTS[1].sub,
+                status: PAST_PROJECTS[1].status,
                 img: STOCK.clubhouse,
                 to: '/contact',
-                copy: 'A masterplanned plotted community along the Southern growth corridor, delivered with wide avenues, underground services and generous green pockets.',
+                copy: PAST_PROJECTS[1].copy,
         },
         {
-                id: 'arokah',
-                title: 'AROKAH · THE MOUNTAIN VIEW',
-                sub: 'Hillside Estate · By Invitation',
-                status: 'Coming Soon',
+                id: PAST_PROJECTS[2].id,
+                title: PAST_PROJECTS[2].title,
+                sub: PAST_PROJECTS[2].sub,
+                status: PAST_PROJECTS[2].status,
                 img: STOCK.hills,
                 to: '/contact',
-                copy: 'A rare hillside estate carved along a natural ridgeline. Curated plots, panoramic vantages, and a mountain that becomes your neighbour.',
+                copy: PAST_PROJECTS[2].copy,
         },
 ];
 
 export default function Projects() {
         return (
                 <div data-testid={PROJECTS_PAGE.root} className="bg-ink pt-28">
-                        <section className="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32 lg:px-24">
+                        <section className="mx-auto max-w-[1440px] px-6 py-20 md:px-12 md:py-28 lg:px-24">
                                 <Reveal>
                                         <SectionIndex n={1} label="Portfolio" />
                                         <h1 className="max-w-4xl font-display text-4xl leading-[1.05] tracking-[0.06em] text-ivory md:text-6xl lg:text-7xl">
                                                 Every project is a{' '}
-                                                <span className="gold-foil-text italic font-serif-elegant">chapter.</span>
+                                                <span className="gold-foil-text italic font-serif-elegant">landmark.</span>
                                         </h1>
                                         <p className="mt-6 max-w-2xl font-serif-elegant text-xl italic text-ivory-dim md:text-2xl">
                                                 A slow, deliberate portfolio. We build few. We build well.
@@ -59,7 +59,7 @@ export default function Projects() {
                                 </Reveal>
                         </section>
 
-                        <section className="border-t border-[rgba(201,162,75,0.15)] bg-ink pb-32 md:pb-40">
+                        <section className="border-t border-[rgba(201,162,75,0.15)] bg-ink pb-24 md:pb-28">
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
                                                 {PROJECTS.map((p, i) => (

@@ -1,112 +1,204 @@
 // Central site data / constants · safe to import anywhere.
+// Content sourced from the Parvathi Infra Developers Premium Website Brief.
 
 export const SITE = {
         brand: 'Parvathi Infra Developers',
+        tagline: 'Creating Landmarks. Building Trust.',
+        subTagline: 'Premium HMDA & FCDA Approved Developments with High-Quality Infrastructure.',
         flagship: 'THE VIEW',
-        tagline: 'A Scenic Address for a Selective Few',
+        founder: 'Mr. C. Goutham Yadav',
+        establishedYear: '2019',
         phoneDisplay: '+91 90000 00000',
         phoneLink: 'tel:+919000000000',
         whatsappNumber: '919000000000', // TODO: replace with real number
-        whatsappLink: 'https://wa.me/919000000000?text=Hello%20Parvathi%20Infra%20-%20I%20am%20interested%20in%20THE%20VIEW',
+        whatsappLink: 'https://wa.me/919000000000?text=Hello%20Parvathi%20Infra%20-%20I%20am%20interested%20in%20your%20developments',
         email: 'infraparvathi@gmail.com',
         officeAddress:
                 'Brindavan Colony, Ootapally Village, near Tondupally Toll Gate, Shamshabad, Telangana',
-        siteAddress: 'Kadthal, near Srisailam Highway, Telangana',
+        siteAddress: 'Kothur, on NH-44 (Bengaluru Highway), Telangana',
 };
 
-export const CONNECTIVITY = [
-        { time: '1', unit: 'min', place: 'Srisailam Highway' },
-        { time: '6', unit: 'min', place: 'Regional Ring Road' },
-        { time: '15', unit: 'min', place: '6-Lane NH to Tirupati' },
-        { time: '25', unit: 'min', place: 'Proposed 4th City & Amazon DC' },
-        { time: '35', unit: 'min', place: 'Fab City' },
-        { time: '45', unit: 'min', place: 'RGI Airport' },
-        { time: '50', unit: 'min', place: 'Foxconn' },
+// Six pillars of the company — hero highlights on Home.
+export const PARVATHI_HIGHLIGHTS = [
+        { k: '2019', label: 'Established' },
+        { k: '8+', label: 'Years of Real Estate Expertise' },
+        { k: '2 Lakh+', label: 'Sq. Yards Developed & Marketed' },
+        { k: 'Multiple', label: 'Successful Ventures' },
+        { k: 'HMDA & FCDA', label: 'Approved Projects' },
+        { k: 'Landmark', label: 'Developments with High-Quality Infrastructure' },
 ];
 
+// Core operating values — 6 pillars.
+export const CORE_VALUES = [
+        { title: 'Integrity',      copy: 'Straight dealings, always. Every document reads the same to us as it does to you.' },
+        { title: 'Trust',          copy: 'Earned across 2 Lakh+ sq. yards of delivered ventures — never claimed lightly.' },
+        { title: 'Transparency',   copy: 'Clear title, clear approvals, clear conversations. No fine print in the shadows.' },
+        { title: 'Excellence',     copy: 'Wide roads, underground services, avenue plantation — the fundamentals, done exactingly.' },
+        { title: 'Innovation',     copy: 'Modern master planning, thoughtful landscaping and infrastructure that ages well.' },
+        { title: 'Customer First', copy: 'From the site visit to the sale-deed — and years after — our concierge stays close.' },
+];
+
+// Our Journey — verbatim from the brief.
+export const JOURNEY = [
+        {
+                year: '2019',
+                title: 'Company Established',
+                copy: 'Parvathi Infra Developers is founded in Hyderabad under the leadership of Mr. C. Goutham Yadav.',
+        },
+        {
+                year: '2019–2022',
+                title: 'Strategic Collaborations',
+                copy: 'Landmark residential ventures with Green Homes across Chilkoor Village, Moinabad, Shankarpally, Jadcherla and Kothur — over 90,000 sq. yards marketed in a single year.',
+        },
+        {
+                year: '2023 →',
+                title: 'Independent Premium Developments',
+                copy: 'Over 2 Lakh+ sq. yards successfully developed and marketed independently, culminating in flagship venture — THE VIEW at Kothur.',
+        },
+];
+
+// Past & delivered projects (excludes flagship THE VIEW).
+export const PAST_PROJECTS = [
+        {
+                id: 'airport-town',
+                title: 'AIRPORT TOWN',
+                sub: 'Shamshabad Corridor · Delivered',
+                status: 'Delivered',
+                copy: 'A tranquil residential township minutes from Rajiv Gandhi International Airport — drawn for families who value the pause between arrival and unpacking.',
+        },
+        {
+                id: 'metro-city',
+                title: 'METRO CITY',
+                sub: 'Growth Corridor · Delivered',
+                status: 'Delivered',
+                copy: 'A masterplanned plotted community along a rapidly growing corridor, delivered with wide avenues, underground services and generous green pockets.',
+        },
+        {
+                id: 'arokah',
+                title: 'AROKAH · THE MOUNTAIN VIEW',
+                sub: 'Hillside Venture',
+                status: 'Delivered',
+                copy: 'A rare hillside venture carved along a natural ridgeline — panoramic vantages, curated plots, and a mountain that becomes your neighbour.',
+        },
+];
+
+// Strategic collaborations locations (with Green Homes).
+export const COLLABORATION_LOCATIONS = [
+        'Chilkoor Village',
+        'Moinabad',
+        'Shankarpally',
+        'Jadcherla',
+        'Kothur (Bengaluru Highway Corridor)',
+];
+
+// Kothur / NH-44 connectivity for THE VIEW.
+export const CONNECTIVITY = [
+        { time: 'On',  unit: 'NH-44', place: 'Bengaluru Highway (Direct Access)' },
+        { time: '~5', unit: 'min', place: 'Maisigandi Maisamma Temple' },
+        { time: '~5', unit: 'min', place: 'Pyramid Meditation Centre' },
+        { time: '~30', unit: 'min', place: 'Rajiv Gandhi International Airport' },
+        { time: 'Near', unit: '',   place: 'Industrial & Logistics Hubs' },
+        { time: 'Adj.', unit: '',   place: 'Proposed Fourth City Growth Corridor*' },
+];
+
+// THE VIEW amenities — kept intact from previous version.
 export const AMENITIES = [
         {
-                title: 'Grand Clubhouse',
-                copy: '2,220 sq.ft. of curated indulgence · lounge, gym & indoor games.',
+                title: 'Premium Entrance',
+                copy: 'A signature stone gate that sets the tone the moment you arrive.',
                 image: 'https://images.pexels.com/photos/33529500/pexels-photo-33529500.jpeg',
         },
         {
-                title: 'Swimming Pool',
-                copy: 'Signature pool and a private kids’ pool wrapped in landscape.',
+                title: 'Wide Blacktop Roads',
+                copy: 'Generous carriageways engineered to age gracefully under Telangana skies.',
                 image: 'https://images.unsplash.com/photo-1757439402375-2f2a4ab0dc75',
         },
         {
-                title: 'Amphitheatre',
-                copy: 'A stage under the stars for cinema evenings and soirées.',
+                title: 'Avenue Plantation',
+                copy: 'Tree-lined avenues that grow into a canopy — the neighbourhood’s slow luxury.',
                 image: 'https://images.pexels.com/photos/2747599/pexels-photo-2747599.jpeg',
         },
         {
-                title: 'Landscaped Parks',
-                copy: 'Manicured green pockets with gazebos, granite seating and pathways.',
+                title: 'Landscaped Green Spaces',
+                copy: 'Manicured green pockets, gazebos, and granite seating woven through the layout.',
                 image: 'https://images.pexels.com/photos/5688203/pexels-photo-5688203.jpeg',
         },
         {
-                title: 'Children’s Play Area',
-                copy: 'Safe, soft-scaped play zones for the little ones.',
+                title: 'Modern Street Lighting',
+                copy: 'Warm, low-glare street lighting for a safe, elegant nightscape.',
                 image: 'https://images.pexels.com/photos/1094072/pexels-photo-1094072.jpeg',
         },
         {
-                title: 'Senior Citizens Area',
-                copy: 'Quiet, shaded corners for tranquil mornings.',
+                title: 'Underground Utilities',
+                copy: 'Underground drainage and water lines — infrastructure you never have to see.',
                 image: 'https://images.pexels.com/photos/1454360/pexels-photo-1454360.jpeg',
         },
         {
-                title: 'Party Lawn',
-                copy: 'A private lawn for milestone celebrations.',
+                title: 'Clear Legal Documentation',
+                copy: 'HMDA & FCDA approved, clear title on every plot — read before you sign.',
                 image: 'https://images.pexels.com/photos/26729557/pexels-photo-26729557.jpeg',
         },
         {
-                title: '24×7 Security',
-                copy: 'CC-camera surveillance, gated entry and dedicated patrols.',
+                title: 'Excellent Connectivity',
+                copy: 'Direct access to NH-44, minutes to RGI Airport, industrial and logistics hubs.',
                 image: 'https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg',
         },
 ];
 
 export const INFRASTRUCTURE = [
-        'Elegant Entrance Gate',
-        '30 ft. CC Roads',
+        'Premium Entrance Gate',
+        'Wide Blacktop Roads',
         'Underground Drainage',
         'Underground Water Line',
-        'Overhead Water Tank',
-        'Water Connection per Plot',
-        'Plantation per Plot',
-        'Street Lights',
+        'Modern Street Lighting',
+        'Avenue Plantation per Plot',
+        'HMDA & FCDA Approved',
+        'Clear Legal Documentation',
 ];
 
+// Stats now reflect Parvathi Infra (not just THE VIEW).
 export const STATS = [
-        { value: '3.6', suffix: 'Acres', label: 'Total Extent' },
-        { value: '45', suffix: 'Plots', label: 'Villa Plots' },
-        { value: '200-388', suffix: 'sq.yd', label: 'Plot Sizes' },
-        { value: '100%', suffix: 'Vastu', label: 'Compliant Layout' },
+        { value: '2019',    suffix: 'Est.',      label: 'Company Founded' },
+        { value: '8+',      suffix: 'Years',     label: 'Real Estate Expertise' },
+        { value: '2L+',     suffix: 'Sq. Yds',   label: 'Developed & Marketed' },
+        { value: '90k+',    suffix: 'Sq. Yds',   label: 'Marketed in a Single Year' },
 ];
 
-export const APPROVALS = ['TG RERA', 'HMDA', 'Clear Title', '100% Vastu'];
+// Approvals & credentials — used in the marquee.
+export const APPROVALS = [
+        'HMDA Approved',
+        'FCDA Approved',
+        'Clear Legal Title',
+        '100% Vastu Compliant',
+        'RERA Registered',
+        'Premium Infrastructure',
+        'Landmark Developments',
+];
 
 export const FAQS = [
         {
-                q: 'Is THE VIEW RERA approved?',
-                a: 'Yes. THE VIEW is registered with the Telangana State Real Estate Regulatory Authority (TG RERA) and enjoys HMDA approval with clear title on all 45 plots.',
+                q: 'Is THE VIEW approved?',
+                a: 'Yes. THE VIEW is an HMDA and FCDA Approved Premium Venture at Kothur, with clear legal title on every plot.',
         },
         {
-                q: 'What are the available plot sizes?',
-                a: 'Plot sizes range from approximately 200 sq. yards to 388 sq. yards. Every plot is 100% Vastu-compliant.',
+                q: 'Where exactly is THE VIEW located?',
+                a: 'THE VIEW is located at Kothur, directly on NH-44 (Bengaluru Highway) with excellent connectivity to Rajiv Gandhi International Airport and industrial & logistics hubs.',
         },
         {
-                q: 'How far is the airport from the site?',
-                a: 'RGI Airport is approximately 45 minutes drive. The Srisailam Highway is a 1-minute drive from our entrance gate.',
+                q: 'What are the location advantages?',
+                a: 'Direct NH-44 access, ~30 min to RGI Airport, ~5 km to Maisigandi Maisamma Temple, ~5 km to the Pyramid Meditation Centre, and adjacent to the proposed Fourth City growth corridor.',
         },
         {
-                q: 'What amenities are included?',
-                a: 'A 2,220 sq.ft. clubhouse, swimming pool with kids’ pool, amphitheatre, landscaped parks, party lawn, children’s play zones, senior citizens area, 30 ft. CC roads, underground drainage, and 24×7 security.',
+                q: 'What infrastructure does the layout include?',
+                a: 'A premium entrance gate, wide blacktop roads, underground drainage & water lines, modern street lighting, and avenue plantation — the fundamentals, done exactingly.',
+        },
+        {
+                q: 'What other projects have Parvathi Infra delivered?',
+                a: 'Airport Town (Shamshabad Corridor), Metro City, and Arokah — The Mountain View, alongside strategic collaborations with Green Homes across Chilkoor, Moinabad, Shankarpally, Jadcherla and Kothur.',
         },
         {
                 q: 'How do I book a site visit?',
-                a: 'Simply share your details via our concierge chat, request the brochure, or write to us at infraparvathi@gmail.com. Our team will arrange a chauffeured site visit at your convenience.',
+                a: 'Share your details via the enquiry form, request the brochure, or write to us at infraparvathi@gmail.com. Our team will arrange a chauffeured site visit at your convenience.',
         },
 ];
 

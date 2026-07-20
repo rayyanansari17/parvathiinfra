@@ -45,7 +45,7 @@ export default function Gallery() {
                         {/* Editorial hero carousel */}
                         <GalleryEditorialCarousel slides={HERO_SLIDES} onOpen={setActive} />
 
-                        <section className="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32 lg:px-24">
+                        <section className="mx-auto max-w-[1440px] px-6 py-16 md:px-12 md:py-20 lg:px-24">
                                 <Reveal>
                                         <SectionIndex n={1} label="Gallery" />
                                         <h1 className="font-display text-4xl leading-tight tracking-[0.08em] text-ivory md:text-6xl lg:text-7xl">

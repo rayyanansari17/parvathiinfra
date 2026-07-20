@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PRELOADER } from '@/constants/testIds';
 
-// Cinematic SVG stroke-draw preloader for "THE VIEW".
+// Cinematic SVG stroke-draw preloader for the Parvathi Infra brand.
 export default function Preloader() {
         const [visible, setVisible] = useState(true);
         const [progress, setProgress] = useState(0);
@@ -33,10 +33,10 @@ export default function Preloader() {
                                 >
                                         <div className="absolute inset-0 grain-overlay" />
                                         <svg
-                                                width="480"
+                                                width="640"
                                                 height="140"
-                                                viewBox="0 0 480 140"
-                                                className="max-w-[80vw]"
+                                                viewBox="0 0 640 140"
+                                                className="max-w-[88vw]"
                                                 fill="none"
                                         >
                                                 <defs>
@@ -47,22 +47,21 @@ export default function Preloader() {
                                                                 <stop offset="100%" stopColor="#AA771C" />
                                                         </linearGradient>
                                                 </defs>
-                                                {['T', 'H', 'E', ' ', 'V', 'I', 'E', 'W'].map((_, i) => null)}
                                                 <motion.text
                                                         x="50%"
-                                                        y="60%"
+                                                        y="62%"
                                                         textAnchor="middle"
                                                         fontFamily="Cinzel, serif"
-                                                        fontSize="64"
-                                                        letterSpacing="8"
+                                                        fontSize="58"
+                                                        letterSpacing="10"
                                                         fill="transparent"
                                                         stroke="url(#goldStroke)"
                                                         strokeWidth="1.2"
-                                                        initial={{ strokeDasharray: 1200, strokeDashoffset: 1200 }}
+                                                        initial={{ strokeDasharray: 1600, strokeDashoffset: 1600 }}
                                                         animate={{ strokeDashoffset: 0 }}
                                                         transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1] }}
                                                 >
-                                                        THE VIEW
+                                                        PARVATHI INFRA
                                                 </motion.text>
                                         </svg>
                                         <motion.p
@@ -71,7 +70,7 @@ export default function Preloader() {
                                                 transition={{ delay: 0.6, duration: 0.8 }}
                                                 className="mt-6 text-[0.7rem] tracking-[0.4em] text-ivory-dim uppercase"
                                         >
-                                                A Parvathi Infra Presentation
+                                                Creating Landmarks · Building Trust
                                         </motion.p>
                                         <div className="mt-10 h-px w-64 overflow-hidden bg-white/10">
                                                 <div
