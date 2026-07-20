@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Reveal, SectionIndex } from '@/components/site/Reveal';
-import { STOCK, MASTER_PLAN_IMAGE, SCALE_MODEL_IMAGE } from '@/lib/siteData';
+import { STOCK, MASTER_PLAN_IMAGE } from '@/lib/siteData';
 import { PROJECTS_PAGE } from '@/constants/testIds';
 
 const PROJECTS = [
@@ -15,22 +15,31 @@ const PROJECTS = [
                 copy: 'Our flagship · 45 exclusive villa plots overlooking the ridgeline near Srisailam Highway. TG RERA, HMDA, 100% Vastu.',
         },
         {
-                id: 'archive',
-                title: 'STUDIO ARCHIVE',
-                sub: 'Selected Land Portfolio · 2011–2023',
-                status: 'Completed',
-                img: STOCK.hills,
-                to: '/contact',
-                copy: 'A quiet portfolio of gated layouts and estate plots delivered across the Southern corridor of Telangana.',
-        },
-        {
-                id: 'upcoming',
-                title: 'ESTATE 04',
-                sub: 'By invitation only',
-                status: 'Coming Soon',
+                id: 'airport-town',
+                title: 'AIRPORT TOWN',
+                sub: 'Shamshabad Corridor · Gated Layout',
+                status: 'Delivered',
                 img: STOCK.architecture,
                 to: '/contact',
-                copy: 'A curated estate of 20 plots along the emerging Fourth City corridor. Registrations open on request.',
+                copy: 'A tranquil residential township minutes from RGI Airport, drawn for families who value the pause between arrival and unpacking.',
+        },
+        {
+                id: 'metro-city',
+                title: 'METRO CITY',
+                sub: 'Southern Growth Corridor · Plotted Community',
+                status: 'Delivered',
+                img: STOCK.clubhouse,
+                to: '/contact',
+                copy: 'A masterplanned plotted community along the Southern growth corridor, delivered with wide avenues, underground services and generous green pockets.',
+        },
+        {
+                id: 'arokah',
+                title: 'AROKAH · THE MOUNTAIN VIEW',
+                sub: 'Hillside Estate · By Invitation',
+                status: 'Coming Soon',
+                img: STOCK.hills,
+                to: '/contact',
+                copy: 'A rare hillside estate carved along a natural ridgeline. Curated plots, panoramic vantages, and a mountain that becomes your neighbour.',
         },
 ];
 
@@ -52,27 +61,27 @@ export default function Projects() {
 
                         <section className="border-t border-[rgba(201,162,75,0.15)] bg-ink pb-32 md:pb-40">
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
-                                        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+                                        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
                                                 {PROJECTS.map((p, i) => (
                                                         <Reveal key={p.id} delay={i * 0.08}>
                                                                 <Link
                                                                         to={p.to}
-                                                                        data-testid={p.testid}
-                                                                        className="group block"
+                                                                        data-testid={p.testid || `projects-card-${p.id}`}
+                                                                        className="group block h-full"
                                                                 >
-                                                                        <div className="relative aspect-[4/5] overflow-hidden border border-[rgba(201,162,75,0.2)]">
+                                                                        <div className="relative aspect-[4/5] w-full overflow-hidden border border-[rgba(201,162,75,0.2)]">
                                                                                 <img
                                                                                         src={p.img}
                                                                                         alt={p.title}
                                                                                         className="h-full w-full object-cover transition-transform duration-[1.6s] group-hover:scale-110"
                                                                                 />
-                                                                                <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/25 to-transparent" />
+                                                                                <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/25 to-transparent" />
                                                                                 <span className="absolute right-5 top-5 border border-[rgba(201,162,75,0.5)] bg-ink/60 px-3 py-1 text-[0.6rem] uppercase tracking-[0.28em] text-gold backdrop-blur-md">
                                                                                         {p.status}
                                                                                 </span>
                                                                                 <div className="absolute bottom-6 left-6 right-6">
                                                                                         <div className="micro-label mb-2">{p.sub}</div>
-                                                                                        <div className="font-display text-2xl tracking-[0.14em] text-ivory">
+                                                                                        <div className="font-display text-xl tracking-[0.14em] text-ivory md:text-2xl">
                                                                                                 {p.title}
                                                                                         </div>
                                                                                 </div>

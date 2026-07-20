@@ -337,7 +337,7 @@ export default function Home() {
                                                 </div>
                                         </Reveal>
 
-                                        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10 lg:grid-cols-3">
+                                        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10 lg:grid-cols-4">
                                                 {[
                                                         {
                                                                 title: 'THE VIEW',
@@ -346,15 +346,21 @@ export default function Home() {
                                                                 to: '/the-view',
                                                         },
                                                         {
-                                                                title: 'STUDIO ARCHIVE',
-                                                                sub: 'Selected Land Portfolio',
-                                                                img: STOCK.hills,
+                                                                title: 'AIRPORT TOWN',
+                                                                sub: 'Shamshabad · Delivered',
+                                                                img: STOCK.architecture,
                                                                 to: '/projects',
                                                         },
                                                         {
-                                                                title: 'UPCOMING',
-                                                                sub: 'Estate · By Invitation',
-                                                                img: STOCK.architecture,
+                                                                title: 'METRO CITY',
+                                                                sub: 'Growth Corridor · Delivered',
+                                                                img: STOCK.clubhouse,
+                                                                to: '/projects',
+                                                        },
+                                                        {
+                                                                title: 'AROKAH',
+                                                                sub: 'The Mountain View · Coming Soon',
+                                                                img: STOCK.hills,
                                                                 to: '/projects',
                                                         },
                                                 ].map((p, i) => (
