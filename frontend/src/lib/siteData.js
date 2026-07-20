@@ -25,14 +25,46 @@ export const CONNECTIVITY = [
 ];
 
 export const AMENITIES = [
-        { title: 'Grand Clubhouse', copy: '2,220 sq.ft. of curated indulgence · lounge, gym & indoor games.' },
-        { title: 'Swimming Pool', copy: 'Signature pool and a private kids’ pool wrapped in landscape.' },
-        { title: 'Amphitheatre', copy: 'A stage under the stars for cinema evenings and soirées.' },
-        { title: 'Landscaped Parks', copy: 'Manicured green pockets with gazebos, granite seating and pathways.' },
-        { title: 'Children’s Play Area', copy: 'Safe, soft-scaped play zones for the little ones.' },
-        { title: 'Senior Citizens Area', copy: 'Quiet, shaded corners for tranquil mornings.' },
-        { title: 'Party Lawn', copy: 'A private lawn for milestone celebrations.' },
-        { title: '24×7 Security', copy: 'CC-camera surveillance, gated entry and dedicated patrols.' },
+        {
+                title: 'Grand Clubhouse',
+                copy: '2,220 sq.ft. of curated indulgence · lounge, gym & indoor games.',
+                image: 'https://images.pexels.com/photos/33529500/pexels-photo-33529500.jpeg',
+        },
+        {
+                title: 'Swimming Pool',
+                copy: 'Signature pool and a private kids’ pool wrapped in landscape.',
+                image: 'https://images.unsplash.com/photo-1757439402375-2f2a4ab0dc75',
+        },
+        {
+                title: 'Amphitheatre',
+                copy: 'A stage under the stars for cinema evenings and soirées.',
+                image: 'https://images.pexels.com/photos/2747599/pexels-photo-2747599.jpeg',
+        },
+        {
+                title: 'Landscaped Parks',
+                copy: 'Manicured green pockets with gazebos, granite seating and pathways.',
+                image: 'https://images.pexels.com/photos/5688203/pexels-photo-5688203.jpeg',
+        },
+        {
+                title: 'Children’s Play Area',
+                copy: 'Safe, soft-scaped play zones for the little ones.',
+                image: 'https://images.pexels.com/photos/1094072/pexels-photo-1094072.jpeg',
+        },
+        {
+                title: 'Senior Citizens Area',
+                copy: 'Quiet, shaded corners for tranquil mornings.',
+                image: 'https://images.pexels.com/photos/1454360/pexels-photo-1454360.jpeg',
+        },
+        {
+                title: 'Party Lawn',
+                copy: 'A private lawn for milestone celebrations.',
+                image: 'https://images.pexels.com/photos/26729557/pexels-photo-26729557.jpeg',
+        },
+        {
+                title: '24×7 Security',
+                copy: 'CC-camera surveillance, gated entry and dedicated patrols.',
+                image: 'https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg',
+        },
 ];
 
 export const INFRASTRUCTURE = [

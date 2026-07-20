@@ -5,9 +5,9 @@ import { ChevronDown, MapPin, Play } from 'lucide-react';
 import { Reveal, SectionIndex } from '@/components/site/Reveal';
 import LeadForm from '@/components/site/LeadForm';
 import Typewriter from '@/components/site/Typewriter';
+import AmenitiesCarousel from '@/components/site/AmenitiesCarousel';
 import {
         MASTER_PLAN_IMAGE,
-        AMENITIES,
         INFRASTRUCTURE,
         CONNECTIVITY,
         STATS,
@@ -295,25 +295,12 @@ export default function TheView() {
                                                 <h2 className="font-display text-3xl tracking-[0.14em] text-ivory md:text-5xl">
                                                         A <span className="gold-foil-text">private</span> promenade.
                                                 </h2>
+                                                <p className="mt-6 max-w-xl font-serif-elegant text-lg italic text-ivory-dim">
+                                                        Eight considered spaces — for reflection, gathering and the small daily rituals of a life well-lived.
+                                                </p>
                                         </Reveal>
 
-                                        <div className="mt-16 grid gap-6 md:grid-cols-3 lg:grid-cols-4">
-                                                {AMENITIES.map((a, i) => (
-                                                        <Reveal key={a.title} delay={(i % 4) * 0.06}>
-                                                                <div className="group h-full border border-[rgba(201,162,75,0.2)] bg-obsidian-2 p-8 transition-colors hover:border-gold">
-                                                                        <div className="font-display text-[0.75rem] tracking-[0.32em] text-gold">
-                                                                                0{(i + 1).toString().padStart(2, '0')}
-                                                                        </div>
-                                                                        <div className="mt-6 font-display text-xl tracking-[0.14em] text-ivory">
-                                                                                {a.title}
-                                                                        </div>
-                                                                        <p className="mt-4 font-serif-elegant text-base italic leading-relaxed text-ivory-dim">
-                                                                                {a.copy}
-                                                                        </p>
-                                                                </div>
-                                                        </Reveal>
-                                                ))}
-                                        </div>
+                                        <AmenitiesCarousel />
                                 </div>
                         </section>
 

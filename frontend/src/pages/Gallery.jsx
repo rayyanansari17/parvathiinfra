@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Reveal, SectionIndex } from '@/components/site/Reveal';
+import GalleryEditorialCarousel from '@/components/site/GalleryEditorialCarousel';
 import { BROCHURE_PAGES, MASTER_PLAN_IMAGE, SCALE_MODEL_IMAGE, STOCK } from '@/lib/siteData';
 import { GALLERY_PAGE } from '@/constants/testIds';
 
@@ -21,6 +22,16 @@ const IMAGES = [
         })),
 ];
 
+// Curated marquee slides for the editorial hero carousel.
+const HERO_SLIDES = [
+        IMAGES[7], // Villa at Dusk
+        IMAGES[0], // Signature Pool
+        IMAGES[5], // Ridgeline View
+        IMAGES[2], // Clubhouse Lounge
+        IMAGES[6], // Architectural Study
+        IMAGES[1], // Layout
+];
+
 const CATS = ['All', 'Amenities', 'Master Plan', 'Site', 'Editorial', 'Brochure'];
 
 export default function Gallery() {
@@ -31,6 +42,9 @@ export default function Gallery() {
 
         return (
                 <div data-testid={GALLERY_PAGE.root} className="bg-ink pt-28">
+                        {/* Editorial hero carousel */}
+                        <GalleryEditorialCarousel slides={HERO_SLIDES} onOpen={setActive} />
+
                         <section className="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32 lg:px-24">
                                 <Reveal>
                                         <SectionIndex n={1} label="Gallery" />
