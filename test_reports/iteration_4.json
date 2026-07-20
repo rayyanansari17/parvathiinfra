@@ -1,0 +1,44 @@
+{
+  "summary": "Iteration 4 — Walkthrough Scene 2 replaced from <video> to pure CSS 3D boulevard flythrough. Frontend-only smoke + targeted verification. 100% pass.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verifications_passed": [
+    "hero-video.mp4 physically removed from /app/frontend/public/assets/",
+    "grep on /app/frontend/src for 'hero-video' or 'HERO_VIDEO' returns zero matches (only stale testId keys 'home-hero-video'/'theview-hero-video' in constants/testIds/site.js — never rendered anywhere; harmless)",
+    "document.querySelectorAll('video').length === 0 on every route (/, /about, /projects, /the-view, /gallery, /contact) AND while walkthrough modal is open on Scene 1, Scene 2, Scene 3, and on both entry points (home hero + theview hero)",
+    "home-hero-walkthrough-button opens walkthrough-modal → walkthrough-scene-1 renders",
+    "walkthrough-skip-intro advances to walkthrough-scene-2 (the new 3D flythrough)",
+    "Scene 2 content assertions: 3 SVG <text> nodes with 'PARVATHI INFRA' (exactly matches ARCH_ZS length of 3), 3 'THE VIEW' text nodes on arches, 12 P·I flag monograms (6 FLAG_ZS × 2 sides), 1 CLUBHOUSE text node",
+    "Caption 'Scene 02 · Down the Boulevard · Kadthal' is visible top-left (verified via screenshot — innerText check returned false only because CSS text-transform:uppercase renders it as 'SCENE 02 · DOWN THE BOULEVARD · KADTHAL'; string is present in DOM source)",
+    "Bottom overlay '45 exclusive villa plots' + 'approach the clubhouse' present",
+    "Camera dolly animates over ~9s: screenshot at t=1s shows single dominant near arch + light rays; t=4s shows multiple receding arches in perspective (depth confirmed). 3D depth is rendering correctly — no ancestor overflow-hidden clipping",
+    "Scene 2 auto-advances to Scene 3 (walkthrough-goto-plots visible) after ~9.2s",
+    "walkthrough-skip-video click jumps directly to Scene 3 (no video element required)",
+    "walkthrough-goto-plots navigates to /the-view",
+    "walkthrough-replay returns to Scene 1",
+    "walkthrough-close dismisses modal",
+    "theview-hero-walkthrough-button opens same modal and Scene 2 works identically (0 videos, 3 PARVATHI INFRA nodes)",
+    "All 6 routes load successfully with content (body length > 800 chars each)",
+    "Zero console warnings/errors on any route",
+    "Zero network 404s for /assets/hero-video.mp4 (or any hero-video URL)",
+    "Chat toggle element present on home page"
+  ],
+  "test_report_links": ["/app/test_reports/iteration_4.json"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Minor cleanup (not blocking): /app/frontend/src/constants/testIds/site.js still exports heroVideo: 'home-hero-video' and 'theview-hero-video' — these ids are no longer rendered by any component. Safe to delete for hygiene but does not affect functionality.",
+    "WalkthroughScene2.jsx uses `${style.transform}` in SVG gradient ids (line 377, 386, 393) — technically valid but not URL-safe; works fine in current Chrome/Firefox but if you ever swap the transform to include problematic chars this could break. Consider hashing the z value instead."
+  ],
+  "updated_files": [],
+  "success_rate": { "backend": "n/a (not tested)", "frontend": "100%" },
+  "test_credentials": "None required",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Iteration 4 confirmed video → 3D CSS conversion of Scene 2 is complete and rendering correctly on both home and TheView entry points. Zero <video> elements anywhere. Prev iterations 1-3 covered the rest of the app; only smoke was re-run this time.",
+  "rca of the issue": "Not applicable — no bugs found."
+}

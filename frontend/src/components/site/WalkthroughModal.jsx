@@ -1,20 +1,18 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { X, Play } from 'lucide-react';
-import { HERO_VIDEO } from '@/lib/siteData';
 import WalkthroughScene1 from '@/components/site/WalkthroughScene1';
+import WalkthroughScene2 from '@/components/site/WalkthroughScene2';
 
 /**
- * Cinematic three-scene walkthrough modal.
- *   Scene 1 · 3D grand arrival through the Parvathi Infra arch (with flags).
- *   Scene 2 · Video walkthrough of the site.
+ * Cinematic three-scene walkthrough modal — 100% in-browser 3D, no video files.
+ *   Scene 1 · 3D grand arrival through the Parvathi Infra entrance arch.
+ *   Scene 2 · 3D flythrough down the boulevard, past flags, wall arches, clubhouse.
  *   Scene 3 · Explore CTAs (plots, amenities).
- * Auto-progresses; user can also skip ahead.
  */
 export default function WalkthroughModal({ open, onClose }) {
         const [scene, setScene] = useState(0);
-        const videoRef = useRef(null);
         const navigate = useNavigate();
 
         useEffect(() => {
@@ -25,21 +23,6 @@ export default function WalkthroughModal({ open, onClose }) {
                         document.body.style.overflow = '';
                 };
         }, [open]);
-
-        useEffect(() => {
-                if (!open) return undefined;
-                if (scene === 1) {
-                        const v = videoRef.current;
-                        if (v) {
-                                v.currentTime = 0;
-                                v.play().catch(() => {});
-                                const onEnded = () => setScene(2);
-                                v.addEventListener('ended', onEnded);
-                                return () => v.removeEventListener('ended', onEnded);
-                        }
-                }
-                return undefined;
-        }, [scene, open]);
 
         const jumpTo = (path, hash) => {
                 onClose?.();
@@ -62,7 +45,6 @@ export default function WalkthroughModal({ open, onClose }) {
                                         data-testid="walkthrough-modal"
                                         className="fixed inset-0 z-[85] flex items-center justify-center bg-ink"
                                 >
-                                        {/* Close button */}
                                         <button
                                                 type="button"
                                                 onClick={onClose}
@@ -73,7 +55,6 @@ export default function WalkthroughModal({ open, onClose }) {
                                                 <X size={18} />
                                         </button>
 
-                                        {/* Scene indicator */}
                                         <div className="absolute bottom-6 left-1/2 z-30 -translate-x-1/2 flex items-center gap-2">
                                                 {[0, 1, 2].map((i) => (
                                                         <span
@@ -86,7 +67,6 @@ export default function WalkthroughModal({ open, onClose }) {
                                         </div>
 
                                         <AnimatePresence mode="wait">
-                                                {/* --- Scene 1 · 3D Grand Arrival --- */}
                                                 {scene === 0 && (
                                                         <motion.div
                                                                 key="scene-1"
@@ -110,39 +90,18 @@ export default function WalkthroughModal({ open, onClose }) {
                                                         </motion.div>
                                                 )}
 
-                                                {/* --- Scene 2 · Video Walkthrough --- */}
                                                 {scene === 1 && (
                                                         <motion.div
                                                                 key="scene-2"
                                                                 initial={{ opacity: 0 }}
                                                                 animate={{ opacity: 1 }}
                                                                 exit={{ opacity: 0 }}
-                                                                transition={{ duration: 0.9 }}
-                                                                className="relative flex h-full w-full items-center justify-center bg-[#050505]"
+                                                                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                                                                className="relative h-full w-full"
                                                         >
-                                                                <div className="absolute inset-0 pointer-events-none grain-overlay" />
-                                                                <div className="pointer-events-none absolute inset-x-0 top-0 h-[8vh] bg-[#020202]" />
-                                                                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[8vh] bg-[#020202]" />
-                                                                <div className="relative border border-[rgba(201,162,75,0.35)] shadow-[0_0_80px_rgba(201,162,75,0.15)]">
-                                                                        <video
-                                                                                ref={videoRef}
-                                                                                data-testid="walkthrough-video"
-                                                                                src={HERO_VIDEO}
-                                                                                autoPlay
-                                                                                muted
-                                                                                playsInline
-                                                                                controls
-                                                                                className="block max-h-[74vh] max-w-[86vw]"
-                                                                        />
-                                                                        {/* corner accents */}
-                                                                        <span className="absolute -left-[1px] -top-[1px] h-4 w-4 border-l border-t border-gold" />
-                                                                        <span className="absolute -right-[1px] -top-[1px] h-4 w-4 border-r border-t border-gold" />
-                                                                        <span className="absolute -left-[1px] -bottom-[1px] h-4 w-4 border-l border-b border-gold" />
-                                                                        <span className="absolute -right-[1px] -bottom-[1px] h-4 w-4 border-r border-b border-gold" />
-                                                                </div>
-                                                                <div className="absolute left-6 top-8 text-[0.6rem] uppercase tracking-[0.44em] text-ivory-dim/80 md:left-10 md:top-10">
-                                                                        Scene 02 · Site Walkthrough · Kadthal
-                                                                </div>
+                                                                <WalkthroughScene2
+                                                                        onFinished={() => setScene(2)}
+                                                                />
                                                                 <button
                                                                         type="button"
                                                                         onClick={() => setScene(2)}
@@ -154,7 +113,6 @@ export default function WalkthroughModal({ open, onClose }) {
                                                         </motion.div>
                                                 )}
 
-                                                {/* --- Scene 3 · Explore CTAs --- */}
                                                 {scene === 2 && (
                                                         <motion.div
                                                                 key="scene-3"

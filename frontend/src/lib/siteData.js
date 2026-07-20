@@ -82,7 +82,6 @@ export const BROCHURE_PAGES = Array.from({ length: 7 }, (_, i) =>
         `/assets/brochure/page-${String(i + 1).padStart(2, '0')}.png`,
 );
 
-export const HERO_VIDEO = '/assets/hero-video.mp4';
 export const LOGO_IMAGE = '/assets/logo-theview.jpeg';
 export const MASTER_PLAN_IMAGE = '/assets/master-plan.jpeg';
 export const SCALE_MODEL_IMAGE = '/assets/scale-model.jpeg';
