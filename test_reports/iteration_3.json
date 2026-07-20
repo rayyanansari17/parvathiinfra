@@ -1,0 +1,28 @@
+{
+  "summary": "Iteration 3 focused on the redesigned Walkthrough Scene 1 (3D grand arrival). All acceptance criteria verified end-to-end. Scene 1 renders with data-testid='walkthrough-scene-1' containing: (a) dark obsidian background with warm gold radial glow, (b) two pillars with gold vertical inlays, (c) two flags flanking the pillars with the Parvathi Infra crest (SVG ridge/triangle + 'P · I' monogram — piMonogramCount=2), (d) SVG arch header with gold keystone medallion, (e) visible 'PARVATHI INFRA' + 'THE VIEW' wordmarks, (f) caption 'SCENE 01 · THE GRAND ARRIVAL' visible top-left, (g) 42 animated sparkle dots. CSS perspective computed at 1400px on the scene container and preserve-3d confirmed on the camera dolly. 3D camera dolly measurably grows the scene: arch SVG width went 58.4px → 117.2px between t≈500ms and t≈3000ms (2.0× growth, consistent with framer-motion z: -1500 → 260 over 6s). Auto-advance to Scene 2 (walkthrough-video) observed at ~6.2-6.5s after Scene 1 mount. Skip Intro immediately jumps to Scene 2. Scene 2 caption 'Scene 02 · Site Walkthrough · Kadthal' visible with the gold-cornered video frame. Skip Video jumps to Scene 3 which exposes walkthrough-goto-plots, walkthrough-goto-amenities, and the NEW walkthrough-replay button — replay correctly loops back to Scene 1. walkthrough-close dismisses the modal. TheView hero walkthrough button also opens the modal to Scene 1. Regression smoke: home hero has zero <video>, typewriter H1 present ('A Scenic Address for a Discerning Few'), no em-dash on home body innerText, no 'Download Brochure' text, WhatsApp float visible bottom-left at (24, 1000), lead form present on /contact. No product bugs found.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": ["/app/backend/tests/backend_test.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "WalkthroughScene1.jsx: The scene 1 element itself has transformStyle computed to 'flat' (not preserve-3d) because Tailwind's overflow-hidden + no transform-style utility on the outer container. The 3D perspective still works because the inner camera dolly div explicitly sets transformStyle: 'preserve-3d'. Depth was verified visually in screenshots — this is fine, but you could add transformStyle to the root for consistency.",
+    "WalkthroughScene1.jsx line 43: `left = ((i * 977) % 100) + Math.random() * 2` — mixing deterministic + Math.random() means SSR/CSR mismatch is possible if this ever gets SSR'd, and star positions differ per render on client re-mount. Not a bug for a fully-CSR SPA, but consider seeded RNG or purely deterministic hash for consistency.",
+    "WalkthroughScene1.jsx: font-family 'Cinzel, serif' hardcoded on the flag crest SVG text; if Cinzel isn't loaded from siteFonts, the serif fallback shows a slightly different look. Verified visually it renders fine here but worth aligning with the font stack used elsewhere.",
+    "WalkthroughScene1.jsx: the top scene container uses `overflow-hidden` which is fine, but the modal parent should NOT set overflow-hidden or the 3D depth would be clipped. Confirmed the WalkthroughModal <motion.div> has no explicit overflow — safe.",
+    "WalkthroughModal.jsx (unchanged from iter 2 concern): still no onError fallback on the <video> in Scene 2. If HERO_VIDEO 404s, Scene 2 becomes a dead-end until user clicks Skip. Add v.onerror -> setScene(2) or a max-time fallback timer.",
+    "Home typewriter still shows a small extra whitespace before 'Few' in 'for a Discerning  Few' (double space in innerText). Cosmetic, not blocking.",
+    "Chatbot toggle testid is 'chat-toggle-button' (from CHAT constant), not 'chatbot-toggle'. Documented for future testing agents — data-testid discovery via /app/frontend/src/constants/testIds/site.js."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend-only iteration)", "frontend": "100% — all 7 Scene1 acceptance criteria + dolly zoom measurement + skip-intro + skip-video + replay + close + TheView entry point + 6 regression smokes"},
+  "test_credentials": "N/A public marketing site.",
+  "seed_data_creation": "None.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Walkthrough Scene 1 (WalkthroughScene1.jsx) redesign fully verified in iteration 3. Preview URL https://the-view-luxury.preview.emergentagent.com. Wait ~4.5-5s past preloader before interacting. Scene 1 auto-advances at ~6.2s from mount — during that window measure element growth with getBoundingClientRect on the first <svg> inside [data-testid='walkthrough-scene-1'] (the arch SVG); expect the width to roughly double between t=500ms and t=3000ms. Correct chatbot toggle testid is 'chat-toggle-button' (see /app/frontend/src/constants/testIds/site.js CHAT constant), NOT 'chatbot-toggle'. Scene1 innerText renders 'SCENE 01 · THE GRAND ARRIVAL' in uppercase due to text-transform, so case-insensitive matching is required. All previous iteration_1/iteration_2 findings remain valid; only Scene 1 visuals were changed.",
+  "rca of the issue": "N/A — no product bugs found in this iteration."
+}
