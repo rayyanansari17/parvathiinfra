@@ -12,7 +12,27 @@ module.exports = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
       },
+      fontFamily: {
+        display: ['Cinzel', 'serif'],
+        serif: ['"Cormorant Garamond"', 'serif'],
+        sans: ['Jost', 'Outfit', 'sans-serif'],
+      },
       colors: {
+        obsidian: {
+          DEFAULT: '#0A0A0A',
+          2: '#101010',
+          3: '#161513',
+        },
+        ink: '#050505',
+        ivory: {
+          DEFAULT: '#F5F1E8',
+          dim: '#CFC7B5',
+        },
+        gold: {
+          DEFAULT: '#C9A24B',
+          bright: '#E8C978',
+          deep: '#8A6D2F',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -70,11 +90,24 @@ module.exports = {
           to: {
             height: '0'
           }
+        },
+        'shimmer': {
+          '0%': { backgroundPosition: '200% center' },
+          '100%': { backgroundPosition: '-200% center' },
+        },
+        'gold-pulse': {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(201,162,75,0.5)' },
+          '50%': { boxShadow: '0 0 0 12px rgba(201,162,75,0)' },
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out'
+        'accordion-up': 'accordion-up 0.2s ease-out',
+        'shimmer': 'shimmer 6s linear infinite',
+        'gold-pulse': 'gold-pulse 2.4s ease-in-out infinite',
+      },
+      backgroundImage: {
+        'gold-foil': 'linear-gradient(92deg,#BF953F 0%,#FCF6BA 22%,#B38728 45%,#FBF5B7 68%,#AA771C 100%)',
       }
     }
   },
