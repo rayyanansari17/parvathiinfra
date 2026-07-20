@@ -7,12 +7,12 @@ const TIMELINE = [
         {
                 year: '2004',
                 title: 'The Foundation',
-                copy: 'Parvathi Infra Developers is founded in Shamshabad with a singular idea — earth is a canvas, not a commodity.',
+                copy: 'Parvathi Infra Developers is founded in Shamshabad with a singular idea · earth is a canvas, not a commodity.',
         },
         {
                 year: '2011',
                 title: 'First Gated Layout',
-                copy: 'Delivered our first HMDA-approved gated layout on the outskirts of Hyderabad — a benchmark for quiet luxury living.',
+                copy: 'Delivered our first HMDA-approved gated layout on the outskirts of Hyderabad · a benchmark for quiet luxury living.',
         },
         {
                 year: '2017',
@@ -49,7 +49,7 @@ export default function About() {
                                                                 </span>
                                                         </h1>
                                                         <p className="mt-8 max-w-xl font-serif-elegant text-xl italic leading-relaxed text-ivory-dim md:text-2xl">
-                                                                We build only what we would live in ourselves — layouts you can
+                                                                We build only what we would live in ourselves · layouts you can
                                                                 walk barefoot, paperwork that holds up to a magnifying glass,
                                                                 and communities that feel like they’ve always been there.
                                                         </p>
@@ -91,7 +91,7 @@ export default function About() {
                                                 {[
                                                         {
                                                                 title: 'Landscape First',
-                                                                copy: 'Every master plan starts with existing trees, wind studies, and sunrise vectors — never a bulldozer.',
+                                                                copy: 'Every master plan starts with existing trees, wind studies, and sunrise vectors · never a bulldozer.',
                                                         },
                                                         {
                                                                 title: 'Honest Paperwork',

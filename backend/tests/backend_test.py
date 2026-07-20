@@ -37,7 +37,7 @@ class TestLeads:
             "source": "automated_test",
         }
         r = client.post(f"{API}/leads", json=payload)
-        assert r.status_code == 200, r.text
+        assert r.status_code in (200, 201), r.text
         lead = r.json()
         assert lead["name"] == payload["name"]
         assert lead["phone"] == payload["phone"]
@@ -56,7 +56,7 @@ class TestLeads:
     def test_create_lead_minimal(self, client):
         payload = {"name": "TEST_min", "phone": "+911111111111"}
         r = client.post(f"{API}/leads", json=payload)
-        assert r.status_code == 200
+        assert r.status_code in (200, 201)
         data = r.json()
         assert data["project_interested"] == "THE VIEW"
         assert data["source"] == "website"
@@ -68,7 +68,7 @@ class TestBrochure:
         unique = f"TEST_broch_{uuid.uuid4().hex[:8]}"
         payload = {"name": unique, "phone": "+918888888888", "email": f"{unique}@example.com"}
         r = client.post(f"{API}/brochure-request", json=payload)
-        assert r.status_code == 200, r.text
+        assert r.status_code in (200, 201), r.text
         b = r.json()
         assert b["name"] == unique
         assert b["email"] == payload["email"]

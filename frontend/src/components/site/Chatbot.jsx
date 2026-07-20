@@ -59,7 +59,7 @@ export default function Chatbot() {
                                 {
                                         role: 'assistant',
                                         content:
-                                                'Apologies — I’m unable to respond right now. Please share your number via our contact form and our team will call you back within the hour.',
+                                                'Apologies · I’m unable to respond right now. Please share your number via our contact form and our team will call you back within the hour.',
                                 },
                         ]);
                 } finally {

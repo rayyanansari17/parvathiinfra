@@ -1,4 +1,4 @@
-// Test IDs for the THE VIEW marketing site — Parvathi Infra Developers.
+// Test IDs for the THE VIEW marketing site · Parvathi Infra Developers.
 
 export const NAV = {
         root: 'nav-root',

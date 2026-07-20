@@ -1,4 +1,4 @@
-// Central site data / constants — safe to import anywhere.
+// Central site data / constants · safe to import anywhere.
 
 export const SITE = {
         brand: 'Parvathi Infra Developers',
@@ -25,7 +25,7 @@ export const CONNECTIVITY = [
 ];
 
 export const AMENITIES = [
-        { title: 'Grand Clubhouse', copy: '2,220 sq.ft. of curated indulgence — lounge, gym & indoor games.' },
+        { title: 'Grand Clubhouse', copy: '2,220 sq.ft. of curated indulgence · lounge, gym & indoor games.' },
         { title: 'Swimming Pool', copy: 'Signature pool and a private kids’ pool wrapped in landscape.' },
         { title: 'Amphitheatre', copy: 'A stage under the stars for cinema evenings and soirées.' },
         { title: 'Landscaped Parks', copy: 'Manicured green pockets with gazebos, granite seating and pathways.' },

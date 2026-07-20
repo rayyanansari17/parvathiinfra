@@ -12,7 +12,7 @@ const PROJECTS = [
                 img: MASTER_PLAN_IMAGE,
                 to: '/the-view',
                 testid: PROJECTS_PAGE.projectCardTheView,
-                copy: 'Our flagship — 45 exclusive villa plots overlooking the ridgeline near Srisailam Highway. TG RERA, HMDA, 100% Vastu.',
+                copy: 'Our flagship · 45 exclusive villa plots overlooking the ridgeline near Srisailam Highway. TG RERA, HMDA, 100% Vastu.',
         },
         {
                 id: 'archive',

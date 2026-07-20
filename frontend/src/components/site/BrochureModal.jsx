@@ -76,7 +76,7 @@ export default function BrochureModal({ open, onClose }) {
                                                                         THE VIEW <span className="gold-foil-text">BROCHURE</span>
                                                                 </h3>
                                                                 <p className="mt-4 font-serif-elegant text-lg italic text-ivory-dim">
-                                                                        Please share your details to receive the private brochure —
+                                                                        Please share your details to receive the private brochure ,
                                                                         floor plans, master layout, pricing on request.
                                                                 </p>
 

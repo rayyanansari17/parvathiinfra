@@ -1,0 +1,36 @@
+{
+  "summary": "Iteration 2 targeted verification of user-requested changes for Parvathi Infra 'THE VIEW'. All six specific requests validated: (a) NO <video> in Home & TheView hero, dark gradient + ridge SVG present + Typewriter H1 cycles through Selective/Discerning/Rare/Curated on Home and stillness./sunrise./you. on TheView. (b) Watch-Walkthrough modal (data-testid walkthrough-modal) opens on both hero buttons, Scene1 arch SVG with PARVATHI INFRA & THE VIEW wordmarks + skip-intro, Scene2 <video data-testid=walkthrough-video>, Scene3 goto-plots & goto-amenities CTAs both navigate to /the-view and scroll to the intended sections (verified scrollY=4441 for amenities). Close button dismisses. (c) On /the-view master plan renders as clean <figure data-testid=theview-master-plan> with only <img> inside; separate data-testid=theview-plot-chooser sits BELOW it (bounding rects: mp bottom=956.8, pc top=1020.8, gap ~64px, no overlap). All 45 plots present, filters (all/available/sold) change visible counts (45/36/9), hover shows 'Plot 2 · 217 sq. yd · Available'. (d) 'Download Brochure' text absent from all six pages. (e) No em-dash '\\u2014' character in rendered innerText on any of / /about /projects /the-view /gallery /contact. (f) Projects grid on Home: 3 equal-width cards on desktop (389.3px each, delta<1px), 1-col stacked on 375px mobile with distinct Y offsets, no horizontal scroll at either viewport. Backend regression: all 8 pytest cases pass (updated to accept 201 as per iteration_1 recommendation).",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "WalkthroughModal.jsx: In Scene 2 the effect on scene===1 runs a v.play().catch(() => {}), which is fine for autoplay policies. But video src (HERO_VIDEO) is fetched from siteData; if that asset is missing, the 'ended' handler never fires and Scene 2 becomes a dead-end (only 'Skip to Explore' rescues). Consider a fallback timer (e.g. onError -> setScene(2)).",
+    "WalkthroughModal.jsx line ~50: jumpTo uses setTimeout(500) then document.querySelector(hash).scrollIntoView. Because Lenis smooth scrolling is enabled, this works but might race the route mount; using useEffect + useLocation-listener on the target page would be more robust.",
+    "SiteLayout.jsx exports openWalkthrough as a module-level util that dispatches a custom window event. Works, but creates a hidden coupling that isn't type-safe. A React context (WalkthroughProvider) would be cleaner.",
+    "Typewriter.jsx: caret uses inline <style>{@keyframes} scoped globally on every render — the keyframes are re-injected on every mount. Move to index.css.",
+    "TheView.jsx: em-dash '—' still appears in a JSX comment on line 242 ('MASTER PLAN — TWO PANELS'). Not rendered so harmless, but if the user's rule is 'zero em-dash anywhere in code' this violates it. innerText check on live page returns false so functional pass.",
+    "Home.jsx: The typewriter first hero paint shows a spurious NBSP + caret before deletion ('for a Discerning\\xa0 Few'). Consider trimming the trailing space or using min-width on the span to avoid layout jump.",
+    "backend server.py: 201 status now returned for /leads and /brochure-request — matches iteration_1 recommendation. Good."
+  ],
+  "updated_files": [
+    "/app/backend/tests/backend_test.py (updated to accept 201 status)"
+  ],
+  "success_rate": {"backend": "100% (8/8 pytest)", "frontend": "100% (all 6 iteration-2 change categories verified + regression: walkthrough close, whatsapp float, no video on hero, both hero walkthrough buttons)"},
+  "test_credentials": "N/A public marketing site.",
+  "seed_data_creation": "N/A (only backend pytest which prefixes TEST_ lead docs).",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Iteration 2 changes fully verified. Preview URL https://the-view-luxury.preview.emergentagent.com. Wait ~4.5s past preloader before interacting. Walkthrough Scene1 auto-advances after 3.6s; always click walkthrough-skip-intro/walkthrough-skip-video for determinism. Scene 2 requires a small extra wait (>=1s) after skip-intro before the <video data-testid=walkthrough-video> DOM node appears due to AnimatePresence exit. Master plan non-overlap can be asserted with getBoundingClientRect (mp bottom vs pc top). No em-dash in rendered innerText on any of the 6 routes. Backend pytest updated to accept both 200 & 201 status codes.",
+  "rca of the issue": "N/A — no product bugs found in this iteration."
+}
