@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ChevronDown, MapPin, Play } from 'lucide-react';
 import { Reveal, SectionIndex } from '@/components/site/Reveal';
 import LeadForm from '@/components/site/LeadForm';
 import Typewriter from '@/components/site/Typewriter';
-import { openWalkthrough } from '@/components/site/SiteLayout';
 import {
         MASTER_PLAN_IMAGE,
         AMENITIES,
@@ -179,16 +179,15 @@ export default function TheView() {
                                                         Vastu, honoured.
                                                 </p>
                                                 <div className="mt-10 flex flex-wrap items-center gap-5">
-                                                        <button
-                                                                type="button"
-                                                                onClick={openWalkthrough}
+                                                        <Link
+                                                                to="/the-view/walkthrough"
                                                                 data-testid="theview-hero-walkthrough-button"
                                                                 className="group inline-flex items-center gap-4 border border-[rgba(201,162,75,0.5)] bg-gold-foil px-8 py-3.5 text-[0.7rem] uppercase tracking-[0.32em] text-ink transition-transform hover:-translate-y-0.5"
                                                         >
                                                                 <Play size={14} />
-                                                                Watch Walkthrough
+                                                                ▶ Take the Walkthrough
                                                                 <span className="h-px w-6 bg-ink transition-all group-hover:w-10" />
-                                                        </button>
+                                                        </Link>
                                                         <a
                                                                 href={SITE.whatsappLink}
                                                                 target="_blank"

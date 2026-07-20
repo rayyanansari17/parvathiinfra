@@ -5,6 +5,7 @@ import Home from '@/pages/Home';
 import About from '@/pages/About';
 import Projects from '@/pages/Projects';
 import TheView from '@/pages/TheView';
+import Walkthrough from '@/pages/Walkthrough';
 import Gallery from '@/pages/Gallery';
 import Contact from '@/pages/Contact';
 
@@ -18,6 +19,7 @@ function App() {
                                                 <Route path="/about" element={<About />} />
                                                 <Route path="/projects" element={<Projects />} />
                                                 <Route path="/the-view" element={<TheView />} />
+                                                <Route path="/the-view/walkthrough" element={<Walkthrough />} />
                                                 <Route path="/gallery" element={<Gallery />} />
                                                 <Route path="/contact" element={<Contact />} />
                                         </Route>

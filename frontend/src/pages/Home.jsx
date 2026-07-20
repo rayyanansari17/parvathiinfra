@@ -4,7 +4,6 @@ import { Play } from 'lucide-react';
 import { Reveal, SectionIndex } from '@/components/site/Reveal';
 import Typewriter from '@/components/site/Typewriter';
 import LeadForm from '@/components/site/LeadForm';
-import { openWalkthrough } from '@/components/site/SiteLayout';
 import {
         STATS,
         APPROVALS,
@@ -102,17 +101,16 @@ export default function Home() {
                                                                 Enter The View
                                                                 <span className="h-px w-6 bg-ink transition-all group-hover:w-10" />
                                                         </Link>
-                                                        <button
-                                                                type="button"
-                                                                onClick={openWalkthrough}
+                                                        <Link
+                                                                to="/the-view/walkthrough"
                                                                 data-testid="home-hero-walkthrough-button"
                                                                 className="group inline-flex items-center gap-3 gold-underline text-[0.7rem] uppercase tracking-[0.32em] text-ivory-dim hover:text-ivory"
                                                         >
                                                                 <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(201,162,75,0.5)] transition-colors group-hover:border-gold">
                                                                         <Play size={12} className="text-gold" />
                                                                 </span>
-                                                                Watch Walkthrough
-                                                        </button>
+                                                                ▶ Take the Walkthrough
+                                                        </Link>
                                                 </div>
                                         </motion.div>
                                 </div>
@@ -245,12 +243,11 @@ export default function Home() {
 
                         {/* ============================ WALKTHROUGH TEASER ============================ */}
                         <section className="border-t border-[rgba(201,162,75,0.15)] bg-obsidian-2">
-                                <button
-                                        type="button"
-                                        onClick={openWalkthrough}
+                                <Link
+                                        to="/the-view/walkthrough"
                                         data-testid="home-walkthrough-card"
                                         className="group relative block w-full overflow-hidden"
-                                        aria-label="Watch cinematic walkthrough of THE VIEW"
+                                        aria-label="Take the cinematic walkthrough of THE VIEW"
                                 >
                                         <div className="mx-auto grid max-w-[1440px] items-center gap-10 px-6 py-24 md:grid-cols-[1fr_1.2fr] md:px-12 md:py-32 lg:px-24">
                                                 <div className="text-left">
@@ -269,7 +266,7 @@ export default function Home() {
                                                         </p>
                                                         <div className="mt-8 inline-flex items-center gap-4 border border-[rgba(201,162,75,0.5)] bg-gold-foil px-8 py-3.5 text-[0.7rem] uppercase tracking-[0.32em] text-ink">
                                                                 <Play size={14} />
-                                                                Watch Walkthrough
+                                                                ▶ Take the Walkthrough
                                                                 <span className="h-px w-6 bg-ink transition-all group-hover:w-12" />
                                                         </div>
                                                 </div>
@@ -311,7 +308,7 @@ export default function Home() {
                                                         </div>
                                                 </div>
                                         </div>
-                                </button>
+                                </Link>
                         </section>
 
                         {/* ============================ PROJECTS ============================ */}
