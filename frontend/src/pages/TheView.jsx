@@ -175,7 +175,7 @@ export default function TheView() {
         return (
                 <div data-testid={THE_VIEW_PAGE.root} className="bg-ink">
                         {/* HERO video pin */}
-                        <section ref={heroRef} className="relative h-[110svh] w-full overflow-hidden">
+                        <section ref={heroRef} className="relative h-[110svh] w-full overflow-hidden" style={{ position: 'relative' }}>
                                 <motion.video
                                         data-testid={THE_VIEW_PAGE.heroVideo}
                                         src={HERO_VIDEO}

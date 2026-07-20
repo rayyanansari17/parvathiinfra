@@ -112,7 +112,7 @@ async def root():
     return {"message": "Parvathi Infra Developers API"}
 
 
-@api_router.post("/leads", response_model=Lead)
+@api_router.post("/leads", response_model=Lead, status_code=201)
 async def create_lead(payload: LeadCreate):
     lead = Lead(**payload.model_dump())
     await db.leads.insert_one(lead.model_dump())
@@ -126,7 +126,7 @@ async def list_leads():
     return [Lead(**d) for d in docs]
 
 
-@api_router.post("/brochure-request", response_model=BrochureRequest)
+@api_router.post("/brochure-request", response_model=BrochureRequest, status_code=201)
 async def create_brochure_request(payload: BrochureRequestCreate):
     req = BrochureRequest(**payload.model_dump())
     await db.brochure_requests.insert_one(req.model_dump())
