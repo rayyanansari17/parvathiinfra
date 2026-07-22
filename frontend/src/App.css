@@ -1,6 +1,0 @@
-/* App-level container overrides. Keep left-aligned per design guidelines. */
-.App {
-    text-align: left;
-    min-height: 100vh;
-    background: #050505;
-}
