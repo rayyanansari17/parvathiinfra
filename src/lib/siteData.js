@@ -12,7 +12,12 @@ export const SITE = {
         phoneLink: 'tel:+919000000000',
         whatsappNumber: '919000000000', // TODO: replace with real number
         whatsappLink: 'https://wa.me/919000000000?text=Hello%20Parvathi%20Infra%20-%20I%20am%20interested%20in%20your%20developments',
-        email: 'infraparvathi@gmail.com',
+        email: 'info@parvathiinfra.com',
+        emails: {
+                info: 'info@parvathiinfra.com',
+                sales: 'sales@parvathiinfra.com',
+                admin: 'admin@parvathiinfra.com',
+        },
         officeAddress:
                 'Brindavan Colony, Ootapally Village, near Tondupally Toll Gate, Shamshabad, Telangana',
         siteAddress: 'Kothur, on NH-44 (Bengaluru Highway), Telangana',
@@ -198,7 +203,7 @@ export const FAQS = [
         },
         {
                 q: 'How do I book a site visit?',
-                a: 'Share your details via the enquiry form, request the brochure, or write to us at infraparvathi@gmail.com. Our team will arrange a chauffeured site visit at your convenience.',
+                a: 'Share your details via the enquiry form, request the brochure, or write to us at info@parvathiinfra.com. Our team will arrange a chauffeured site visit at your convenience.',
         },
 ];
 

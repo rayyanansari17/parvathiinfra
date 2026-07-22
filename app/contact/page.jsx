@@ -54,15 +54,50 @@ export default function Contact() {
 
                                                         <div>
                                                                 <div className="micro-label mb-3">Email</div>
-                                                                <div className="flex items-start gap-4">
-                                                                        <Mail className="mt-1 text-gold" size={18} />
-                                                                        <a
-                                                                                data-testid={CONTACT_PAGE.email}
-                                                                                href={`mailto:${SITE.email}`}
-                                                                                className="gold-underline font-serif-elegant text-lg text-ivory"
-                                                                        >
-                                                                                {SITE.email}
-                                                                        </a>
+                                                                <div className="space-y-3">
+                                                                        <div className="flex items-start gap-4">
+                                                                                <Mail className="mt-1 text-gold" size={18} />
+                                                                                <div>
+                                                                                        <a
+                                                                                                data-testid={CONTACT_PAGE.email}
+                                                                                                href={`mailto:${SITE.emails.info}`}
+                                                                                                className="gold-underline font-serif-elegant text-lg text-ivory"
+                                                                                        >
+                                                                                                {SITE.emails.info}
+                                                                                        </a>
+                                                                                        <div className="text-xs uppercase tracking-[0.2em] text-ivory-dim/70">
+                                                                                                General Enquiries
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                        <div className="flex items-start gap-4">
+                                                                                <Mail className="mt-1 text-gold" size={18} />
+                                                                                <div>
+                                                                                        <a
+                                                                                                href={`mailto:${SITE.emails.sales}`}
+                                                                                                className="gold-underline font-serif-elegant text-lg text-ivory"
+                                                                                        >
+                                                                                                {SITE.emails.sales}
+                                                                                        </a>
+                                                                                        <div className="text-xs uppercase tracking-[0.2em] text-ivory-dim/70">
+                                                                                                Sales
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                        <div className="flex items-start gap-4">
+                                                                                <Mail className="mt-1 text-gold" size={18} />
+                                                                                <div>
+                                                                                        <a
+                                                                                                href={`mailto:${SITE.emails.admin}`}
+                                                                                                className="gold-underline font-serif-elegant text-lg text-ivory"
+                                                                                        >
+                                                                                                {SITE.emails.admin}
+                                                                                        </a>
+                                                                                        <div className="text-xs uppercase tracking-[0.2em] text-ivory-dim/70">
+                                                                                                Admin
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
                                                                 </div>
                                                         </div>
 
