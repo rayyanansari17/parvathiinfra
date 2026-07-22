@@ -34,7 +34,7 @@ export const FILM_SCENES = [
         },
         {
                 src: '/assets/walkthrough/page-4.jpg',
-                title: '45 Exclusive Plots',
+                title: '41 Exclusive Plots',
                 copy: '30-ft tree-lined avenues. 100% Vastu.',
                 chapter: 'The Avenue',
                 from: { x:  4, y: 0, scale: 1.08 },
@@ -68,13 +68,13 @@ export const FILM_SCENES = [
 
 export const FILM_IMAGES = FILM_SCENES.map((s) => s.src);
 
-// Real plot sizes (sq. yds) from the brochure legend. 45 plots total.
+// Real plot sizes (sq. yds) from the brochure legend. 41 plots total.
 export const PLOT_SIZES = [
         371.21, 200, 233.33, 200, 200, 200, 200, 200, 200, 200, // 1-10
         200, 211.11, 200, 200, 200, 200, 200, 200, 200, 166.66, // 11-20
         166.66, 166.66, 166.66, 166.66, 166.66, 252.04, 200, 200, 200, 200, // 21-30
         264.14, 166.66, 166.66, 317.68, 320.54, 292.10, 311.83, 301.23, 269.24, 295.87, // 31-40
-        295.04, 297.95, 306.02, 313.80, 388.44, // 41-45
+        295.04, // 41
 ];
 
 // Rough layout coordinates for each plot in normalized (0-100) % over the aerial-master-plan.jpeg.
@@ -116,7 +116,7 @@ export const PLOT_HOTSPOTS = [
         { n: 31, x: 53.6, y: 42.5, w: 3.4, h: 3.9, facing: 'South' },
         { n: 32, x: 57.4, y: 42.5, w: 3.0, h: 3.5, facing: 'South' },
         { n: 33, x: 61.2, y: 42.5, w: 3.0, h: 3.5, facing: 'South' },
-        // Bottom row, 34-45
+        // Bottom row, 34-41
         { n: 34, x: 38.6, y: 51.5, w: 3.5, h: 4.5, facing: 'South' },
         { n: 35, x: 42.6, y: 51.5, w: 3.5, h: 4.5, facing: 'South' },
         { n: 36, x: 46.6, y: 51.5, w: 3.3, h: 4.3, facing: 'South' },
@@ -125,10 +125,6 @@ export const PLOT_HOTSPOTS = [
         { n: 39, x: 58.0, y: 51.5, w: 3.2, h: 4.2, facing: 'South' },
         { n: 40, x: 61.6, y: 51.5, w: 3.4, h: 4.4, facing: 'South' },
         { n: 41, x: 65.4, y: 51.5, w: 3.4, h: 4.4, facing: 'South' },
-        { n: 42, x: 69.2, y: 51.5, w: 3.4, h: 4.4, facing: 'South' },
-        { n: 43, x: 73.0, y: 51.5, w: 3.5, h: 4.4, facing: 'South' },
-        { n: 44, x: 77.0, y: 51.5, w: 3.5, h: 4.5, facing: 'South' },
-        { n: 45, x: 81.2, y: 51.5, w: 3.9, h: 4.7, facing: 'South' },
 ];
 
 // Amenity legend from the master plan.
@@ -150,7 +146,7 @@ export const AMENITY_HOTSPOTS = [
 
 // Nearest amenities per plot (very simple heuristic by row).
 export function nearestAmenities(plotNo) {
-        if (plotNo >= 34 && plotNo <= 45) return ['H · Amphitheatre', 'D · Clubhouse', 'E · Pool'];
+        if (plotNo >= 34 && plotNo <= 41) return ['H · Amphitheatre', 'D · Clubhouse', 'E · Pool'];
         if (plotNo >= 20 && plotNo <= 33) return ['B · 30 ft. Road', 'F · Sitting Area', 'G · Gazebo'];
         if (plotNo >= 1 && plotNo <= 19)  return ['C · Kids Play', 'A · Grand Entrance', 'I · View Point'];
         return [];

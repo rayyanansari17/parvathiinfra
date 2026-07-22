@@ -26,7 +26,7 @@ import {
 } from '@/components/ui/accordion';
 
 // -------- Plot dataset (schematic; independent from banner image) --------
-const PLOTS = Array.from({ length: 45 }, (_, i) => {
+const PLOTS = Array.from({ length: 41 }, (_, i) => {
         const idx = i;
         const size = 200 + ((idx * 17) % 190);
         const status = idx % 5 === 0 ? 'sold' : 'available';
@@ -45,7 +45,7 @@ function PlotChooser() {
                         className="border border-[rgba(201,162,75,0.25)] bg-obsidian"
                 >
                         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[rgba(201,162,75,0.2)] bg-ink px-6 py-4">
-                                <div className="micro-label">Interactive Plot Chooser · 45 Plots</div>
+                                <div className="micro-label">Interactive Plot Chooser · 41 Plots</div>
                                 <div className="flex gap-2">
                                         {[
                                                 { k: 'all', label: 'All' },
@@ -177,7 +177,7 @@ export default function TheView() {
                                                         </span>
                                                 </div>
                                                 <p className="mt-6 max-w-2xl font-serif-elegant text-lg italic text-ivory-dim md:text-xl">
-                                                        45 villa plots. 3.6 acres of stillness. Approvals in order.
+                                                        41 villa plots. 3.6 acres of stillness. Approvals in order.
                                                         Vastu, honoured.
                                                 </p>
                                                 <div className="mt-10 flex flex-wrap items-center gap-5">

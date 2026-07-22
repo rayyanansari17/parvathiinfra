@@ -48,22 +48,13 @@ export default function Navigation() {
                                         data-testid={NAV.logo}
                                         className="group flex items-center gap-3"
                                 >
-                                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                                                <path
-                                                        d="M4 24 L16 6 L28 24 Z"
-                                                        stroke="url(#navGold)"
-                                                        strokeWidth="1.4"
-                                                        fill="none"
-                                                />
-                                                <circle cx="16" cy="18" r="2.2" fill="#C9A24B" />
-                                                <defs>
-                                                        <linearGradient id="navGold" x1="0" y1="0" x2="1" y2="1">
-                                                                <stop offset="0%" stopColor="#BF953F" />
-                                                                <stop offset="50%" stopColor="#FCF6BA" />
-                                                                <stop offset="100%" stopColor="#AA771C" />
-                                                        </linearGradient>
-                                                </defs>
-                                        </svg>
+                                        <img
+                                                src="/assets/logo-parvathi.png"
+                                                alt="Parvathi Infra Developers"
+                                                width={36}
+                                                height={36}
+                                                className="h-9 w-9 object-contain"
+                                        />
                                         <div className="leading-tight">
                                                 <div className="font-display text-[0.9rem] tracking-[0.28em] text-ivory">
                                                         PARVATHI INFRA

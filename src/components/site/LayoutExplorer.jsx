@@ -89,7 +89,7 @@ export default function LayoutExplorer() {
                                                         Choose your <span className="gold-foil-text">plot</span>.
                                                 </h2>
                                                 <p className="mt-4 max-w-2xl font-serif-elegant text-lg italic text-ivory-dim">
-                                                        45 exclusive villa plots · nine curated amenities. Hover any
+                                                        41 exclusive villa plots · nine curated amenities. Hover any
                                                         plot for size and status. Click to enquire.
                                                 </p>
                                         </div>

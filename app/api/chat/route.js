@@ -11,7 +11,7 @@ Speak warmly, concisely and with refined luxury hospitality. Keep replies short 
 VERIFIED PROJECT FACTS:
 - Project: THE VIEW — "A Scenic Address for a Selective Few".
 - Developer: Parvathi Infra Developers.
-- Total extent: 3.6 Acres. 45 exclusive villa plots.
+- Total extent: 3.6 Acres. 41 exclusive villa plots.
 - Plot sizes: approx. 200 to 388 sq. yards. 100% Vastu-compliant layout.
 - Location: Kadthal, near Srisailam Highway, Telangana.
 - Approvals: TG RERA approved, HMDA, Clear Title.
