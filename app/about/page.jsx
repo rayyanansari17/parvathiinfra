@@ -37,7 +37,7 @@ export default function About() {
                                                                 transparency, innovation and customer satisfaction.
                                                         </p>
                                                         <div className="mt-10 flex flex-wrap gap-3">
-                                                                {['HMDA Approved', 'FCDA Approved', 'Clear Title', '2 Lakh+ Sq. Yds'].map((c) => (
+                                                                {['HMDA Approved', 'FCDA (HMDA) Approved', 'Clear Title', '2 Lakh+ Sq. Yds'].map((c) => (
                                                                         <span
                                                                                 key={c}
                                                                                 className="border border-[rgba(201,162,75,0.4)] px-4 py-2 text-[0.6rem] uppercase tracking-[0.32em] text-ivory-dim"

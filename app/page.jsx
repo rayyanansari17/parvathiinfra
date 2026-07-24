@@ -79,7 +79,7 @@ export default function Home() {
                                                 </h1>
 
                                                 <p className="mt-8 max-w-2xl font-serif-elegant text-xl italic text-ivory-dim md:text-2xl">
-                                                        Premium HMDA &amp; FCDA Approved developments with high-quality
+                                                        Premium HMDA &amp; FCDA (HMDA) Approved developments with high-quality
                                                         infrastructure — legally transparent, strategically located, built to appreciate.
                                                 </p>
 
@@ -251,12 +251,13 @@ export default function Home() {
                                                         <span className="text-2xl md:text-3xl">at Kothur</span>
                                                 </h2>
                                                 <p className="mt-6 font-serif-elegant text-xl italic leading-relaxed text-ivory-dim md:text-2xl">
-                                                        Tomorrow’s landmark, today. An HMDA &amp; FCDA approved premium
+                                                        Tomorrow’s landmark, today. An HMDA &amp; FCDA (HMDA) approved premium
                                                         venture on NH-44 (Bengaluru Highway) — one of Telangana’s fastest-growing investment corridors.
                                                 </p>
                                                 <ul className="mt-8 space-y-3 text-sm text-ivory-dim">
                                                         {[
-                                                                'HMDA & FCDA Approved · Clear legal title',
+                                                                'HMDA & FCDA (HMDA) Approved · Clear legal title',
+                                                                'The first FCDA (HMDA) approved venture — the only one in Kadthal',
                                                                 'Wide blacktop roads, underground services, avenue plantation',
                                                                 '~30 min to RGI Airport · Direct NH-44 access · Near Fourth City corridor',
                                                         ].map((b) => (
@@ -288,7 +289,7 @@ export default function Home() {
                                                         <div className="absolute bottom-6 left-6 right-6">
                                                                 <div className="micro-label mb-2">Kothur · NH-44</div>
                                                                 <div className="font-display text-xl tracking-[0.16em] text-ivory">
-                                                                        HMDA · FCDA · CLEAR TITLE
+                                                                        HMDA · FCDA (HMDA) · CLEAR TITLE
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -393,7 +394,7 @@ export default function Home() {
                                                 {[
                                                         {
                                                                 title: 'THE VIEW',
-                                                                sub: 'Kothur · Flagship · HMDA & FCDA',
+                                                                sub: 'Kothur · Flagship · HMDA & FCDA (HMDA)',
                                                                 img: MASTER_PLAN_IMAGE,
                                                                 to: '/the-view',
                                                                 status: 'Now Selling',

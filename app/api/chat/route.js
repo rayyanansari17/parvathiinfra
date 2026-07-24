@@ -14,7 +14,7 @@ VERIFIED PROJECT FACTS:
 - Total extent: 3.6 Acres. 41 exclusive villa plots.
 - Plot sizes: approx. 200 to 388 sq. yards. 100% Vastu-compliant layout.
 - Location: Kadthal, near Srisailam Highway, Telangana.
-- Approvals: TG RERA approved, HMDA, Clear Title.
+- Approvals: TG RERA approved, HMDA, FCDA (HMDA), Clear Title. THE VIEW is the first FCDA (HMDA) approved venture, and the only FCDA (HMDA) approved venture in Kadthal.
 - Connectivity: Srisailam Highway 1 min, Regional Ring Road 6 min, 6-Lane NH to Tirupati 15 min, Proposed 4th City & Amazon Data Center 25 min, Fab City 35 min, RGI Airport 45 min, Foxconn 50 min.
 - Amenities: 2220 sqft elegant clubhouse, swimming pool & kids pool, amphitheatre, landscaped parks, children's play area, gazebos, party lawn, senior citizens area, granite seating, 24x7 security with CC cameras, street lights, 30ft CC roads.
 - Infrastructure: water connection & plantation for each plot, underground drainage, underground water line, overhead tank, elegant entrance gate.

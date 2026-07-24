@@ -4,9 +4,9 @@
 export const SITE = {
         brand: 'Parvathi Infra Developers',
         tagline: 'Creating Landmarks. Building Trust.',
-        subTagline: 'Premium HMDA & FCDA Approved Developments with High-Quality Infrastructure.',
+        subTagline: 'Premium HMDA & FCDA (HMDA) Approved Developments with High-Quality Infrastructure.',
         flagship: 'THE VIEW',
-        founder: 'Mr. C. Goutham Yadav',
+        founder: 'Mr. C. Gautham Yadav',
         establishedYear: '2019',
         phoneDisplay: '+91 90000 00000',
         phoneLink: 'tel:+919000000000',
@@ -29,7 +29,7 @@ export const PARVATHI_HIGHLIGHTS = [
         { k: '8+', label: 'Years of Real Estate Expertise' },
         { k: '2 Lakh+', label: 'Sq. Yards Developed & Marketed' },
         { k: 'Multiple', label: 'Successful Ventures' },
-        { k: 'HMDA & FCDA', label: 'Approved Projects' },
+        { k: 'HMDA & FCDA (HMDA)', label: 'Approved Projects' },
         { k: 'Landmark', label: 'Developments with High-Quality Infrastructure' },
 ];
 
@@ -48,7 +48,7 @@ export const JOURNEY = [
         {
                 year: '2019',
                 title: 'Company Established',
-                copy: 'Parvathi Infra Developers is founded in Hyderabad under the leadership of Mr. C. Goutham Yadav.',
+                copy: 'Parvathi Infra Developers is founded in Hyderabad under the leadership of Mr. C. Gautham Yadav.',
         },
         {
                 year: '2019–2022',
@@ -140,7 +140,7 @@ export const AMENITIES = [
         },
         {
                 title: 'Clear Legal Documentation',
-                copy: 'HMDA & FCDA approved, clear title on every plot — read before you sign.',
+                copy: 'HMDA & FCDA (HMDA) approved, clear title on every plot — read before you sign.',
                 image: 'https://images.pexels.com/photos/26729557/pexels-photo-26729557.jpeg',
         },
         {
@@ -157,7 +157,7 @@ export const INFRASTRUCTURE = [
         'Underground Water Line',
         'Modern Street Lighting',
         'Avenue Plantation per Plot',
-        'HMDA & FCDA Approved',
+        'HMDA & FCDA (HMDA) Approved',
         'Clear Legal Documentation',
 ];
 
@@ -172,7 +172,7 @@ export const STATS = [
 // Approvals & credentials — used in the marquee.
 export const APPROVALS = [
         'HMDA Approved',
-        'FCDA Approved',
+        'FCDA (HMDA) Approved',
         'Clear Legal Title',
         '100% Vastu Compliant',
         'RERA Registered',
@@ -183,7 +183,7 @@ export const APPROVALS = [
 export const FAQS = [
         {
                 q: 'Is THE VIEW approved?',
-                a: 'Yes. THE VIEW is an HMDA and FCDA Approved Premium Venture at Kothur, with clear legal title on every plot.',
+                a: 'Yes. THE VIEW is an HMDA and FCDA (HMDA) Approved Premium Venture at Kothur, with clear legal title on every plot — the first FCDA (HMDA) approved venture, and the only FCDA (HMDA) approved venture in Kadthal.',
         },
         {
                 q: 'Where exactly is THE VIEW located?',

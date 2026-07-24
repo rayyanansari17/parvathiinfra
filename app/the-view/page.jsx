@@ -178,7 +178,8 @@ export default function TheView() {
                                                 </div>
                                                 <p className="mt-6 max-w-2xl font-serif-elegant text-lg italic text-ivory-dim md:text-xl">
                                                         41 villa plots. 3.6 acres of stillness. Approvals in order.
-                                                        Vastu, honoured.
+                                                        Vastu, honoured. The first FCDA (HMDA) approved venture —
+                                                        the only one in Kadthal.
                                                 </p>
                                                 <div className="mt-10 flex flex-wrap items-center gap-5">
                                                         <Link
@@ -268,7 +269,7 @@ export default function TheView() {
                                                         />
                                                         <figcaption className="flex flex-wrap items-center justify-between gap-4 border-t border-[rgba(201,162,75,0.2)] bg-ink px-6 py-4">
                                                                 <span className="micro-label">
-                                                                        Master Layout · Kothur · HMDA & FCDA Approved
+                                                                        Master Layout · Kothur · HMDA & FCDA (HMDA) Approved
                                                                 </span>
                                                                 <span className="text-[0.6rem] uppercase tracking-[0.32em] text-ivory-dim/70">
                                                                         Artist Impression · Indicative

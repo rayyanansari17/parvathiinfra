@@ -51,9 +51,9 @@ export default function Navigation() {
                                         <img
                                                 src="/assets/logo-parvathi.png"
                                                 alt="Parvathi Infra Developers"
-                                                width={36}
-                                                height={36}
-                                                className="h-9 w-9 object-contain"
+                                                width={64}
+                                                height={64}
+                                                className="h-12 w-12 object-contain md:h-16 md:w-16"
                                         />
                                         <div className="leading-tight">
                                                 <div className="font-display text-[0.9rem] tracking-[0.28em] text-ivory">

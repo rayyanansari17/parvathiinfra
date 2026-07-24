@@ -9,12 +9,12 @@ const PROJECTS = [
         {
                 id: 'the-view',
                 title: 'THE VIEW',
-                sub: 'Kothur · Flagship · HMDA & FCDA Approved',
+                sub: 'Kothur · Flagship · HMDA & FCDA (HMDA) Approved',
                 status: 'Now Selling',
                 img: MASTER_PLAN_IMAGE,
                 to: '/the-view',
                 testid: PROJECTS_PAGE.projectCardTheView,
-                copy: 'Our flagship at Kothur, on NH-44 (Bengaluru Highway). HMDA & FCDA approved with clear legal title, wide blacktop roads, underground services and avenue plantation.',
+                copy: 'Our flagship at Kothur, on NH-44 (Bengaluru Highway). HMDA & FCDA (HMDA) approved with clear legal title, wide blacktop roads, underground services and avenue plantation.',
         },
         {
                 id: PAST_PROJECTS[0].id,
