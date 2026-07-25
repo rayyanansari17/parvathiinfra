@@ -1,0 +1,156 @@
+{
+  "nodes": [
+    {
+      "id": "arrival",
+      "index": 0,
+      "title": "Arrival",
+      "chapter": "Chapter 01 · Arrival",
+      "copy": "On a scenic hill along the Srisailam Highway, where the future is moving.",
+      "image": "/assets/tour/01-aerial-site.jpg",
+      "camera": { "fromScale": 1.08, "toScale": 1.0, "xDrift": -1.5, "yDrift": 1.0, "duration": 22 },
+      "forwardHotspot": { "x": 50, "y": 88, "label": "The Descent" },
+      "infoHotspots": [
+        { "x": 58, "y": 58, "title": "The Arch", "body": "The signature entrance arch, lit at the foot of the avenue." },
+        { "x": 80, "y": 75, "title": "100 ft Highway", "body": "Direct frontage on the Srisailam Highway, the site's main artery." },
+        { "x": 15, "y": 12, "title": "City Skyline", "body": "Hyderabad's skyline on the horizon, the city moving steadily closer." }
+      ],
+      "miniMapPos": { "x": 90, "y": 88 }
+    },
+    {
+      "id": "descent",
+      "index": 1,
+      "title": "The Descent",
+      "chapter": "Chapter 02 · The Descent",
+      "copy": "3.62 acres. 41 exclusive villa plots.",
+      "image": "/assets/tour/02-aerial-avenue.jpg",
+      "camera": { "fromScale": 1.10, "toScale": 1.0, "xDrift": 1.0, "yDrift": -1.5, "duration": 20 },
+      "forwardHotspot": { "x": 50, "y": 68, "label": "The Arch" },
+      "infoHotspots": [],
+      "miniMapPos": { "x": 88, "y": 85 }
+    },
+    {
+      "id": "arch",
+      "index": 2,
+      "title": "The Arch",
+      "chapter": "Chapter 03 · The Arch",
+      "copy": "Where first impressions become lasting statements.",
+      "image": "/assets/tour/03-arch-front.jpg",
+      "camera": { "fromScale": 1.06, "toScale": 1.14, "xDrift": 0, "yDrift": -1.0, "duration": 18 },
+      "forwardHotspot": { "x": 68, "y": 58, "label": "Entering" },
+      "infoHotspots": [
+        { "x": 48, "y": 38, "title": "Arch Signage", "body": "THE VIEW, cast in light: \"A Scenic Address for a Selective View.\"" },
+        { "x": 25, "y": 58, "title": "Stone Cladding", "body": "Natural stone and timber cladding, quiet materials with a long life." }
+      ],
+      "miniMapPos": { "x": 88, "y": 87 }
+    },
+    {
+      "id": "entering",
+      "index": 3,
+      "title": "Entering",
+      "chapter": "Chapter 04 · Entering",
+      "copy": "A grand arrival. A statement of belonging.",
+      "image": "/assets/tour/04-gate-through.jpg",
+      "camera": { "fromScale": 1.05, "toScale": 1.15, "xDrift": 0, "yDrift": 0, "duration": 18 },
+      "forwardHotspot": { "x": 50, "y": 45, "label": "The Avenue" },
+      "infoHotspots": [
+        { "x": 15, "y": 45, "title": "Parvathi Flags", "body": "Flags line both sides of the entry, a quiet, formal welcome." },
+        { "x": 85, "y": 45, "title": "Parvathi Flags", "body": "Flags line both sides of the entry, a quiet, formal welcome." },
+        { "x": 50, "y": 68, "title": "Central Palm Median", "body": "A planted median runs the length of the entry drive." }
+      ],
+      "miniMapPos": { "x": 85, "y": 80 }
+    },
+    {
+      "id": "avenue",
+      "index": 4,
+      "title": "The Avenue",
+      "chapter": "Chapter 05 · The Avenue",
+      "copy": "30-foot avenues. The land rises as you enter: 645.5m at the gate, 648.1m at the top.",
+      "image": "/assets/tour/05-avenue.jpg",
+      "camera": { "fromScale": 1.10, "toScale": 1.0, "xDrift": -1.0, "yDrift": 1.5, "duration": 22 },
+      "forwardHotspot": { "x": 52, "y": 38, "label": "The Clubhouse" },
+      "infoHotspots": [],
+      "miniMapPos": { "x": 65, "y": 55 }
+    },
+    {
+      "id": "clubhouse",
+      "index": 5,
+      "title": "The Clubhouse",
+      "chapter": "Chapter 06 · The Clubhouse",
+      "copy": "An elegant 2,220 sq.ft clubhouse, with an infinity-edge pool.",
+      "image": "/assets/tour/06-clubhouse.jpg",
+      "camera": { "fromScale": 1.08, "toScale": 1.0, "xDrift": 1.0, "yDrift": -1.0, "duration": 20 },
+      "forwardHotspot": { "x": 65, "y": 65, "label": "Poolside" },
+      "infoHotspots": [
+        { "x": 48, "y": 68, "title": "Infinity-Edge Pool", "body": "The pool's edge dissolves into the hillside view beyond." },
+        { "x": 75, "y": 42, "title": "Parvathi Medallion", "body": "The brand mark, set in stone on the clubhouse facade." }
+      ],
+      "miniMapPos": { "x": 90, "y": 10 }
+    },
+    {
+      "id": "poolside",
+      "index": 6,
+      "title": "Poolside",
+      "chapter": "Chapter 07 · Poolside",
+      "copy": "Cabanas, loungers, and evenings that stretch.",
+      "image": "/assets/tour/07-clubhouse-alt.jpg",
+      "camera": { "fromScale": 1.06, "toScale": 1.14, "xDrift": -1.0, "yDrift": 0, "duration": 18 },
+      "forwardHotspot": { "x": 72, "y": 68, "label": "Amphitheatre" },
+      "infoHotspots": [],
+      "miniMapPos": { "x": 88, "y": 13 }
+    },
+    {
+      "id": "amphitheatre",
+      "index": 7,
+      "title": "Amphitheatre",
+      "chapter": "Chapter 08 · Amphitheatre",
+      "copy": "An open-air amphitheatre for cultural and social gatherings.",
+      "image": "/assets/tour/08-amphitheatre.jpg",
+      "camera": { "fromScale": 1.08, "toScale": 1.0, "xDrift": 1.5, "yDrift": -1.0, "duration": 20 },
+      "forwardHotspot": { "x": 55, "y": 42, "label": "The View Point" },
+      "infoHotspots": [
+        { "x": 35, "y": 55, "title": "Stone Tiers", "body": "Curved stone seating tiers, cut into the natural slope." },
+        { "x": 78, "y": 42, "title": "Tree Court", "body": "A circular timber bench, gathered around an existing tree." }
+      ],
+      "miniMapPos": { "x": 93, "y": 11 }
+    },
+    {
+      "id": "viewpoint",
+      "index": 8,
+      "title": "The View Point",
+      "chapter": "Chapter 09 · The View Point",
+      "copy": "A Scenic Address for a Selective Few.",
+      "image": "/assets/tour/09-viewpoint.jpg",
+      "camera": { "fromScale": 1.05, "toScale": 1.15, "xDrift": 0, "yDrift": -1.5, "duration": 20 },
+      "forwardHotspot": { "x": 50, "y": 85, "label": "Master Plan" },
+      "infoHotspots": [
+        { "x": 17, "y": 32, "title": "Maisigandi Pyramid", "body": "The Pyramid Meditation Centre, visible on the ridge beyond." },
+        { "x": 78, "y": 32, "title": "City Skyline", "body": "Hyderabad, lit and unfolding in the middle distance." },
+        { "x": 45, "y": 48, "title": "Terrace Railing", "body": "A glass-railed terrace at the highest point of the site." }
+      ],
+      "miniMapPos": { "x": 82, "y": 12 }
+    },
+    {
+      "id": "masterplan",
+      "index": 9,
+      "title": "Master Plan",
+      "chapter": "Chapter 10 · Master Plan",
+      "copy": "Choose your plot. 166 to 398 square yards.",
+      "image": "/assets/tour/10-layout-plan.jpg",
+      "camera": null,
+      "forwardHotspot": null,
+      "infoHotspots": [],
+      "miniMapPos": { "x": 50, "y": 50 }
+    }
+  ],
+  "amenityPins": [
+    { "code": "A", "name": "Grand Entrance", "x": 88, "y": 87, "body": "The signature stone and timber arch, the address's first statement.", "image": "/assets/tour/03-arch-front.jpg", "jumpTo": "arch" },
+    { "code": "B", "name": "30ft Roads", "x": 63, "y": 50, "body": "Wide, tree-lined 30 ft CC roads running the length of the layout.", "image": "/assets/tour/05-avenue.jpg", "jumpTo": null },
+    { "code": "C", "name": "Children's Play Area", "x": 35, "y": 65, "body": "A softscape play zone, tucked into a landscaped pocket of the layout.", "image": "/assets/tour/11-amenity-aerial.jpg", "jumpTo": null },
+    { "code": "D", "name": "Clubhouse", "x": 90, "y": 9, "body": "A 2,220 sq.ft clubhouse with lounge, gym and indoor games.", "image": "/assets/tour/06-clubhouse.jpg", "jumpTo": "clubhouse" },
+    { "code": "E", "name": "Pool & Amphitheatre Entry", "x": 87, "y": 13, "body": "The shared approach to the infinity pool and the amphitheatre beyond.", "image": "/assets/tour/11-amenity-aerial.jpg", "jumpTo": null },
+    { "code": "F", "name": "Sitting Area", "x": 78, "y": 24, "body": "Granite bench seating, set within the layout's green pockets.", "image": "/assets/tour/11-amenity-aerial.jpg", "jumpTo": null },
+    { "code": "G", "name": "Gazebo", "x": 22, "y": 75, "body": "A quiet gazebo at the edge of the open space, for evenings outdoors.", "image": "/assets/tour/11-amenity-aerial.jpg", "jumpTo": null },
+    { "code": "H", "name": "Amphitheatre", "x": 93, "y": 11, "body": "An open-air stone amphitheatre for cultural and social gatherings.", "image": "/assets/tour/08-amphitheatre.jpg", "jumpTo": "amphitheatre" },
+    { "code": "I", "name": "View Point", "x": 82, "y": 12, "body": "The panoramic terrace on the highest ridge, the view the address is named for.", "image": "/assets/tour/09-viewpoint.jpg", "jumpTo": "viewpoint" }
+  ]
+}

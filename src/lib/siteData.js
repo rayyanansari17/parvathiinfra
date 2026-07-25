@@ -20,7 +20,7 @@ export const SITE = {
         },
         officeAddress:
                 'Brindavan Colony, Ootapally Village, near Tondupally Toll Gate, Shamshabad, Telangana',
-        siteAddress: 'Kadthal, on NH-44 (Bengaluru Highway), Telangana',
+        siteAddress: 'Karkalphad Village, Kadthal Mandal, Rangareddy District, Telangana',
 };
 
 // Six pillars of the company — hero highlights on Home.
