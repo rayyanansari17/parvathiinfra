@@ -2,8 +2,8 @@ import './globals.css';
 import ShellClient from '@/components/site/ShellClient';
 
 export const metadata = {
-        title: 'THE VIEW — Parvathi Infra Developers | Luxury Villa Plots, Kadthal',
-        description: 'Premium HMDA & FCDA (HMDA) Approved developments with high-quality infrastructure — legally transparent, strategically located, built to appreciate.',
+        title: 'THE VIEW · Parvathi Infra Developers | Luxury Villa Plots, Kadthal',
+        description: 'Premium HMDA & FCDA (HMDA) Approved developments with high-quality infrastructure, legally transparent, strategically located, built to appreciate.',
 };
 
 export const viewport = {

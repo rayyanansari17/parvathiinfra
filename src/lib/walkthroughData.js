@@ -132,12 +132,12 @@ export const AMENITY_HOTSPOTS = [
         { code: 'A', name: 'Grand Entrance',        x: 55.5, y: 62.0, blurb: 'Signature gold-lit stone entrance arch flanked by Parvathi Infra flags.' },
         { code: 'B', name: '30 ft. Wide Road',      x: 60.0, y: 47.0, blurb: 'Tree-lined central boulevard laid in CC concrete, ~30 ft wide.' },
         { code: 'C', name: "Children's Play Area",  x: 76.0, y: 41.0, blurb: 'Softscape play zone with elegant equipment and shaded seating.' },
-        { code: 'D', name: 'Clubhouse',             x: 45.0, y: 60.0, blurb: '2,220 sq.ft. clubhouse — lounge, gym, indoor games, café.' },
+        { code: 'D', name: 'Clubhouse',             x: 45.0, y: 60.0, blurb: '2,220 sq.ft. clubhouse, lounge, gym, indoor games, café.' },
         { code: 'E', name: 'Pool & Amphitheatre',   x: 48.5, y: 65.5, blurb: 'Infinity-edge swimming pool, kids’ pool and amphitheatre entry.' },
         { code: 'F', name: 'Sitting Area',          x: 70.0, y: 55.0, blurb: 'Granite bench seating tucked into landscaped pockets.' },
         { code: 'G', name: 'Gazebo',                x: 32.0, y: 55.0, blurb: 'Wrought-iron gazebos for quiet evenings and small gatherings.' },
         { code: 'H', name: 'Amphitheatre',          x: 40.0, y: 66.0, blurb: 'Open-air stone amphitheatre for cultural evenings and cinema nights.' },
-        { code: 'I', name: 'View Point',            x: 30.0, y: 43.0, blurb: 'Panoramic terrace on the highest ridge — the "view" the brand is named for.' },
+        { code: 'I', name: 'View Point',            x: 30.0, y: 43.0, blurb: 'Panoramic terrace on the highest ridge, the "view" the brand is named for.' },
 ];
 
 // Cinematic caption waypoints — DEPRECATED (kept as reference; not used by

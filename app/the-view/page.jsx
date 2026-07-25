@@ -161,7 +161,7 @@ export default function TheView() {
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ delay: 2.6, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
                                         >
-                                                <div className="micro-label mb-6">Flagship · Kothur · NH-44</div>
+                                                <div className="micro-label mb-6">Flagship · Kadthal · NH-44</div>
                                                 <h1 className="max-w-5xl font-display text-5xl leading-[1.02] tracking-[0.08em] text-ivory sm:text-7xl md:text-8xl lg:text-[8.5rem]">
                                                         THE <span className="gold-foil-text">VIEW</span>
                                                 </h1>
@@ -178,7 +178,7 @@ export default function TheView() {
                                                 </div>
                                                 <p className="mt-6 max-w-2xl font-serif-elegant text-lg italic text-ivory-dim md:text-xl">
                                                         41 villa plots. 3.6 acres of stillness. Approvals in order.
-                                                        Vastu, honoured. The first FCDA (HMDA) approved venture —
+                                                        Vastu, honoured. The first FCDA (HMDA) approved venture,
                                                         the only one in Kadthal.
                                                 </p>
                                                 <div className="mt-10 flex flex-wrap items-center gap-5">
@@ -269,7 +269,7 @@ export default function TheView() {
                                                         />
                                                         <figcaption className="flex flex-wrap items-center justify-between gap-4 border-t border-[rgba(201,162,75,0.2)] bg-ink px-6 py-4">
                                                                 <span className="micro-label">
-                                                                        Master Layout · Kothur · HMDA & FCDA (HMDA) Approved
+                                                                        Master Layout · Kadthal · HMDA & FCDA (HMDA) Approved
                                                                 </span>
                                                                 <span className="text-[0.6rem] uppercase tracking-[0.32em] text-ivory-dim/70">
                                                                         Artist Impression · Indicative
@@ -299,7 +299,7 @@ export default function TheView() {
                                                         A <span className="gold-foil-text">private</span> promenade.
                                                 </h2>
                                                 <p className="mt-6 max-w-xl font-serif-elegant text-lg italic text-ivory-dim">
-                                                        Eight considered spaces — for reflection, gathering and the small daily rituals of a life well-lived.
+                                                        Eight considered spaces for reflection, gathering and the small daily rituals of a life well-lived.
                                                 </p>
                                         </Reveal>
 
@@ -341,7 +341,7 @@ export default function TheView() {
                                         <Reveal>
                                                 <SectionIndex n={5} label="Location & Connectivity" />
                                                 <h2 className="font-display text-3xl leading-tight tracking-[0.12em] text-ivory md:text-5xl">
-                                                        Kothur,
+                                                        Kadthal,
                                                         <br />
                                                         <span className="gold-foil-text">the coordinates matter.</span>
                                                 </h2>
@@ -354,7 +354,7 @@ export default function TheView() {
                                                         <iframe
                                                                 data-testid="theview-map-embed"
                                                                 title="THE VIEW Location Map"
-                                                                src="https://www.google.com/maps?q=Kothur,+Telangana&output=embed"
+                                                                src="https://www.google.com/maps?q=Kadthal,+Telangana&output=embed"
                                                                 className="h-full w-full grayscale"
                                                                 loading="lazy"
                                                         />

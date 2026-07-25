@@ -20,7 +20,7 @@ export const SITE = {
         },
         officeAddress:
                 'Brindavan Colony, Ootapally Village, near Tondupally Toll Gate, Shamshabad, Telangana',
-        siteAddress: 'Kothur, on NH-44 (Bengaluru Highway), Telangana',
+        siteAddress: 'Kadthal, on NH-44 (Bengaluru Highway), Telangana',
 };
 
 // Six pillars of the company — hero highlights on Home.
@@ -36,11 +36,11 @@ export const PARVATHI_HIGHLIGHTS = [
 // Core operating values — 6 pillars.
 export const CORE_VALUES = [
         { title: 'Integrity',      copy: 'Straight dealings, always. Every document reads the same to us as it does to you.' },
-        { title: 'Trust',          copy: 'Earned across 2 Lakh+ sq. yards of delivered ventures — never claimed lightly.' },
+        { title: 'Trust',          copy: 'Earned across 2 Lakh+ sq. yards of delivered ventures, never claimed lightly.' },
         { title: 'Transparency',   copy: 'Clear title, clear approvals, clear conversations. No fine print in the shadows.' },
-        { title: 'Excellence',     copy: 'Wide roads, underground services, avenue plantation — the fundamentals, done exactingly.' },
+        { title: 'Excellence',     copy: 'Wide roads, underground services, avenue plantation. The fundamentals, done exactingly.' },
         { title: 'Innovation',     copy: 'Modern master planning, thoughtful landscaping and infrastructure that ages well.' },
-        { title: 'Customer First', copy: 'From the site visit to the sale-deed — and years after — our concierge stays close.' },
+        { title: 'Customer First', copy: 'From the site visit to the sale-deed, and years after, our concierge stays close.' },
 ];
 
 // Our Journey — verbatim from the brief.
@@ -53,12 +53,12 @@ export const JOURNEY = [
         {
                 year: '2019–2022',
                 title: 'Strategic Collaborations',
-                copy: 'Landmark residential ventures with Green Homes across Chilkoor Village, Moinabad, Shankarpally, Jadcherla and Kothur — over 90,000 sq. yards marketed in a single year.',
+                copy: 'Landmark residential ventures with Green Homes across Chilkoor Village, Moinabad, Shankarpally, Jadcherla and Kadthal, over 90,000 sq. yards marketed in a single year.',
         },
         {
                 year: '2023 →',
                 title: 'Independent Premium Developments',
-                copy: 'Over 2 Lakh+ sq. yards successfully developed and marketed independently, culminating in flagship venture — THE VIEW at Kothur.',
+                copy: 'Over 2 Lakh+ sq. yards successfully developed and marketed independently, culminating in flagship venture: THE VIEW at Kadthal.',
         },
 ];
 
@@ -69,7 +69,7 @@ export const PAST_PROJECTS = [
                 title: 'AIRPORT TOWN',
                 sub: 'Shamshabad Corridor · Delivered',
                 status: 'Delivered',
-                copy: 'A tranquil residential township minutes from Rajiv Gandhi International Airport — drawn for families who value the pause between arrival and unpacking.',
+                copy: 'A tranquil residential township minutes from Rajiv Gandhi International Airport, drawn for families who value the pause between arrival and unpacking.',
         },
         {
                 id: 'metro-city',
@@ -83,7 +83,7 @@ export const PAST_PROJECTS = [
                 title: 'AROKAH · THE MOUNTAIN VIEW',
                 sub: 'Hillside Venture',
                 status: 'Delivered',
-                copy: 'A rare hillside venture carved along a natural ridgeline — panoramic vantages, curated plots, and a mountain that becomes your neighbour.',
+                copy: 'A rare hillside venture carved along a natural ridgeline, panoramic vantages, curated plots, and a mountain that becomes your neighbour.',
         },
 ];
 
@@ -93,10 +93,10 @@ export const COLLABORATION_LOCATIONS = [
         'Moinabad',
         'Shankarpally',
         'Jadcherla',
-        'Kothur (Bengaluru Highway Corridor)',
+        'Kadthal (Bengaluru Highway Corridor)',
 ];
 
-// Kothur / NH-44 connectivity for THE VIEW.
+// Kadthal / NH-44 connectivity for THE VIEW.
 export const CONNECTIVITY = [
         { time: 'On',  unit: 'NH-44', place: 'Bengaluru Highway (Direct Access)' },
         { time: '~5', unit: 'min', place: 'Maisigandi Maisamma Temple' },
@@ -120,7 +120,7 @@ export const AMENITIES = [
         },
         {
                 title: 'Avenue Plantation',
-                copy: 'Tree-lined avenues that grow into a canopy — the neighbourhood’s slow luxury.',
+                copy: 'Tree-lined avenues that grow into a canopy, the neighbourhood’s slow luxury.',
                 image: 'https://images.pexels.com/photos/2747599/pexels-photo-2747599.jpeg',
         },
         {
@@ -135,12 +135,12 @@ export const AMENITIES = [
         },
         {
                 title: 'Underground Utilities',
-                copy: 'Underground drainage and water lines — infrastructure you never have to see.',
+                copy: 'Underground drainage and water lines, infrastructure you never have to see.',
                 image: 'https://images.pexels.com/photos/1454360/pexels-photo-1454360.jpeg',
         },
         {
                 title: 'Clear Legal Documentation',
-                copy: 'HMDA & FCDA (HMDA) approved, clear title on every plot — read before you sign.',
+                copy: 'HMDA & FCDA (HMDA) approved, clear title on every plot, read before you sign.',
                 image: 'https://images.pexels.com/photos/26729557/pexels-photo-26729557.jpeg',
         },
         {
@@ -183,11 +183,11 @@ export const APPROVALS = [
 export const FAQS = [
         {
                 q: 'Is THE VIEW approved?',
-                a: 'Yes. THE VIEW is an HMDA and FCDA (HMDA) Approved Premium Venture at Kothur, with clear legal title on every plot — the first FCDA (HMDA) approved venture, and the only FCDA (HMDA) approved venture in Kadthal.',
+                a: 'Yes. THE VIEW is an HMDA and FCDA (HMDA) Approved Premium Venture at Kadthal, with clear legal title on every plot, the first FCDA (HMDA) approved venture, and the only FCDA (HMDA) approved venture in Kadthal.',
         },
         {
                 q: 'Where exactly is THE VIEW located?',
-                a: 'THE VIEW is located at Kothur, directly on NH-44 (Bengaluru Highway) with excellent connectivity to Rajiv Gandhi International Airport and industrial & logistics hubs.',
+                a: 'THE VIEW is located at Kadthal, directly on NH-44 (Bengaluru Highway) with excellent connectivity to Rajiv Gandhi International Airport and industrial & logistics hubs.',
         },
         {
                 q: 'What are the location advantages?',
@@ -195,11 +195,11 @@ export const FAQS = [
         },
         {
                 q: 'What infrastructure does the layout include?',
-                a: 'A premium entrance gate, wide blacktop roads, underground drainage & water lines, modern street lighting, and avenue plantation — the fundamentals, done exactingly.',
+                a: 'A premium entrance gate, wide blacktop roads, underground drainage & water lines, modern street lighting, and avenue plantation. The fundamentals, done exactingly.',
         },
         {
                 q: 'What other projects have Parvathi Infra delivered?',
-                a: 'Airport Town (Shamshabad Corridor), Metro City, and Arokah — The Mountain View, alongside strategic collaborations with Green Homes across Chilkoor, Moinabad, Shankarpally, Jadcherla and Kothur.',
+                a: 'Airport Town (Shamshabad Corridor), Metro City, and Arokah: The Mountain View, alongside strategic collaborations with Green Homes across Chilkoor, Moinabad, Shankarpally, Jadcherla and Kadthal.',
         },
         {
                 q: 'How do I book a site visit?',

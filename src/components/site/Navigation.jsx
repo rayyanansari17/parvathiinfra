@@ -46,23 +46,15 @@ export default function Navigation() {
                                 <Link
                                         href="/"
                                         data-testid={NAV.logo}
-                                        className="group flex items-center gap-3"
+                                        className="group flex items-center"
                                 >
                                         <img
-                                                src="/assets/logo-parvathi.png"
+                                                src="/assets/logo-parvathi-wide.png"
                                                 alt="Parvathi Infra Developers"
-                                                width={64}
-                                                height={64}
-                                                className="h-12 w-12 object-contain md:h-16 md:w-16"
+                                                width={1475}
+                                                height={459}
+                                                className="h-11 w-auto object-contain sm:h-14 md:h-20"
                                         />
-                                        <div className="leading-tight">
-                                                <div className="font-display text-[0.9rem] tracking-[0.28em] text-ivory">
-                                                        PARVATHI INFRA
-                                                </div>
-                                                <div className="text-[0.6rem] tracking-[0.4em] text-gold">
-                                                        DEVELOPERS
-                                                </div>
-                                        </div>
                                 </Link>
 
                                 <nav className="hidden items-center gap-9 md:flex">

@@ -186,7 +186,7 @@ export default function About() {
                                                                 Across five key investment corridors, our collaborations with
                                                                 Green Homes marketed more than{' '}
                                                                 <span className="not-italic text-ivory">90,000 sq. yards</span> in a
-                                                                single year — a testament to execution and customer trust.
+                                                                single year, a testament to execution and customer trust.
                                                         </p>
                                                 </Reveal>
                                         </div>

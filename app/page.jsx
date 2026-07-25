@@ -80,7 +80,7 @@ export default function Home() {
 
                                                 <p className="mt-8 max-w-2xl font-serif-elegant text-xl italic text-ivory-dim md:text-2xl">
                                                         Premium HMDA &amp; FCDA (HMDA) Approved developments with high-quality
-                                                        infrastructure — legally transparent, strategically located, built to appreciate.
+                                                        infrastructure, legally transparent, strategically located, built to appreciate.
                                                 </p>
 
                                                 <div className="mt-10 flex flex-wrap items-center gap-5">
@@ -248,16 +248,16 @@ export default function Home() {
                                                 <h2 className="font-display text-4xl leading-tight tracking-[0.08em] text-ivory md:text-5xl">
                                                         THE <span className="gold-foil-text">VIEW</span>
                                                         <br />
-                                                        <span className="text-2xl md:text-3xl">at Kothur</span>
+                                                        <span className="text-2xl md:text-3xl">at Kadthal</span>
                                                 </h2>
                                                 <p className="mt-6 font-serif-elegant text-xl italic leading-relaxed text-ivory-dim md:text-2xl">
                                                         Tomorrow’s landmark, today. An HMDA &amp; FCDA (HMDA) approved premium
-                                                        venture on NH-44 (Bengaluru Highway) — one of Telangana’s fastest-growing investment corridors.
+                                                        venture on NH-44 (Bengaluru Highway), one of Telangana’s fastest-growing investment corridors.
                                                 </p>
                                                 <ul className="mt-8 space-y-3 text-sm text-ivory-dim">
                                                         {[
                                                                 'HMDA & FCDA (HMDA) Approved · Clear legal title',
-                                                                'The first FCDA (HMDA) approved venture — the only one in Kadthal',
+                                                                'The first FCDA (HMDA) approved venture, the only one in Kadthal',
                                                                 'Wide blacktop roads, underground services, avenue plantation',
                                                                 '~30 min to RGI Airport · Direct NH-44 access · Near Fourth City corridor',
                                                         ].map((b) => (
@@ -287,7 +287,7 @@ export default function Home() {
                                                         />
                                                         <div className="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent" />
                                                         <div className="absolute bottom-6 left-6 right-6">
-                                                                <div className="micro-label mb-2">Kothur · NH-44</div>
+                                                                <div className="micro-label mb-2">Kadthal · NH-44</div>
                                                                 <div className="font-display text-xl tracking-[0.16em] text-ivory">
                                                                         HMDA · FCDA (HMDA) · CLEAR TITLE
                                                                 </div>
@@ -314,7 +314,7 @@ export default function Home() {
                                                                 without leaving your chair.
                                                         </h2>
                                                         <p className="mt-6 max-w-md font-serif-elegant text-lg italic text-ivory-dim">
-                                                                A cinematic scroll-driven tour of THE VIEW — from the entrance
+                                                                A cinematic scroll-driven tour of THE VIEW, from the entrance
                                                                 arch to the ridge, in seven curated scenes.
                                                         </p>
                                                         <div className="mt-8 inline-flex items-center gap-4 border border-[rgba(201,162,75,0.5)] bg-gold-foil px-8 py-3.5 text-[0.7rem] uppercase tracking-[0.32em] text-ink">
@@ -394,7 +394,7 @@ export default function Home() {
                                                 {[
                                                         {
                                                                 title: 'THE VIEW',
-                                                                sub: 'Kothur · Flagship · HMDA & FCDA (HMDA)',
+                                                                sub: 'Kadthal · Flagship · HMDA & FCDA (HMDA)',
                                                                 img: MASTER_PLAN_IMAGE,
                                                                 to: '/the-view',
                                                                 status: 'Now Selling',
@@ -466,7 +466,7 @@ export default function Home() {
                                                         <span className="gold-foil-text">on your terms.</span>
                                                 </h2>
                                                 <p className="mt-6 max-w-2xl font-serif-elegant text-xl italic text-ivory-dim md:text-2xl">
-                                                        Share your details. Our team will reach out to arrange a chauffeured site visit to Kothur.
+                                                        Share your details. Our team will reach out to arrange a chauffeured site visit to Kadthal.
                                                 </p>
                                         </Reveal>
                                         <div className="mt-14">
