@@ -191,6 +191,14 @@ export default function TheView() {
                                                                 ▶ Take the Walkthrough
                                                                 <span className="h-px w-6 bg-ink transition-all group-hover:w-10" />
                                                         </Link>
+                                                        <Link
+                                                                href="/the-view/experience"
+                                                                data-testid="theview-hero-3d-button"
+                                                                className="group inline-flex items-center gap-4 border border-[rgba(201,162,75,0.5)] px-8 py-3.5 text-[0.7rem] uppercase tracking-[0.32em] text-gold transition-colors hover:bg-gold hover:text-ink"
+                                                        >
+                                                                Explore in 3D
+                                                                <span className="h-px w-6 bg-gold transition-all group-hover:w-10 group-hover:bg-ink" />
+                                                        </Link>
                                                         <a
                                                                 href={SITE.whatsappLink}
                                                                 target="_blank"

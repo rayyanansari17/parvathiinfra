@@ -18,12 +18,14 @@ export const openBrochureModal = () => {
 
 export default function ShellClient({ children }) {
         const pathname = usePathname();
-        // The virtual tour is a self-contained, full-viewport experience with its
-        // own preloader and its own top bar (including Exit Tour), and it scrolls
-        // in normal document flow. Rendering the site chrome alongside it would
-        // stack two preloaders and leave the footer sitting under the tour's
-        // fixed UI once you reach the master plan.
-        const isTour = Boolean(pathname?.startsWith('/the-view/walkthrough'));
+        // The virtual tour and the 3D site model are both self-contained,
+        // full-viewport experiences with their own preloader and their own top
+        // bar (including an Exit control), and the 3D route is a fixed-position
+        // canvas rather than document flow. Rendering the site chrome alongside
+        // either would stack two preloaders and leave the footer/chatbot sitting
+        // under their fixed UI.
+        const IMMERSIVE_ROUTE_PREFIXES = ['/the-view/walkthrough', '/the-view/experience'];
+        const isTour = IMMERSIVE_ROUTE_PREFIXES.some((prefix) => pathname?.startsWith(prefix));
         // The tour drives its own GSAP ScrollTrigger scrub/pin/snap over native
         // scroll; Lenis's smoothed wheel handling fights that timing.
         useLenis(!isTour);

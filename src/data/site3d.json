@@ -1,0 +1,109 @@
+{
+  "_notes": "All layout geometry for /the-view/experience. Plot positions, sizes and levels come from src/data/plots.json (never duplicated here). Everything below is the tuning surface: change a number, the 3D model updates. Boundary/road/amenity coordinates are 'percent space' (0-100), the same convention plots.json pos.{x,y} already use (position on 10-layout-plan.jpg). Exact survey geometry cannot be recovered from a raster drawing; these polylines are proportionally faithful traces of the sanctioned layout, not a re-surveyed record.",
+
+  "world": {
+    "widthM": 190,
+    "depthM": 155,
+    "verticalExaggeration": 9,
+    "groundExtentFactor": 1.8
+  },
+
+  "elevationAnchors": [
+    { "id": "gate", "pos": { "x": 92, "y": 88 }, "level": 645.5 },
+    { "id": "highest", "pos": { "x": 80, "y": 7 }, "level": 648.1 }
+  ],
+
+  "boundary": [
+    { "x": 96, "y": 89 },
+    { "x": 14, "y": 71 },
+    { "x": 9, "y": 62 },
+    { "x": 50, "y": 30 },
+    { "x": 72, "y": 8 },
+    { "x": 93, "y": 9 },
+    { "x": 97, "y": 45 }
+  ],
+
+  "openSpace": [
+    { "x": 9, "y": 62 },
+    { "x": 14, "y": 71 },
+    { "x": 30, "y": 68 },
+    { "x": 24, "y": 55 }
+  ],
+
+  "socialInfra": [
+    { "x": 80, "y": 13 },
+    { "x": 93, "y": 12 },
+    { "x": 93, "y": 22 },
+    { "x": 82, "y": 24 }
+  ],
+
+  "roads": {
+    "highway": {
+      "label": "100 ft HMDA Proposed Road",
+      "widthM": 30.5,
+      "points": [ { "x": 4, "y": 76 }, { "x": 50, "y": 84 }, { "x": 99, "y": 94 } ]
+    },
+    "avenue": {
+      "label": "Entry Avenue",
+      "widthM": 9,
+      "points": [ { "x": 91, "y": 86 }, { "x": 84, "y": 70 }, { "x": 79, "y": 55 } ]
+    },
+    "ccRoadEW": {
+      "label": "30 ft CC Road",
+      "widthM": 9.15,
+      "points": [ { "x": 20, "y": 60 }, { "x": 45, "y": 50 }, { "x": 70, "y": 45 }, { "x": 90, "y": 40 } ]
+    },
+    "ccRoadNS": {
+      "label": "30 ft CC Road",
+      "widthM": 9.15,
+      "points": [ { "x": 86, "y": 86 }, { "x": 85, "y": 50 }, { "x": 84, "y": 15 } ]
+    }
+  },
+
+  "amenities": {
+    "gate": { "pos": { "x": 91, "y": 87 }, "avenueWidthM": 9, "pillarHeightM": 6.4, "pillarSizeM": 1.2 },
+    "clubhouse": { "pos": { "x": 90, "y": 10 }, "widthM": 16, "depthM": 13, "heightM": 7, "areaSqft": 2220 },
+    "pool": { "pos": { "x": 87.5, "y": 14.5 }, "widthM": 18, "depthM": 7 },
+    "amphitheatre": { "pos": { "x": 93, "y": 12 }, "radiusM": 11, "tiers": 5 },
+    "viewpoint": { "pos": { "x": 82, "y": 12 }, "radiusM": 8 }
+  },
+
+  "trees": {
+    "avenueSpacingM": 8,
+    "perimeterSpacingM": 11,
+    "roadSpacingM": 9,
+    "trunkHeightM": 1.6,
+    "canopyHeightM": 3.4,
+    "canopyRadiusM": 1.5
+  },
+
+  "plots": {
+    "aspectRatio": 0.62,
+    "padThicknessM": 0.45,
+    "defaultSqydForUnverified": 260
+  },
+
+  "camera": {
+    "orbit": {
+      "target": { "x": 55, "y": 55 },
+      "distanceM": 165,
+      "azimuthDeg": 35,
+      "polarDeg": 55
+    },
+    "viewpoints": {
+      "gate":         { "label": "Gate",         "at": { "x": 97, "y": 101 }, "eyeHeightM": 14, "target": { "x": 91, "y": 87 }, "targetHeightM": 3 },
+      "avenue":       { "label": "The Avenue",   "at": { "x": 95, "y": 75 },  "eyeHeightM": 10, "target": { "x": 79, "y": 55 }, "targetHeightM": 2 },
+      "clubhouse":    { "label": "Clubhouse",    "at": { "x": 110, "y": 25 }, "eyeHeightM": 20, "target": { "x": 90, "y": 10 }, "targetHeightM": 4 },
+      "amphitheatre": { "label": "Amphitheatre", "at": { "x": 112, "y": 28 }, "eyeHeightM": 18, "target": { "x": 93, "y": 12 }, "targetHeightM": 3 },
+      "viewpoint":    { "label": "View Point",   "at": { "x": 100, "y": 26 }, "eyeHeightM": 20, "target": { "x": 82, "y": 12 }, "targetHeightM": 3 },
+      "wholeSite":    { "label": "Whole Site",   "at": { "x": 55, "y": 98 },  "eyeHeightM": 100, "target": { "x": 55, "y": 45 }, "targetHeightM": 0 }
+    }
+  },
+
+  "walk": {
+    "eyeHeightM": 1.7,
+    "speedMps": 6.5,
+    "boundsMarginM": 4,
+    "startAt": { "x": 91, "y": 83 }
+  }
+}
