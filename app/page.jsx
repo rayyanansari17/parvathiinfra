@@ -363,9 +363,6 @@ export default function Home() {
                                                                         <Play size={22} className="text-gold ml-1" />
                                                                 </div>
                                                         </div>
-                                                        <div className="absolute bottom-5 left-5 text-[0.6rem] uppercase tracking-[0.32em] text-ivory-dim">
-                                                                Duration · 3 min
-                                                        </div>
                                                 </div>
                                         </div>
                                 </Link>

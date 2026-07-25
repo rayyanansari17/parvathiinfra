@@ -22,6 +22,10 @@ html.lenis, html.lenis body { height: auto; }
 .font-serif-elegant { font-family: 'Cormorant Garamond', serif; }
 .font-ui { font-family: 'Jost', 'Outfit', sans-serif; }
 
+/* Horizontal scroll rows without a visible scrollbar (compact mobile chrome). */
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
 .micro-label {
     font-family: 'Jost', sans-serif;
     text-transform: uppercase;

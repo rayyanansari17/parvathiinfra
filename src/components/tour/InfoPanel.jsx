@@ -19,8 +19,8 @@ export default function InfoPanel({ hotspot, onClose, auto = false }) {
                                         data-testid="tour-info-panel"
                                         className={
                                                 auto
-                                                        ? 'pointer-events-none fixed left-1/2 top-20 z-[88] w-[min(88vw,360px)] -translate-x-1/2 border border-[rgba(201,162,75,0.35)] bg-[rgba(18,18,18,0.82)] p-5 text-center backdrop-blur-xl md:top-24'
-                                                        : 'pointer-events-auto fixed bottom-28 left-1/2 z-[88] w-[min(88vw,360px)] -translate-x-1/2 border border-[rgba(201,162,75,0.35)] bg-[rgba(18,18,18,0.85)] p-5 backdrop-blur-xl md:bottom-32'
+                                                        ? 'pointer-events-none fixed inset-x-0 top-20 z-[88] mx-auto w-[min(88vw,360px)] border border-[rgba(201,162,75,0.35)] bg-[rgba(18,18,18,0.82)] p-5 text-center backdrop-blur-xl md:top-24'
+                                                        : 'pointer-events-auto fixed inset-x-0 bottom-28 z-[88] mx-auto w-[min(88vw,360px)] border border-[rgba(201,162,75,0.35)] bg-[rgba(18,18,18,0.85)] p-5 backdrop-blur-xl md:bottom-32'
                                         }
                                 >
                                         {!auto && (

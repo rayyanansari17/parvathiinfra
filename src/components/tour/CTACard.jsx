@@ -19,7 +19,7 @@ export default function CTACard({ open, collapsed, onDismiss, onExpand }) {
                                         exit={{ opacity: 0, y: 16 }}
                                         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                                         data-testid="tour-cta-chip"
-                                        className="pointer-events-auto fixed bottom-24 left-6 z-[87] flex items-center gap-2 border border-gold bg-ink/80 px-4 py-2.5 text-[0.6rem] uppercase tracking-[0.24em] text-gold backdrop-blur-md transition-colors hover:bg-gold hover:text-ink md:bottom-28"
+                                        className="pointer-events-auto fixed bottom-24 left-6 z-[87] hidden items-center gap-2 border border-gold bg-ink/80 px-4 py-2.5 text-[0.6rem] uppercase tracking-[0.24em] text-gold backdrop-blur-md transition-colors hover:bg-gold hover:text-ink md:bottom-28 md:flex"
                                 >
                                         Own before the city arrives
                                 </motion.button>
@@ -32,7 +32,7 @@ export default function CTACard({ open, collapsed, onDismiss, onExpand }) {
                                         exit={{ opacity: 0, y: 24 }}
                                         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                                         data-testid="tour-cta-card"
-                                        className="pointer-events-auto fixed bottom-24 left-1/2 z-[87] w-[min(92vw,480px)] -translate-x-1/2 border border-[rgba(201,162,75,0.4)] bg-[rgba(18,18,18,0.88)] p-6 backdrop-blur-xl md:bottom-28 md:p-7"
+                                        className="pointer-events-auto fixed inset-x-0 bottom-24 z-[87] mx-auto w-[min(92vw,480px)] border border-[rgba(201,162,75,0.4)] bg-[rgba(18,18,18,0.88)] p-6 backdrop-blur-xl md:bottom-28 md:p-7"
                                 >
                                         <button
                                                 type="button"

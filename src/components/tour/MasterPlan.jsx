@@ -68,8 +68,8 @@ export default function MasterPlan({ onJumpToNode }) {
                         // bottom rail (a taller plot list on mobile) instead of being
                         // cropped behind them.
                         const mobile = width < 768;
-                        const padTop = mobile ? 172 : 190;
-                        const padBottom = mobile ? Math.round(height * 0.34) : 96;
+                        const padTop = mobile ? 140 : 190;
+                        const padBottom = mobile ? Math.round(height * 0.32) : 96;
                         const availW = Math.max(0, width - 32);
                         const availH = Math.max(0, height - padTop - padBottom);
                         const fit = Math.min(availW / PLAN_W, availH / PLAN_H);
@@ -306,18 +306,19 @@ export default function MasterPlan({ onJumpToNode }) {
                                 </button>
                         </div>
 
-                        {/* Stat strip + filters */}
-                        <div className="pointer-events-auto absolute inset-x-0 top-16 z-20 flex flex-col gap-3 px-4 md:top-20 md:px-8">
-                                <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 border border-[rgba(201,162,75,0.3)] bg-ink/70 px-4 py-2.5 text-[0.6rem] uppercase tracking-[0.18em] text-ivory-dim backdrop-blur-md">
-                                        <span className="text-gold">{plotsData.project.siteAreaAcres} acres</span>
-                                        <span className="h-3 w-px bg-[rgba(201,162,75,0.3)]" />
-                                        <span>{plotsData.project.totalPlots} plots</span>
-                                        <span className="h-3 w-px bg-[rgba(201,162,75,0.3)]" />
-                                        <span>{plotsData.project.plottedPct}% plotted</span>
-                                        <span className="h-3 w-px bg-[rgba(201,162,75,0.3)]" />
-                                        <span>30 ft CC roads</span>
-                                        <span className="h-3 w-px bg-[rgba(201,162,75,0.3)]" />
-                                        <span>100 ft HMDA road</span>
+                        {/* Stat strip + filters. On phones both are single, swipeable
+                            rows so they don't stack tall and squeeze the drawing. */}
+                        <div className="pointer-events-auto absolute inset-x-0 top-16 z-20 flex flex-col gap-2 px-3 md:top-20 md:gap-3 md:px-8">
+                                <div className="no-scrollbar flex items-center gap-x-3 overflow-x-auto whitespace-nowrap border border-[rgba(201,162,75,0.3)] bg-ink/70 px-3 py-2 text-[0.58rem] uppercase tracking-[0.16em] text-ivory-dim backdrop-blur-md md:flex-wrap md:gap-x-4 md:px-4 md:py-2.5 md:text-[0.6rem] md:tracking-[0.18em]">
+                                        <span className="shrink-0 text-gold">{plotsData.project.siteAreaAcres} acres</span>
+                                        <span className="h-3 w-px shrink-0 bg-[rgba(201,162,75,0.3)]" />
+                                        <span className="shrink-0">{plotsData.project.totalPlots} plots</span>
+                                        <span className="h-3 w-px shrink-0 bg-[rgba(201,162,75,0.3)]" />
+                                        <span className="shrink-0">{plotsData.project.plottedPct}% plotted</span>
+                                        <span className="h-3 w-px shrink-0 bg-[rgba(201,162,75,0.3)]" />
+                                        <span className="shrink-0">30 ft CC roads</span>
+                                        <span className="h-3 w-px shrink-0 bg-[rgba(201,162,75,0.3)]" />
+                                        <span className="shrink-0">100 ft HMDA road</span>
                                         <img
                                                 src="/assets/tour/badge-fcda.jpg"
                                                 alt="FCDA approved layout"
@@ -325,14 +326,14 @@ export default function MasterPlan({ onJumpToNode }) {
                                         />
                                 </div>
 
-                                <div className="flex flex-wrap gap-2">
+                                <div className="no-scrollbar flex gap-2 overflow-x-auto md:flex-wrap">
                                         {SIZE_BANDS.map((b) => (
                                                 <button
                                                         key={b.k}
                                                         type="button"
                                                         onClick={() => setSizeBand(b.k)}
                                                         data-testid={`tour-filter-${b.k}`}
-                                                        className={`border px-3 py-1.5 text-[0.58rem] uppercase tracking-[0.18em] transition-colors ${
+                                                        className={`shrink-0 whitespace-nowrap border px-3 py-1.5 text-[0.58rem] uppercase tracking-[0.18em] transition-colors ${
                                                                 sizeBand === b.k
                                                                         ? 'border-gold bg-gold text-ink'
                                                                         : 'border-[rgba(201,162,75,0.3)] bg-ink/60 text-ivory-dim backdrop-blur-md hover:border-gold hover:text-ivory'
@@ -345,7 +346,7 @@ export default function MasterPlan({ onJumpToNode }) {
                                                 type="button"
                                                 onClick={() => setVerifiedOnly((v) => !v)}
                                                 data-testid="tour-filter-verified"
-                                                className={`border px-3 py-1.5 text-[0.58rem] uppercase tracking-[0.18em] transition-colors ${
+                                                className={`shrink-0 whitespace-nowrap border px-3 py-1.5 text-[0.58rem] uppercase tracking-[0.18em] transition-colors ${
                                                         verifiedOnly
                                                                 ? 'border-gold bg-gold text-ink'
                                                                 : 'border-[rgba(201,162,75,0.3)] bg-ink/60 text-ivory-dim backdrop-blur-md hover:border-gold hover:text-ivory'
