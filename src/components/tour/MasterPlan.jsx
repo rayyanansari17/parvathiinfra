@@ -62,7 +62,12 @@ export default function MasterPlan({ onJumpToNode }) {
                 });
         }, []);
 
+        // Plain wheel must keep scrolling the page (the map sits inside the
+        // scroll-driven tour, not a locked overlay anymore). Only zoom the map
+        // when Ctrl is held or the gesture is a trackpad/touchscreen pinch
+        // (browsers report both as wheel events with ctrlKey set).
         const onWheel = (e) => {
+                if (!e.ctrlKey) return;
                 e.preventDefault();
                 const factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
                 zoomAt(e.clientX, e.clientY, factor);

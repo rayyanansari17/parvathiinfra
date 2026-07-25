@@ -1,61 +1,72 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import { ChevronRight, Plus } from 'lucide-react';
-import gsap from 'gsap';
+
+// Layout effects don't run during SSR; falling back to a plain effect there
+// avoids the React warning while keeping the child-before-parent commit
+// ordering layout effects give us on the client (TourShell's ScrollTrigger
+// setup depends on these refs already being registered).
+const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 /**
- * A single full-bleed tour scene: Ken Burns background, 2.5D parallax,
- * grain + vignette, caption block, forward hotspot and info hotspots.
+ * A single cinematic scene. Two render modes:
+ *  - "scroll" (default): mounted inside the pinned GSAP ScrollTrigger stage.
+ *    Opacity/scale/drift are driven imperatively by the parent every scroll
+ *    frame via the refs handed back through `registerRefs`; this component
+ *    never re-renders for that motion.
+ *  - "simple": used for the prefers-reduced-motion fallback, a plain static
+ *    full-viewport section with no scroll-linked transforms or parallax.
  */
-export default function TourNode({ node, reducedMotion, onAdvance, onInfoOpen, onImageLoad, loaded }) {
-        const layerRef = useRef(null);
+export default function TourNode({
+        node,
+        mode = 'scroll',
+        active,
+        reducedMotion,
+        onAdvance,
+        onInfoOpen,
+        onImageLoad,
+        loaded,
+        registerRefs,
+}) {
+        const sceneRef = useRef(null);
+        const parallaxRef = useRef(null);
         const kenBurnsRef = useRef(null);
+        const captionRef = useRef(null);
         const imgRef = useRef(null);
         const rafRef = useRef(null);
+        const targetRef = useRef({ x: 0, y: 0 });
+        const currentRef = useRef({ x: 0, y: 0 });
+
+        const simple = mode !== 'scroll';
 
         // Images served from cache can already be `.complete` by the time the
         // <img> mounts, in which case the browser never fires a fresh `load`
         // event and onLoad below would never run, leaving the shimmer stuck.
         useEffect(() => {
                 if (imgRef.current?.complete) onImageLoad?.(node.image);
-                // Safety net: never let a missed load event hide the scene forever.
                 const t = setTimeout(() => onImageLoad?.(node.image), 3000);
                 return () => clearTimeout(t);
         }, [node.image, onImageLoad]);
-        const targetRef = useRef({ x: 0, y: 0 });
-        const currentRef = useRef({ x: 0, y: 0 });
 
-        // GSAP Ken Burns loop.
-        useEffect(() => {
-                if (reducedMotion || !node.camera || !kenBurnsRef.current) return undefined;
-                const { fromScale, toScale, xDrift, yDrift, duration } = node.camera;
-                const state = { scale: fromScale, x: -xDrift / 2, y: -yDrift / 2 };
-                gsap.set(kenBurnsRef.current, { scale: state.scale, xPercent: state.x, yPercent: state.y });
-                const tween = gsap.to(state, {
-                        scale: toScale,
-                        x: xDrift / 2,
-                        y: yDrift / 2,
-                        duration,
-                        ease: 'sine.inOut',
-                        yoyo: true,
-                        repeat: -1,
-                        onUpdate: () => {
-                                gsap.set(kenBurnsRef.current, {
-                                        scale: state.scale,
-                                        xPercent: state.x,
-                                        yPercent: state.y,
-                                });
-                        },
+        // Hand the raw DOM nodes up to TourShell so its ScrollTrigger onUpdate
+        // can gsap.set() them directly every frame (no React re-render on scroll).
+        useIsoLayoutEffect(() => {
+                if (simple || !registerRefs) return undefined;
+                registerRefs(node.id, {
+                        scene: sceneRef.current,
+                        kenBurns: kenBurnsRef.current,
+                        caption: captionRef.current,
                 });
-                return () => tween.kill();
-        }, [node, reducedMotion]);
+                return () => registerRefs(node.id, null);
+        }, [simple, node.id, registerRefs]);
 
-        // 2.5D parallax: mousemove (desktop) / deviceorientation (mobile).
+        // 2.5D parallax on mousemove (desktop) / deviceorientation (mobile),
+        // applied to its own inner wrapper so it composes with the scroll-driven
+        // scale/opacity on the Ken Burns layer instead of fighting it.
         useEffect(() => {
-                if (reducedMotion || !layerRef.current) return undefined;
-                const el = layerRef.current;
+                if (simple || reducedMotion || !parallaxRef.current) return undefined;
+                const el = parallaxRef.current;
 
                 const apply = () => {
                         currentRef.current.x += (targetRef.current.x - currentRef.current.x) * 0.08;
@@ -83,29 +94,33 @@ export default function TourNode({ node, reducedMotion, onAdvance, onInfoOpen, o
                         window.removeEventListener('deviceorientation', onOrient);
                         if (rafRef.current) cancelAnimationFrame(rafRef.current);
                 };
-        }, [reducedMotion]);
+        }, [simple, reducedMotion]);
 
         return (
-                <motion.div
+                <div
+                        ref={sceneRef}
                         data-testid={`tour-node-${node.id}`}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 1.15 }}
-                        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute inset-0 overflow-hidden bg-ink"
+                        data-active={active ? 'true' : 'false'}
+                        className={
+                                simple
+                                        ? 'relative h-screen w-full overflow-hidden bg-ink'
+                                        : 'absolute inset-0 overflow-hidden bg-ink'
+                        }
+                        style={simple ? undefined : { opacity: 0 }}
                 >
                         {/* Parallax wrapper */}
-                        <div ref={layerRef} className="absolute inset-[-4%]">
-                                {/* Ken Burns wrapper */}
+                        <div ref={parallaxRef} className="absolute inset-[-4%]">
+                                {/* Ken Burns wrapper: scale/drift set imperatively from scroll progress */}
                                 <div ref={kenBurnsRef} className="absolute inset-0 will-change-transform">
                                         <img
                                                 ref={imgRef}
                                                 src={node.image}
                                                 alt={node.title}
                                                 draggable={false}
+                                                loading="lazy"
                                                 onLoad={() => onImageLoad?.(node.image)}
                                                 className="h-full w-full select-none object-cover"
-                                                style={!node.camera || reducedMotion ? { transform: 'scale(1.02)' } : undefined}
+                                                style={simple || reducedMotion ? { transform: 'scale(1.02)' } : undefined}
                                         />
                                 </div>
                         </div>
@@ -124,14 +139,16 @@ export default function TourNode({ node, reducedMotion, onAdvance, onInfoOpen, o
                         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(0,0,0,0.55)_100%)]" />
                         <div className="pointer-events-none absolute inset-0 grain-overlay" />
 
-                        {/* Forward hotspot */}
+                        {/* Forward hotspot: visible/clickable only while this node is dominant */}
                         {node.forwardHotspot && (
                                 <button
                                         type="button"
                                         onClick={onAdvance}
                                         data-testid="tour-forward-hotspot"
                                         aria-label={`Continue to ${node.forwardHotspot.label}`}
-                                        className="group absolute z-10 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2 focus:outline-none"
+                                        className={`group absolute z-10 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2 transition-opacity duration-500 focus:outline-none ${
+                                                active || simple ? 'opacity-100' : 'pointer-events-none opacity-0'
+                                        }`}
                                         style={{ left: `${node.forwardHotspot.x}%`, top: `${node.forwardHotspot.y}%` }}
                                 >
                                         <span className="relative flex h-11 w-11 items-center justify-center rounded-full border border-gold bg-ink/50 text-gold backdrop-blur-sm transition-transform duration-500 group-hover:scale-110 group-focus-visible:ring-2 group-focus-visible:ring-gold">
@@ -144,7 +161,7 @@ export default function TourNode({ node, reducedMotion, onAdvance, onInfoOpen, o
                                 </button>
                         )}
 
-                        {/* Info hotspots */}
+                        {/* Info hotspots: same dominant-scene gating; 44px+ touch target */}
                         {(node.infoHotspots || []).map((h, i) => (
                                 <button
                                         key={`${node.id}-info-${i}`}
@@ -152,15 +169,22 @@ export default function TourNode({ node, reducedMotion, onAdvance, onInfoOpen, o
                                         onClick={() => onInfoOpen(h)}
                                         data-testid={`tour-info-hotspot-${i}`}
                                         aria-label={h.title}
-                                        className="group absolute z-10 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[rgba(201,162,75,0.7)] bg-ink/40 text-gold backdrop-blur-sm transition-transform duration-300 hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                                        className={`group absolute z-10 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[rgba(201,162,75,0.7)] bg-ink/40 text-gold backdrop-blur-sm transition-all duration-300 hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold md:h-9 md:w-9 ${
+                                                active || simple ? 'opacity-100' : 'pointer-events-none opacity-0'
+                                        }`}
                                         style={{ left: `${h.x}%`, top: `${h.y}%` }}
                                 >
                                         <Plus size={14} />
                                 </button>
                         ))}
 
-                        {/* Caption */}
-                        <div className="pointer-events-none absolute inset-x-0 bottom-24 px-6 md:bottom-28 md:px-16">
+                        {/* Caption: opacity set imperatively from scroll progress in scroll mode */}
+                        <div
+                                ref={captionRef}
+                                data-testid="tour-caption"
+                                className="pointer-events-none absolute inset-x-0 bottom-24 px-6 md:bottom-28 md:px-16"
+                                style={simple ? undefined : { opacity: 0 }}
+                        >
                                 <div className="micro-label mb-3">{node.chapter}</div>
                                 <h1 className="max-w-2xl font-display text-3xl leading-tight tracking-[0.06em] text-ivory md:text-5xl">
                                         <span className="gold-foil-text">{node.title}</span>
@@ -169,6 +193,6 @@ export default function TourNode({ node, reducedMotion, onAdvance, onInfoOpen, o
                                         {node.copy}
                                 </p>
                         </div>
-                </motion.div>
+                </div>
         );
 }

@@ -17,8 +17,16 @@ export const openBrochureModal = () => {
 };
 
 export default function ShellClient({ children }) {
-        useLenis();
         const pathname = usePathname();
+        // The virtual tour is a self-contained, full-viewport experience with its
+        // own preloader and its own top bar (including Exit Tour), and it scrolls
+        // in normal document flow. Rendering the site chrome alongside it would
+        // stack two preloaders and leave the footer sitting under the tour's
+        // fixed UI once you reach the master plan.
+        const isTour = Boolean(pathname?.startsWith('/the-view/walkthrough'));
+        // The tour drives its own GSAP ScrollTrigger scrub/pin/snap over native
+        // scroll; Lenis's smoothed wheel handling fights that timing.
+        useLenis(!isTour);
         const [brochureOpen, setBrochureOpen] = useState(false);
 
         useEffect(() => {
@@ -33,16 +41,23 @@ export default function ShellClient({ children }) {
 
         return (
                 <div className="relative min-h-screen bg-ink text-ivory">
-                        <Preloader />
+                        {!isTour && <Preloader />}
                         <CustomCursor />
-                        <Navigation />
+                        {!isTour && <Navigation />}
                         <main>
                                 {children}
                         </main>
-                        <Footer />
-                        <Chatbot />
-                        <WhatsAppFloat />
-                        <BrochureModal open={brochureOpen} onClose={() => setBrochureOpen(false)} />
+                        {!isTour && (
+                                <>
+                                        <Footer />
+                                        <Chatbot />
+                                        <WhatsAppFloat />
+                                        <BrochureModal
+                                                open={brochureOpen}
+                                                onClose={() => setBrochureOpen(false)}
+                                        />
+                                </>
+                        )}
                 </div>
         );
 }
