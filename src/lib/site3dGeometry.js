@@ -119,7 +119,7 @@ export function plotFootprintM(sqyd, aspectRatio) {
 // Combine verified + unverified plots into one flat list, each carrying a
 // resolved `level` (real if present, else IDW-interpolated) and a
 // `footprintSqyd` used purely to size the 3D pad (real sqyd when known,
-// else a neutral default — never shown to the user as a real size).
+// else a neutral default, never shown to the user as a real size).
 export function buildAllPlots3D(plotsData, site3d, anchors) {
         const verified = plotsData.plots.map((p) => ({
                 id: p.id,
@@ -234,7 +234,7 @@ export function buildRibbonAttributes(pointsPct, widthM, world, heightFn, liftM 
         }
 
         // Blend a darker centre band by darkening every vertex slightly less at
-        // the edges — recompute colours with a radial-ish factor per pair.
+        // the edges, recompute colours with a radial-ish factor per pair.
         for (let i = 0; i < samples.length; i += 1) {
                 const base = i * 6; // 2 verts * 3 comps
                 for (let k = 0; k < 2; k += 1) {

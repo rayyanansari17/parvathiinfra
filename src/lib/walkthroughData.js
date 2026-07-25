@@ -81,7 +81,7 @@ export const PLOT_SIZES = [
 // Tuned to sit visually inside the plot rectangles rendered on the layout artwork.
 // x/y = centre of the hotspot; w/h in % of the container.
 export const PLOT_HOTSPOTS = [
-        // Front block (right-of-arch area — plots 1-19 clustered by artwork)
+        // Front block (right-of-arch area, plots 1-19 clustered by artwork)
         { n: 1,  x: 74.5, y: 45.5, w: 3.6, h: 5.0, facing: 'North' },
         { n: 2,  x: 69.0, y: 33.5, w: 3.2, h: 4.4, facing: 'North' },
         { n: 3,  x: 73.0, y: 33.5, w: 3.2, h: 4.4, facing: 'North' },
@@ -140,7 +140,7 @@ export const AMENITY_HOTSPOTS = [
         { code: 'I', name: 'View Point',            x: 30.0, y: 43.0, blurb: 'Panoramic terrace on the highest ridge, the "view" the brand is named for.' },
 ];
 
-// Cinematic caption waypoints — DEPRECATED (kept as reference; not used by
+// Cinematic caption waypoints, DEPRECATED (kept as reference; not used by
 // the new image-sequence film, which reads its captions from FILM_SCENES).
 // Left intentionally empty to keep the module surface minimal.
 

@@ -477,7 +477,7 @@ function AmenityPanel({ amenity, onClose, onVisit }) {
                                 <div className="mb-6 aspect-video overflow-hidden border border-[rgba(201,162,75,0.25)] bg-obsidian-2">
                                         <img src={amenity.image} alt={amenity.name} className="h-full w-full object-cover" />
                                 </div>
-                                <p className="font-serif-elegant text-lg italic leading-relaxed text-ivory">{amenity.body}</p>
+ <p className="font-sans font-light text-base leading-relaxed text-ivory">{amenity.body}</p>
                         </div>
                         {amenity.jumpTo && (
                                 <div className="border-t border-[rgba(201,162,75,0.2)] px-6 py-5">

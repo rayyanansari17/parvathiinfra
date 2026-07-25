@@ -37,7 +37,7 @@ export default function WalkthroughFilm() {
                 [],
         );
 
-        // Preload all images before wiring ScrollTrigger — avoids pop-in.
+        // Preload all images before wiring ScrollTrigger, avoids pop-in.
         useEffect(() => {
                 let cancelled = false;
                 let done = 0;
@@ -231,7 +231,7 @@ export default function WalkthroughFilm() {
                                                 <h2 className="font-display text-3xl leading-tight tracking-[0.06em] text-ivory md:text-5xl">
                                                         <span className="gold-foil-text">{activeScene.title}</span>
                                                 </h2>
-                                                <p className="mt-4 max-w-md font-serif-elegant text-lg italic text-ivory-dim md:text-xl">
+ <p className="mt-4 max-w-md font-sans font-light text-base text-ivory-dim md:text-lg">
                                                         {activeScene.copy}
                                                 </p>
                                         </motion.div>
@@ -323,7 +323,7 @@ export default function WalkthroughFilm() {
 }
 
 // ------------------------------------------------------------------
-// Parvathi Infra flag — vector logo (no text/AI rendering).
+// Parvathi Infra flag, vector logo (no text/AI rendering).
 // ------------------------------------------------------------------
 function ParvathiFlag({ side }) {
         const isLeft = side === 'left';

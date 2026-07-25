@@ -29,7 +29,7 @@ export async function POST(request) {
                 return NextResponse.json({ detail: 'Could not save brochure request' }, { status: 500 });
         }
 
-        // Also store as a lead for the sales pipeline — mirrors the original
+        // Also store as a lead for the sales pipeline, mirrors the original
         // FastAPI backend's dual-write.
         const { error: leadError } = await supabase.from('leads').insert({
                 name,

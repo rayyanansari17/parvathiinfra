@@ -112,7 +112,7 @@ export default function TourPreloader({ firstImage, onDone }) {
                                                 initial={{ opacity: 0, y: 8 }}
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ delay: 0.5, duration: 0.8 }}
-                                                className="mt-4 font-serif-elegant text-lg italic text-ivory-dim"
+ className="mt-4 font-sans font-light text-base text-ivory-dim"
                                         >
                                                 A Scenic Address for a Selective Few
                                         </motion.p>

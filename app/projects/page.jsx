@@ -55,7 +55,7 @@ export default function Projects() {
                                                 Every project is a{' '}
                                                 <span className="gold-foil-text italic font-serif-elegant">landmark.</span>
                                         </h1>
-                                        <p className="mt-6 max-w-2xl font-serif-elegant text-xl italic text-ivory-dim md:text-2xl">
+ <p className="mt-6 max-w-2xl font-sans font-light text-lg text-ivory-dim md:text-xl">
                                                 A slow, deliberate portfolio. We build few. We build well.
                                         </p>
                                 </Reveal>
@@ -88,7 +88,7 @@ export default function Projects() {
                                                                                         </div>
                                                                                 </div>
                                                                         </div>
-                                                                        <p className="mt-6 font-serif-elegant text-lg italic text-ivory-dim">
+ <p className="mt-6 font-sans font-light text-base text-ivory-dim">
                                                                                 {p.copy}
                                                                         </p>
                                                                 </Link>

@@ -26,7 +26,7 @@ export default function InfoPanel({ hotspot, onClose }) {
                                                 <X size={15} />
                                         </button>
                                         <div className="micro-label mb-2 pr-6 text-gold">{hotspot.title}</div>
-                                        <p className="font-serif-elegant text-base italic leading-snug text-ivory">
+ <p className="font-sans font-light text-base leading-snug text-ivory">
                                                 {hotspot.body}
                                         </p>
                                 </motion.div>

@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 
 // Server-only Supabase client used by API route handlers (never imported by
-// client components). Uses the anon key — RLS policies on `leads`,
+// client components). Uses the anon key, RLS policies on `leads`,
 // `brochure_requests` and `chat_messages` are scoped to allow exactly the
 // insert/select operations these routes perform.
 let cached;

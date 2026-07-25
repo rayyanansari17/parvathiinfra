@@ -14,7 +14,7 @@ export default function Footer() {
                                                 <div className="font-display text-2xl tracking-[0.18em] text-ivory">
                                                         PARVATHI <span className="text-gold">INFRA</span>
                                                 </div>
-                                                <p className="mt-6 max-w-md font-serif-elegant text-lg italic leading-relaxed text-ivory-dim">
+ <p className="mt-6 max-w-md font-sans font-light text-base leading-relaxed text-ivory-dim">
                                                         Crafting scenic addresses across Telangana with obsessive
                                                         attention to detail, honest paperwork and generations of trust.
                                                 </p>

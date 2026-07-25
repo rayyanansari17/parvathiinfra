@@ -89,7 +89,7 @@ export default function GalleryEditorialCarousel({ slides, onOpen }) {
                                                                 <div className="pointer-events-none absolute inset-0 grain-overlay opacity-40" />
                                                                 <div className="pointer-events-none absolute inset-x-0 top-0 h-[8vh] bg-gradient-to-b from-ink/85 to-transparent" />
 
-                                                                {/* Caption — fades with selection to avoid mid-transition text overlap */}
+                                                                {/* Caption, fades with selection to avoid mid-transition text overlap */}
                                                                 <div
                                                                         className="absolute bottom-16 left-6 max-w-2xl transition-opacity duration-700 md:bottom-24 md:left-16"
                                                                         style={{ opacity: selected === i ? 1 : 0 }}

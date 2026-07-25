@@ -15,7 +15,7 @@ module.exports = {
       fontFamily: {
         display: ['Cinzel', 'serif'],
         serif: ['"Cormorant Garamond"', 'serif'],
-        sans: ['Jost', 'Outfit', 'sans-serif'],
+        sans: ['Manrope', 'Jost', 'sans-serif'],
       },
       colors: {
         obsidian: {

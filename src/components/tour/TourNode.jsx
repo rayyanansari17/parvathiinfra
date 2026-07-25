@@ -189,7 +189,7 @@ export default function TourNode({
                                 <h1 className="max-w-2xl font-display text-3xl leading-tight tracking-[0.06em] text-ivory md:text-5xl">
                                         <span className="gold-foil-text">{node.title}</span>
                                 </h1>
-                                <p className="mt-4 max-w-lg font-serif-elegant text-lg italic text-ivory-dim md:text-xl">
+ <p className="mt-4 max-w-lg font-sans font-light text-base text-ivory-dim md:text-lg">
                                         {node.copy}
                                 </p>
                         </div>

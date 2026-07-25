@@ -79,7 +79,7 @@ export default function AmenitiesCarousel() {
                                                                         <h3 className="font-display text-xl leading-snug tracking-[0.14em] text-ivory">
                                                                                 <span className="gold-underline">{a.title}</span>
                                                                         </h3>
-                                                                        <p className="mt-4 font-serif-elegant text-base italic leading-relaxed text-ivory-dim">
+ <p className="mt-4 font-sans font-light text-base leading-relaxed text-ivory-dim">
                                                                                 {a.copy}
                                                                         </p>
                                                                 </div>

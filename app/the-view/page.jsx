@@ -165,7 +165,7 @@ export default function TheView() {
                                                 <h1 className="max-w-5xl font-display text-5xl leading-[1.02] tracking-[0.08em] text-ivory sm:text-7xl md:text-8xl lg:text-[8.5rem]">
                                                         THE <span className="gold-foil-text">VIEW</span>
                                                 </h1>
-                                                <div className="mt-6 font-serif-elegant text-xl italic text-ivory-dim md:text-3xl">
+ <div className="mt-6 font-sans font-light text-lg text-ivory-dim md:text-3xl">
                                                         Where the ridgeline meets{' '}
                                                         <span className="gold-foil-text not-italic font-display tracking-[0.06em]">
                                                                 <Typewriter
@@ -176,7 +176,7 @@ export default function TheView() {
                                                                 />
                                                         </span>
                                                 </div>
-                                                <p className="mt-6 max-w-2xl font-serif-elegant text-lg italic text-ivory-dim md:text-xl">
+ <p className="mt-6 max-w-2xl font-sans font-light text-base text-ivory-dim md:text-lg">
                                                         41 villa plots. 3.6 acres of stillness. Approvals in order.
                                                         Vastu, honoured. The first FCDA (HMDA) approved venture,
                                                         the only one in Kadthal.
@@ -238,7 +238,7 @@ export default function TheView() {
                         <section className="mx-auto max-w-[1200px] px-6 py-32 md:px-12 md:py-40">
                                 <Reveal>
                                         <SectionIndex n={1} label="Manifesto" />
-                                        <p className="font-serif-elegant text-3xl italic leading-[1.35] text-ivory md:text-5xl">
+ <p className="font-sans font-light text-3xl leading-[1.35] text-ivory md:text-5xl">
                                                 “There are places you buy. And places you{' '}
                                                 <span className="gold-foil-text not-italic font-display tracking-[0.06em]">
                                                         belong to.
@@ -257,7 +257,7 @@ export default function TheView() {
                                                 <h2 className="font-display text-3xl tracking-[0.14em] text-ivory md:text-5xl">
                                                         Choose <span className="gold-foil-text">your ridge.</span>
                                                 </h2>
-                                                <p className="mt-4 max-w-2xl font-serif-elegant text-lg italic text-ivory-dim">
+ <p className="mt-4 max-w-2xl font-sans font-light text-base text-ivory-dim">
                                                         The layout, as drawn by our studio. Below, an interactive
                                                         chooser so every plot stays discoverable without covering the
                                                         artwork.
@@ -306,7 +306,7 @@ export default function TheView() {
                                                 <h2 className="font-display text-3xl tracking-[0.14em] text-ivory md:text-5xl">
                                                         A <span className="gold-foil-text">private</span> promenade.
                                                 </h2>
-                                                <p className="mt-6 max-w-xl font-serif-elegant text-lg italic text-ivory-dim">
+ <p className="mt-6 max-w-xl font-sans font-light text-base text-ivory-dim">
                                                         Eight considered spaces for reflection, gathering and the small daily rituals of a life well-lived.
                                                 </p>
                                         </Reveal>
@@ -331,7 +331,7 @@ export default function TheView() {
                                                                 <div className="font-display text-[0.7rem] tracking-[0.32em] text-gold">
                                                                         {String(i + 1).padStart(2, '0')}
                                                                 </div>
-                                                                <div className="mt-4 font-serif-elegant text-lg text-ivory">
+ <div className="mt-4 font-sans font-light text-base text-ivory">
                                                                         {it}
                                                                 </div>
                                                         </div>
@@ -353,7 +353,7 @@ export default function TheView() {
                                                         <br />
                                                         <span className="gold-foil-text">the coordinates matter.</span>
                                                 </h2>
-                                                <p className="mt-6 max-w-md font-serif-elegant text-lg italic text-ivory-dim">
+ <p className="mt-6 max-w-md font-sans font-light text-base text-ivory-dim">
                                                         Directly on NH-44 (Bengaluru Highway), ~30 minutes to RGI Airport,
                                                         near the proposed Fourth City growth corridor.
                                                 </p>
@@ -380,7 +380,7 @@ export default function TheView() {
                                                                 >
                                                                         <div className="flex items-center gap-4">
                                                                                 <MapPin size={16} className="text-gold" />
-                                                                                <span className="font-serif-elegant text-lg text-ivory">
+ <span className="font-sans font-light text-base text-ivory">
                                                                                         {c.place}
                                                                                 </span>
                                                                         </div>
@@ -457,7 +457,7 @@ export default function TheView() {
                                                                         </AccordionTrigger>
                                                                         <AccordionContent
                                                                                 data-testid={`faq-content-${i}`}
-                                                                                className="font-serif-elegant text-lg italic text-ivory-dim"
+ className="font-sans font-light text-base text-ivory-dim"
                                                                         >
                                                                                 {f.a}
                                                                         </AccordionContent>
@@ -476,7 +476,7 @@ export default function TheView() {
                                                 <h2 className="font-display text-3xl leading-tight tracking-[0.12em] text-ivory md:text-5xl">
                                                         Walk the <span className="gold-foil-text">ridge</span> with us.
                                                 </h2>
-                                                <p className="mt-4 max-w-xl font-serif-elegant text-xl italic text-ivory-dim">
+ <p className="mt-4 max-w-xl font-sans font-light text-lg text-ivory-dim">
                                                         Chauffeured site visits by appointment.
                                                 </p>
                                         </Reveal>

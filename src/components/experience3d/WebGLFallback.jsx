@@ -17,7 +17,7 @@ export default function WebGLFallback() {
                         <h1 className="max-w-lg font-display text-2xl tracking-[0.06em] text-ivory">
                                 This device can’t run the 3D model
                         </h1>
-                        <p className="mt-4 max-w-md font-serif-elegant text-lg italic text-ivory-dim">
+ <p className="mt-4 max-w-md font-sans font-light text-base text-ivory-dim">
                                 Your browser does not support WebGL, so the interactive 3D site model cannot run
                                 here. The full walkthrough is still available.
                         </p>

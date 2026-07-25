@@ -23,7 +23,7 @@ export const SITE = {
         siteAddress: 'Karkalphad Village, Kadthal Mandal, Rangareddy District, Telangana',
 };
 
-// Six pillars of the company — hero highlights on Home.
+// Six pillars of the company, hero highlights on Home.
 export const PARVATHI_HIGHLIGHTS = [
         { k: '2019', label: 'Established' },
         { k: '8+', label: 'Years of Real Estate Expertise' },
@@ -33,7 +33,7 @@ export const PARVATHI_HIGHLIGHTS = [
         { k: 'Landmark', label: 'Developments with High-Quality Infrastructure' },
 ];
 
-// Core operating values — 6 pillars.
+// Core operating values, 6 pillars.
 export const CORE_VALUES = [
         { title: 'Integrity',      copy: 'Straight dealings, always. Every document reads the same to us as it does to you.' },
         { title: 'Trust',          copy: 'Earned across 2 Lakh+ sq. yards of delivered ventures, never claimed lightly.' },
@@ -43,7 +43,7 @@ export const CORE_VALUES = [
         { title: 'Customer First', copy: 'From the site visit to the sale-deed, and years after, our concierge stays close.' },
 ];
 
-// Our Journey — verbatim from the brief.
+// Our Journey, verbatim from the brief.
 export const JOURNEY = [
         {
                 year: '2019',
@@ -106,7 +106,7 @@ export const CONNECTIVITY = [
         { time: 'Adj.', unit: '',   place: 'Proposed Fourth City Growth Corridor*' },
 ];
 
-// THE VIEW amenities — kept intact from previous version.
+// THE VIEW amenities, kept intact from previous version.
 export const AMENITIES = [
         {
                 title: 'Premium Entrance',
@@ -169,7 +169,7 @@ export const STATS = [
         { value: '90k+',    suffix: 'Sq. Yds',   label: 'Marketed in a Single Year' },
 ];
 
-// Approvals & credentials — used in the marquee.
+// Approvals & credentials, used in the marquee.
 export const APPROVALS = [
         'HMDA Approved',
         'FCDA (HMDA) Approved',

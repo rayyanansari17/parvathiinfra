@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Play, ArrowRight } from 'lucide-react';
 import { Reveal, SectionIndex } from '@/components/site/Reveal';
 import LeadForm from '@/components/site/LeadForm';
+import HeroStack from '@/components/site/HeroStack';
 import {
         STATS,
         APPROVALS,
@@ -62,11 +63,12 @@ export default function Home() {
                                 {/* Hair-line horizon */}
                                 <div className="absolute left-0 right-0 top-[46%] mx-auto h-px w-[86%] max-w-[1200px] bg-gradient-to-r from-transparent via-[rgba(201,162,75,0.35)] to-transparent" />
 
-                                <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-end px-6 pb-24 pt-32 md:px-12 lg:px-24">
+                                <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-center gap-10 px-6 pb-16 pt-28 md:px-12 lg:grid lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16 lg:px-24 lg:pb-24 lg:pt-32">
                                         <motion.div
                                                 initial={{ opacity: 0, y: 40 }}
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ delay: 2.8, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+                                                className="order-2 lg:order-1"
                                         >
                                                 <div className="micro-label mb-6">Parvathi Infra Developers · Est. 2019</div>
                                                 <h1
@@ -78,7 +80,7 @@ export default function Home() {
                                                         Building Trust.
                                                 </h1>
 
-                                                <p className="mt-8 max-w-2xl font-serif-elegant text-xl italic text-ivory-dim md:text-2xl">
+                                                <p className="mt-8 max-w-2xl font-sans text-lg font-light leading-relaxed text-ivory-dim md:text-xl">
                                                         Premium HMDA &amp; FCDA (HMDA) Approved developments with high-quality
                                                         infrastructure, legally transparent, strategically located, built to appreciate.
                                                 </p>
@@ -104,11 +106,20 @@ export default function Home() {
                                                         </Link>
                                                 </div>
                                         </motion.div>
+
+                                        <motion.div
+                                                initial={{ opacity: 0, y: 30, scale: 0.96 }}
+                                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                                transition={{ delay: 3.0, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+                                                className="order-1 mx-auto w-56 sm:w-72 lg:order-2 lg:mx-0 lg:w-full lg:max-w-md lg:justify-self-end"
+                                        >
+                                                <HeroStack />
+                                        </motion.div>
                                 </div>
 
                                 <div
                                         data-testid={HOME_PAGE.heroScrollHint}
-                                        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center"
+                                        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 text-center lg:block"
                                 >
                                         <div className="text-[0.6rem] uppercase tracking-[0.4em] text-ivory-dim">Scroll</div>
                                         <div className="mx-auto mt-3 h-10 w-px bg-gradient-to-b from-gold to-transparent" />
@@ -147,7 +158,7 @@ export default function Home() {
                                                 <h2 className="max-w-3xl font-display text-3xl leading-tight tracking-[0.08em] text-ivory md:text-5xl">
                                                         Eight years of quiet, deliberate <span className="gold-foil-text">landmark-making</span>.
                                                 </h2>
-                                                <p className="mt-6 max-w-2xl font-serif-elegant text-lg italic text-ivory-dim md:text-xl">
+ <p className="mt-6 max-w-2xl font-sans font-light text-base text-ivory-dim md:text-lg">
                                                         Founded in 2019 in Hyderabad under the leadership of {SITE.founder},
                                                         Parvathi Infra Developers delivers premium plotted developments that
                                                         combine legal transparency, superior infrastructure, strategic
@@ -230,7 +241,7 @@ export default function Home() {
                                                                         <div className="mt-4 font-display text-xl tracking-[0.14em] text-ivory md:text-2xl">
                                                                                 {j.title}
                                                                         </div>
-                                                                        <p className="mt-4 font-serif-elegant text-base italic leading-relaxed text-ivory-dim">
+ <p className="mt-4 font-sans font-light text-base leading-relaxed text-ivory-dim">
                                                                                 {j.copy}
                                                                         </p>
                                                                 </div>
@@ -250,7 +261,7 @@ export default function Home() {
                                                         <br />
                                                         <span className="text-2xl md:text-3xl">at Kadthal</span>
                                                 </h2>
-                                                <p className="mt-6 font-serif-elegant text-xl italic leading-relaxed text-ivory-dim md:text-2xl">
+ <p className="mt-6 font-sans font-light text-lg leading-relaxed text-ivory-dim md:text-xl">
                                                         Tomorrow’s landmark, today. An HMDA &amp; FCDA (HMDA) approved premium
                                                         venture on NH-44 (Bengaluru Highway), one of Telangana’s fastest-growing investment corridors.
                                                 </p>
@@ -313,7 +324,7 @@ export default function Home() {
                                                                 <span className="gold-foil-text italic font-serif-elegant">gates</span>,
                                                                 without leaving your chair.
                                                         </h2>
-                                                        <p className="mt-6 max-w-md font-serif-elegant text-lg italic text-ivory-dim">
+ <p className="mt-6 max-w-md font-sans font-light text-base text-ivory-dim">
                                                                 A cinematic scroll-driven tour of THE VIEW, from the entrance
                                                                 arch to the ridge, in seven curated scenes.
                                                         </p>
@@ -377,7 +388,7 @@ export default function Home() {
                                                                 <h2 className="font-display text-3xl tracking-[0.14em] text-ivory md:text-5xl">
                                                                         Selected <span className="gold-foil-text">Works</span>
                                                                 </h2>
-                                                                <p className="mt-4 max-w-xl font-serif-elegant text-base italic text-ivory-dim md:text-lg">
+ <p className="mt-4 max-w-xl font-sans font-light text-base text-ivory-dim md:text-base">
                                                                         Delivered ventures and the flagship in the making.
                                                                 </p>
                                                         </div>
@@ -465,7 +476,7 @@ export default function Home() {
                                                         <br />
                                                         <span className="gold-foil-text">on your terms.</span>
                                                 </h2>
-                                                <p className="mt-6 max-w-2xl font-serif-elegant text-xl italic text-ivory-dim md:text-2xl">
+ <p className="mt-6 max-w-2xl font-sans font-light text-lg text-ivory-dim md:text-xl">
                                                         Share your details. Our team will reach out to arrange a chauffeured site visit to Kadthal.
                                                 </p>
                                         </Reveal>

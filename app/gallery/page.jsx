@@ -53,7 +53,7 @@ export default function Gallery() {
                                         <h1 className="font-display text-4xl leading-tight tracking-[0.08em] text-ivory md:text-6xl lg:text-7xl">
                                                 A slow, <span className="gold-foil-text italic font-serif-elegant">deliberate</span> visual archive.
                                         </h1>
-                                        <p className="mt-6 max-w-2xl font-serif-elegant text-xl italic text-ivory-dim">
+ <p className="mt-6 max-w-2xl font-sans font-light text-lg text-ivory-dim">
                                                 Site photography, artist impressions and layout studies.
                                         </p>
                                 </Reveal>

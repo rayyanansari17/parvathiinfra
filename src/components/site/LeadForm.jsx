@@ -45,7 +45,7 @@ export default function LeadForm({ variant = 'dark', source = 'website', title, 
                                 <div className="font-display text-xl tracking-[0.18em] text-ivory">
                                         THANK YOU
                                 </div>
-                                <p className="mt-3 font-serif-elegant text-lg italic text-ivory-dim">
+ <p className="mt-3 font-sans font-light text-base text-ivory-dim">
                                         Our concierge will reach out shortly to arrange your private preview.
                                 </p>
                         </div>
@@ -65,7 +65,7 @@ export default function LeadForm({ variant = 'dark', source = 'website', title, 
                                                 {title}
                                         </h3>
                                         {subtitle && (
-                                                <p className="mt-3 font-serif-elegant text-lg italic text-ivory-dim">
+ <p className="mt-3 font-sans font-light text-base text-ivory-dim">
                                                         {subtitle}
                                                 </p>
                                         )}

@@ -23,7 +23,7 @@ const FILTERS = [
         { k: 'available', label: 'Available only' },
 ];
 
-// Simple deterministic mock status — 20% sold.
+// Simple deterministic mock status, 20% sold.
 const isSold = (n) => n % 5 === 0;
 
 function bucket(size) {
@@ -88,7 +88,7 @@ export default function LayoutExplorer() {
                                                 <h2 className="font-display text-3xl leading-tight tracking-[0.1em] text-ivory md:text-5xl">
                                                         Choose your <span className="gold-foil-text">plot</span>.
                                                 </h2>
-                                                <p className="mt-4 max-w-2xl font-serif-elegant text-lg italic text-ivory-dim">
+ <p className="mt-4 max-w-2xl font-sans font-light text-base text-ivory-dim">
                                                         41 exclusive villa plots · nine curated amenities. Hover any
                                                         plot for size and status. Click to enquire.
                                                 </p>
@@ -310,7 +310,7 @@ export default function LayoutExplorer() {
 }
 
 // ------------------------------------------------------------------
-// PlotPanel — side drawer with plot detail + Enquire CTA.
+// PlotPanel, side drawer with plot detail + Enquire CTA.
 // ------------------------------------------------------------------
 function PlotPanel({ plot, onClose, onEnquire }) {
         const size = PLOT_SIZES[plot.n - 1];
@@ -364,7 +364,7 @@ function PlotPanel({ plot, onClose, onEnquire }) {
                                                 ))}
                                         </ul>
                                 </div>
-                                <p className="font-serif-elegant text-base italic text-ivory-dim">
+ <p className="font-sans font-light text-base text-ivory-dim">
                                         A private ridgeline plot with the same registry standard, engineering
                                         and 24×7 security that defines every Parvathi Infra address.
                                 </p>
@@ -405,7 +405,7 @@ function Cell({ label, children }) {
 }
 
 // ------------------------------------------------------------------
-// AmenityPanel — side drawer with amenity detail.
+// AmenityPanel, side drawer with amenity detail.
 // ------------------------------------------------------------------
 function AmenityPanel({ amenity, onClose }) {
         return (
@@ -441,7 +441,7 @@ function AmenityPanel({ amenity, onClose }) {
                                                 className="h-full w-full object-cover opacity-70"
                                         />
                                 </div>
-                                <p className="font-serif-elegant text-lg italic leading-relaxed text-ivory">
+ <p className="font-sans font-light text-base leading-relaxed text-ivory">
                                         {amenity.blurb}
                                 </p>
                         </div>
@@ -450,7 +450,7 @@ function AmenityPanel({ amenity, onClose }) {
 }
 
 // ------------------------------------------------------------------
-// EnquiryModal — prefilled lead capture.
+// EnquiryModal, prefilled lead capture.
 // ------------------------------------------------------------------
 function EnquiryModal({ plot, onClose }) {
         const [form, setForm] = useState({ name: '', phone: '', email: '' });
@@ -518,7 +518,7 @@ function EnquiryModal({ plot, onClose }) {
                                                         Enquire about{' '}
                                                         <span className="gold-foil-text">Plot {plot.n}</span>
                                                 </h3>
-                                                <p className="mt-3 font-serif-elegant text-base italic text-ivory-dim">
+ <p className="mt-3 font-sans font-light text-base text-ivory-dim">
                                                         {PLOT_SIZES[plot.n - 1]} sq.yd · Vastu compliant · 100% approvals in
                                                         order.
                                                 </p>
@@ -564,7 +564,7 @@ function EnquiryModal({ plot, onClose }) {
                                                 <div className="font-display text-xl tracking-[0.14em] text-ivory">
                                                         THANK YOU
                                                 </div>
-                                                <p className="mt-3 font-serif-elegant text-lg italic text-ivory-dim">
+ <p className="mt-3 font-sans font-light text-base text-ivory-dim">
                                                         Our concierge will call about Plot {plot.n} shortly.
                                                 </p>
                                         </div>

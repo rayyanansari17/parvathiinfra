@@ -77,7 +77,7 @@ export default function BrochureModal({ open, onClose }) {
                                                                 <h3 className="font-display text-3xl tracking-[0.14em] text-ivory">
                                                                         THE VIEW <span className="gold-foil-text">BROCHURE</span>
                                                                 </h3>
-                                                                <p className="mt-4 font-serif-elegant text-lg italic text-ivory-dim">
+ <p className="mt-4 font-sans font-light text-base text-ivory-dim">
                                                                         Please share your details to receive the private brochure ,
                                                                         floor plans, master layout, pricing on request.
                                                                 </p>
@@ -127,7 +127,7 @@ export default function BrochureModal({ open, onClose }) {
                                                                 <h3 className="font-display text-2xl tracking-[0.14em] text-ivory">
                                                                         YOUR BROCHURE IS <span className="gold-foil-text">READY</span>
                                                                 </h3>
-                                                                <p className="mt-3 font-serif-elegant text-lg italic text-ivory-dim">
+ <p className="mt-3 font-sans font-light text-base text-ivory-dim">
                                                                         Thank you, {form.name.split(' ')[0]}. Enjoy your preview.
                                                                 </p>
                                                                 <a

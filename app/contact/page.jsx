@@ -35,7 +35,7 @@ export default function Contact() {
                                                                         <MapPin className="mt-1 text-gold" size={18} />
                                                                         <p
                                                                                 data-testid={CONTACT_PAGE.address}
-                                                                                className="font-serif-elegant text-lg text-ivory"
+ className="font-sans font-light text-base text-ivory"
                                                                         >
                                                                                 {SITE.siteAddress}
                                                                         </p>
@@ -46,7 +46,7 @@ export default function Contact() {
                                                                 <div className="micro-label mb-3">Office</div>
                                                                 <div className="flex items-start gap-4">
                                                                         <MapPin className="mt-1 text-gold" size={18} />
-                                                                        <p className="font-serif-elegant text-lg text-ivory">
+ <p className="font-sans font-light text-base text-ivory">
                                                                                 {SITE.officeAddress}
                                                                         </p>
                                                                 </div>
@@ -61,7 +61,7 @@ export default function Contact() {
                                                                                         <a
                                                                                                 data-testid={CONTACT_PAGE.email}
                                                                                                 href={`mailto:${SITE.emails.info}`}
-                                                                                                className="gold-underline font-serif-elegant text-lg text-ivory"
+ className="gold-underline font-sans font-light text-base text-ivory"
                                                                                         >
                                                                                                 {SITE.emails.info}
                                                                                         </a>
@@ -75,7 +75,7 @@ export default function Contact() {
                                                                                 <div>
                                                                                         <a
                                                                                                 href={`mailto:${SITE.emails.sales}`}
-                                                                                                className="gold-underline font-serif-elegant text-lg text-ivory"
+ className="gold-underline font-sans font-light text-base text-ivory"
                                                                                         >
                                                                                                 {SITE.emails.sales}
                                                                                         </a>
@@ -89,7 +89,7 @@ export default function Contact() {
                                                                                 <div>
                                                                                         <a
                                                                                                 href={`mailto:${SITE.emails.admin}`}
-                                                                                                className="gold-underline font-serif-elegant text-lg text-ivory"
+ className="gold-underline font-sans font-light text-base text-ivory"
                                                                                         >
                                                                                                 {SITE.emails.admin}
                                                                                         </a>
@@ -109,7 +109,7 @@ export default function Contact() {
                                                                                 href={SITE.whatsappLink}
                                                                                 target="_blank"
                                                                                 rel="noopener noreferrer"
-                                                                                className="gold-underline font-serif-elegant text-lg text-ivory"
+ className="gold-underline font-sans font-light text-base text-ivory"
                                                                         >
                                                                                 Message the concierge
                                                                         </a>

@@ -30,7 +30,7 @@ export default function About() {
                                                                 <br />
                                                                 Building Legacies.
                                                         </h1>
-                                                        <p className="mt-8 max-w-xl font-serif-elegant text-xl italic leading-relaxed text-ivory-dim md:text-2xl">
+ <p className="mt-8 max-w-xl font-sans font-light text-lg leading-relaxed text-ivory-dim md:text-xl">
                                                                 Parvathi Infra Developers was founded in 2019 in Hyderabad
                                                                 under the leadership of <span className="not-italic text-ivory">{SITE.founder}</span>.
                                                                 Every venture reflects our commitment to quality,
@@ -80,7 +80,7 @@ export default function About() {
                                                         <br />
                                                         Building <span className="gold-foil-text">Legacies.</span>
                                                 </h3>
-                                                <p className="mt-6 font-serif-elegant text-lg italic leading-relaxed text-ivory-dim">
+ <p className="mt-6 font-sans font-light text-base leading-relaxed text-ivory-dim">
                                                         To create landmark residential communities that offer lasting value to
                                                         homeowners and investors alike.
                                                 </p>
@@ -92,7 +92,7 @@ export default function About() {
                                                         <br />
                                                         Uncompromising <span className="gold-foil-text">documentation.</span>
                                                 </h3>
-                                                <p className="mt-6 font-serif-elegant text-lg italic leading-relaxed text-ivory-dim">
+ <p className="mt-6 font-sans font-light text-base leading-relaxed text-ivory-dim">
                                                         Deliver premium residential developments with world-class
                                                         infrastructure, clear legal documentation, and sustainable long-term
                                                         value.
@@ -126,7 +126,7 @@ export default function About() {
                                                                 <div className="mt-5 font-display text-2xl tracking-[0.14em] text-ivory">
                                                                         {v.title}
                                                                 </div>
-                                                                <p className="mt-4 font-serif-elegant text-base italic leading-relaxed text-ivory-dim">
+ <p className="mt-4 font-sans font-light text-base leading-relaxed text-ivory-dim">
                                                                         {v.copy}
                                                                 </p>
                                                                 <div className="mt-6 h-px w-0 bg-gradient-to-r from-gold to-transparent transition-all duration-700 group-hover:w-full" />
@@ -160,7 +160,7 @@ export default function About() {
                                                                         <div className="mt-2 font-display text-2xl tracking-[0.08em] text-ivory md:text-3xl">
                                                                                 {t.title}
                                                                         </div>
-                                                                        <p className="mt-3 max-w-xl font-serif-elegant text-lg italic text-ivory-dim">
+ <p className="mt-3 max-w-xl font-sans font-light text-base text-ivory-dim">
                                                                                 {t.copy}
                                                                         </p>
                                                                 </div>
@@ -182,7 +182,7 @@ export default function About() {
                                                         <h2 className="font-display text-3xl leading-tight tracking-[0.08em] text-ivory md:text-5xl">
                                                                 Trusted by <span className="gold-foil-text">Green Homes.</span>
                                                         </h2>
-                                                        <p className="mt-6 max-w-md font-serif-elegant text-lg italic leading-relaxed text-ivory-dim">
+ <p className="mt-6 max-w-md font-sans font-light text-base leading-relaxed text-ivory-dim">
                                                                 Across five key investment corridors, our collaborations with
                                                                 Green Homes marketed more than{' '}
                                                                 <span className="not-italic text-ivory">90,000 sq. yards</span> in a
@@ -246,7 +246,7 @@ export default function About() {
                                                                         <div className="mt-2 text-[0.65rem] uppercase tracking-[0.28em] text-ivory-dim">
                                                                                 {p.sub}
                                                                         </div>
-                                                                        <p className="mt-5 font-serif-elegant text-base italic leading-relaxed text-ivory-dim">
+ <p className="mt-5 font-sans font-light text-base leading-relaxed text-ivory-dim">
                                                                                 {p.copy}
                                                                         </p>
                                                                 </div>
