@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, RotateCcw, ArrowRight } from 'lucide-react';
 import plotsData from '@/data/plots.json';
@@ -33,8 +33,16 @@ const ALL_PLOTS = [
         ...plotsData.unverifiedPositions.map((u) => ({ id: u.id, sqyd: null, sqft: null, pos: u.pos, verified: false })),
 ].sort((a, b) => a.id - b.id);
 
+// Intrinsic size of 10-layout-plan.jpg. Hotspot coordinates in plots.json /
+// tour.json are percentages of the DRAWING, so they have to be positioned
+// against the drawing's rendered box, not the viewport: the plan is letterboxed
+// inside a wider viewport and percentages of the viewport land off the paper.
+const PLAN_W = 1104;
+const PLAN_H = 973;
+
 export default function MasterPlan({ onJumpToNode }) {
         const containerRef = useRef(null);
+        const [planBox, setPlanBox] = useState(null);
         const [scale, setScale] = useState(1);
         const [tx, setTx] = useState(0);
         const [ty, setTy] = useState(0);
@@ -45,6 +53,26 @@ export default function MasterPlan({ onJumpToNode }) {
         const [verifiedOnly, setVerifiedOnly] = useState(false);
         const [selectedPlot, setSelectedPlot] = useState(null);
         const [selectedAmenity, setSelectedAmenity] = useState(null);
+
+        // Largest box with the drawing's aspect ratio that fits the viewport,
+        // centred: this is exactly where the plan renders, so hotspots parented
+        // to it can use plain percentage coordinates.
+        useEffect(() => {
+                const el = containerRef.current;
+                if (!el) return undefined;
+                const measure = () => {
+                        const { width, height } = el.getBoundingClientRect();
+                        if (!width || !height) return;
+                        const fit = Math.min(width / PLAN_W, height / PLAN_H);
+                        const w = PLAN_W * fit;
+                        const h = PLAN_H * fit;
+                        setPlanBox({ left: (width - w) / 2, top: (height - h) / 2, width: w, height: h });
+                };
+                measure();
+                const ro = new ResizeObserver(measure);
+                ro.observe(el);
+                return () => ro.disconnect();
+        }, []);
 
         const clampScale = (s) => Math.min(4, Math.max(1, s));
 
@@ -168,11 +196,21 @@ export default function MasterPlan({ onJumpToNode }) {
                                                 transformOrigin: '0 0',
                                         }}
                                 >
+                                  <div
+                                        className="absolute"
+                                        style={{
+                                                left: planBox ? `${planBox.left}px` : 0,
+                                                top: planBox ? `${planBox.top}px` : 0,
+                                                width: planBox ? `${planBox.width}px` : '100%',
+                                                height: planBox ? `${planBox.height}px` : '100%',
+                                                visibility: planBox ? 'visible' : 'hidden',
+                                        }}
+                                  >
                                         <img
                                                 src="/assets/tour/10-layout-plan.jpg"
                                                 alt="THE VIEW · sanctioned layout plan, 41 plots"
                                                 draggable={false}
-                                                className="h-full w-full select-none object-contain"
+                                                className="block h-full w-full select-none"
                                         />
 
                                         {/* Plot hotspots */}
@@ -219,6 +257,7 @@ export default function MasterPlan({ onJumpToNode }) {
                                                         {a.code}
                                                 </button>
                                         ))}
+                                  </div>
                                 </div>
                         </div>
 
