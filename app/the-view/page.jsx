@@ -123,7 +123,7 @@ export default function TheView() {
         return (
                 <div data-testid={THE_VIEW_PAGE.root} className="bg-ink">
                         {/* ============================ HERO (no video) ============================ */}
-                        <section className="relative min-h-[100svh] w-full overflow-hidden pt-24">
+                        <section className="relative min-h-[100svh] w-full overflow-hidden">
                                 <div
                                         className="absolute inset-0"
                                         style={{
@@ -155,7 +155,7 @@ export default function TheView() {
                                 <div className="absolute inset-0 grain-overlay" />
                                 <div className="absolute left-0 right-0 top-[48%] mx-auto h-px w-[86%] max-w-[1200px] bg-gradient-to-r from-transparent via-[rgba(201,162,75,0.4)] to-transparent" />
 
-                                <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-end px-6 pb-24 md:px-12 lg:px-24">
+                                <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-center px-6 pt-24 pb-16 md:px-12 lg:px-24">
                                         <motion.div
                                                 initial={{ opacity: 0, y: 30 }}
                                                 animate={{ opacity: 1, y: 0 }}

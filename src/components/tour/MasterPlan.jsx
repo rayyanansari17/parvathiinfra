@@ -63,10 +63,24 @@ export default function MasterPlan({ onJumpToNode }) {
                 const measure = () => {
                         const { width, height } = el.getBoundingClientRect();
                         if (!width || !height) return;
-                        const fit = Math.min(width / PLAN_W, height / PLAN_H);
+                        // Reserve the space the fixed chrome occupies so the whole
+                        // drawing sits between the top stat strip / filters and the
+                        // bottom rail (a taller plot list on mobile) instead of being
+                        // cropped behind them.
+                        const mobile = width < 768;
+                        const padTop = mobile ? 172 : 190;
+                        const padBottom = mobile ? Math.round(height * 0.34) : 96;
+                        const availW = Math.max(0, width - 32);
+                        const availH = Math.max(0, height - padTop - padBottom);
+                        const fit = Math.min(availW / PLAN_W, availH / PLAN_H);
                         const w = PLAN_W * fit;
                         const h = PLAN_H * fit;
-                        setPlanBox({ left: (width - w) / 2, top: (height - h) / 2, width: w, height: h });
+                        setPlanBox({
+                                left: (width - w) / 2,
+                                top: padTop + (availH - h) / 2,
+                                width: w,
+                                height: h,
+                        });
                 };
                 measure();
                 const ro = new ResizeObserver(measure);

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useLayoutEffect, useRef } from 'react';
-import { ChevronRight, Plus } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 // Layout effects don't run during SSR; falling back to a plain effect there
 // avoids the React warning while keeping the child-before-parent commit
@@ -24,7 +24,6 @@ export default function TourNode({
         active,
         reducedMotion,
         onAdvance,
-        onInfoOpen,
         onImageLoad,
         loaded,
         registerRefs,
@@ -160,23 +159,6 @@ export default function TourNode({
                                         </span>
                                 </button>
                         )}
-
-                        {/* Info hotspots: same dominant-scene gating; 44px+ touch target */}
-                        {(node.infoHotspots || []).map((h, i) => (
-                                <button
-                                        key={`${node.id}-info-${i}`}
-                                        type="button"
-                                        onClick={() => onInfoOpen(h)}
-                                        data-testid={`tour-info-hotspot-${i}`}
-                                        aria-label={h.title}
-                                        className={`group absolute z-10 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[rgba(201,162,75,0.7)] bg-ink/40 text-gold backdrop-blur-sm transition-all duration-300 hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold md:h-9 md:w-9 ${
-                                                active || simple ? 'opacity-100' : 'pointer-events-none opacity-0'
-                                        }`}
-                                        style={{ left: `${h.x}%`, top: `${h.y}%` }}
-                                >
-                                        <Plus size={14} />
-                                </button>
-                        ))}
 
                         {/* Caption: opacity set imperatively from scroll progress in scroll mode */}
                         <div

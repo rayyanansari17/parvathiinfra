@@ -18,7 +18,7 @@ export default function About() {
                 <div data-testid={ABOUT_PAGE.root} className="bg-ink pt-28">
                         {/* ============================ HERO ============================ */}
                         <section className="relative overflow-hidden">
-                                <div className="mx-auto grid max-w-[1440px] items-center gap-16 px-6 py-20 md:grid-cols-12 md:px-12 md:py-28 lg:px-24">
+                                <div className="mx-auto grid max-w-[1440px] items-center gap-16 px-6 pb-20 pt-8 md:grid-cols-12 md:px-12 md:pb-28 md:pt-10 lg:px-24">
                                         <div className="md:col-span-7">
                                                 <Reveal>
                                                         <SectionIndex n={1} label="About Parvathi Infra" />

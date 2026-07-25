@@ -29,7 +29,7 @@ const MASTERPLAN_ACTIVE = PINNED_COUNT; // sentinel activeIndex value for "maste
 const MASTERPLAN_NODE = NODES.find((n) => n.id === 'masterplan');
 const SEGMENT_VH_FACTOR = 1.2; // each node "owns" 120vh of scroll, per spec
 const DISSOLVE_START = 0.8; // last 20% of a segment cross-dissolves to the next node
-const AUTOPLAY_SECONDS_PER_NODE = 8;
+const AUTOPLAY_SECONDS_PER_NODE = 5;
 
 const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -217,6 +217,17 @@ export default function TourShell() {
 
         useEffect(() => () => stopAutoplay(), [stopAutoplay]);
 
+        // Start the tour playing on arrival (once), rather than parked on the
+        // first scene waiting for a Play click. Waits a beat for the pinned
+        // ScrollTrigger to exist. Skipped under reduced motion.
+        const autoStartedRef = useRef(false);
+        useEffect(() => {
+                if (!preloaderDone || reducedMotion || autoStartedRef.current) return undefined;
+                autoStartedRef.current = true;
+                const t = setTimeout(() => startAutoplay(), 700);
+                return () => clearTimeout(t);
+        }, [preloaderDone, reducedMotion, startAutoplay]);
+
         // Smooth-scroll to a given pinned-node index (0..PINNED_COUNT-1) or to
         // MASTERPLAN_ACTIVE for the master plan section. Used by the chapter
         // rail, mini-map, forward hotspot and arrow keys.
@@ -288,6 +299,29 @@ export default function TourShell() {
         useEffect(() => {
                 setMpExpanded(false);
         }, [activeIndex]);
+
+        // While the tour is playing, surface each scene's detail notes on their
+        // own, cycling through them, instead of hiding them behind clickable
+        // hotspots. Cleared when paused, in the master plan, or on a scene with
+        // no notes.
+        useEffect(() => {
+                if (!autoplay || reducedMotion || activeIndex >= PINNED_COUNT) {
+                        setActiveInfo(null);
+                        return undefined;
+                }
+                const notes = PINNED_NODES[activeIndex]?.infoHotspots || [];
+                if (!notes.length) {
+                        setActiveInfo(null);
+                        return undefined;
+                }
+                let i = 0;
+                setActiveInfo(notes[0]);
+                const id = setInterval(() => {
+                        i = (i + 1) % notes.length;
+                        setActiveInfo(notes[i]);
+                }, 2600);
+                return () => clearInterval(id);
+        }, [autoplay, reducedMotion, activeIndex]);
 
         const onImageLoad = useCallback((src) => {
                 setLoadedImages((prev) => {
@@ -456,7 +490,7 @@ export default function TourShell() {
 
                         {preloaderDone && (
                                 <>
-                                        <InfoPanel hotspot={activeInfo} onClose={() => setActiveInfo(null)} />
+                                        <InfoPanel hotspot={activeInfo} auto onClose={() => setActiveInfo(null)} />
                                         <MiniMap node={currentNode} onOpen={() => scrollToIndex(MASTERPLAN_ACTIVE)} />
                                         <ChapterRail nodes={NODES} index={activeIndex} onJump={(i) => scrollToIndex(i)} />
                                         <CTACard

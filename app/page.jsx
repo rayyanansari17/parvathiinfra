@@ -6,6 +6,7 @@ import { Play, ArrowRight } from 'lucide-react';
 import { Reveal, SectionIndex } from '@/components/site/Reveal';
 import LeadForm from '@/components/site/LeadForm';
 import HeroStack from '@/components/site/HeroStack';
+import FlagshipShowcase from '@/components/site/FlagshipShowcase';
 import {
         STATS,
         APPROVALS,
@@ -15,9 +16,17 @@ import {
         SITE,
         STOCK,
         MASTER_PLAN_IMAGE,
-        SCALE_MODEL_IMAGE,
 } from '@/lib/siteData';
 import { HOME_PAGE } from '@/constants/testIds';
+
+// Real project renders that cycle in the flagship section's showcase.
+const VIEW_SHOWCASE = [
+        { src: '/assets/tour/05-avenue.jpg', alt: 'The tree-lined avenue at THE VIEW', label: 'The Avenue' },
+        { src: '/assets/tour/03-arch-front.jpg', alt: 'The grand entrance arch', label: 'The Grand Arch' },
+        { src: '/assets/tour/11-amenity-aerial.jpg', alt: 'Clubhouse, pool and amphitheatre from above', label: 'Amenities Aerial' },
+        { src: '/assets/tour/06-clubhouse.jpg', alt: 'Clubhouse and infinity-edge pool', label: 'Clubhouse & Pool' },
+        { src: '/assets/tour/09-viewpoint.jpg', alt: 'The panoramic view point terrace', label: 'The View Point' },
+];
 
 export default function Home() {
         return (
@@ -290,20 +299,7 @@ export default function Home() {
                                         </Reveal>
 
                                         <Reveal delay={0.15}>
-                                                <div className="relative aspect-[4/5] overflow-hidden border border-[rgba(201,162,75,0.25)]">
-                                                        <img
-                                                                src={SCALE_MODEL_IMAGE}
-                                                                alt="THE VIEW scale model"
-                                                                className="h-full w-full object-cover transition-transform duration-[1.6s] hover:scale-105"
-                                                        />
-                                                        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent" />
-                                                        <div className="absolute bottom-6 left-6 right-6">
-                                                                <div className="micro-label mb-2">Kadthal · NH-44</div>
-                                                                <div className="font-display text-xl tracking-[0.16em] text-ivory">
-                                                                        HMDA · FCDA (HMDA) · CLEAR TITLE
-                                                                </div>
-                                                        </div>
-                                                </div>
+                                                <FlagshipShowcase images={VIEW_SHOWCASE} />
                                         </Reveal>
                                 </div>
                         </section>
