@@ -21,6 +21,7 @@ import { HOME_PAGE } from '@/constants/testIds';
 
 // Real project renders that cycle in the flagship section's showcase.
 const VIEW_SHOWCASE = [
+        { src: '/assets/tour/12-layout-aerial.jpg', alt: 'Aerial layout plan of THE VIEW with every villa plot', label: 'Master Layout' },
         { src: '/assets/tour/05-avenue.jpg', alt: 'The tree-lined avenue at THE VIEW', label: 'The Avenue' },
         { src: '/assets/tour/03-arch-front.jpg', alt: 'The grand entrance arch', label: 'The Grand Arch' },
         { src: '/assets/tour/11-amenity-aerial.jpg', alt: 'Clubhouse, pool and amphitheatre from above', label: 'Amenities Aerial' },
