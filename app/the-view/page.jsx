@@ -10,10 +10,12 @@ import Typewriter from '@/components/site/Typewriter';
 import AmenitiesCarousel from '@/components/site/AmenitiesCarousel';
 import ProjectHighlights from '@/components/site/ProjectHighlights';
 import ConnectivityTabs from '@/components/site/ConnectivityTabs';
+import StatBand from '@/components/site/StatBand';
+import SectionNav from '@/components/site/SectionNav';
+import Clubhouse from '@/components/site/Clubhouse';
 import {
         MASTER_PLAN_IMAGE,
         INFRASTRUCTURE,
-        STATS,
         FAQS,
         STOCK,
         SITE,
@@ -219,22 +221,15 @@ export default function TheView() {
                                 </div>
                         </section>
 
-                        {/* ============================ STATS ============================ */}
-                        <section className="border-y border-[rgba(201,162,75,0.15)] bg-obsidian">
-                                <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-px bg-[rgba(201,162,75,0.1)] md:grid-cols-4">
-                                        {STATS.map((s, i) => (
-                                                <div
-                                                        key={i}
-                                                        className="bg-obsidian px-6 py-14 text-center md:px-10 md:py-20"
-                                                >
-                                                        <div className="font-display text-3xl tracking-[0.06em] md:text-5xl">
-                                                                <span className="gold-foil-text">{s.value}</span>
-                                                        </div>
-                                                        <div className="mt-2 text-sm text-ivory-dim">{s.suffix}</div>
-                                                        <div className="mt-4 micro-label">{s.label}</div>
-                                                </div>
-                                        ))}
-                                </div>
+                        {/* ============================ SECTION NAV ============================ */}
+                        <SectionNav />
+
+                        {/* ============================ STATS (Project at a Glance) ============================ */}
+                        <section
+                                id="overview"
+                                className="scroll-mt-32 border-y border-[rgba(201,162,75,0.15)] bg-obsidian"
+                        >
+                                <StatBand />
                         </section>
 
                         {/* ============================ MANIFESTO ============================ */}
@@ -254,8 +249,9 @@ export default function TheView() {
 
                         {/* ============================ PROJECT HIGHLIGHTS ============================ */}
                         <section
+                                id="highlights"
                                 data-testid="theview-highlights"
-                                className="border-t border-[rgba(201,162,75,0.15)] bg-ink py-24 md:py-28"
+                                className="scroll-mt-32 border-t border-[rgba(201,162,75,0.15)] bg-ink py-24 md:py-28"
                         >
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
@@ -273,7 +269,10 @@ export default function TheView() {
                         </section>
 
                         {/* ============================ MASTER PLAN, TWO PANELS ============================ */}
-                        <section className="border-t border-[rgba(201,162,75,0.15)] bg-obsidian py-24 md:py-28">
+                        <section
+                                id="masterplan"
+                                className="scroll-mt-32 border-t border-[rgba(201,162,75,0.15)] bg-obsidian py-24 md:py-28"
+                        >
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
                                                 <SectionIndex n={3} label="Master Plan" />
@@ -318,14 +317,35 @@ export default function TheView() {
                                 </div>
                         </section>
 
-                        {/* ============================ AMENITIES ============================ */}
+                        {/* ============================ CLUBHOUSE ============================ */}
                         <section
-                                data-testid={THE_VIEW_PAGE.amenities}
-                                className="bg-ink py-24 md:py-28"
+                                id="clubhouse"
+                                data-testid="theview-clubhouse"
+                                className="scroll-mt-32 bg-ink py-24 md:py-28"
                         >
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
-                                                <SectionIndex n={4} label="Amenities" />
+                                                <SectionIndex n={4} label="The Clubhouse" />
+                                                <h2 className="font-display text-3xl tracking-[0.14em] text-ivory md:text-5xl">
+                                                        An elegant <span className="gold-foil-text">clubhouse.</span>
+                                                </h2>
+                                                <p className="mt-4 max-w-2xl font-sans font-light text-base text-ivory-dim">
+                                                        2,220 sq.ft across two levels, the social heart of the community.
+                                                </p>
+                                        </Reveal>
+                                        <Clubhouse />
+                                </div>
+                        </section>
+
+                        {/* ============================ AMENITIES ============================ */}
+                        <section
+                                id="amenities"
+                                data-testid={THE_VIEW_PAGE.amenities}
+                                className="scroll-mt-32 border-t border-[rgba(201,162,75,0.15)] bg-obsidian py-24 md:py-28"
+                        >
+                                <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
+                                        <Reveal>
+                                                <SectionIndex n={5} label="Amenities" />
                                                 <h2 className="font-display text-3xl tracking-[0.14em] text-ivory md:text-5xl">
                                                         A <span className="gold-foil-text">private</span> promenade.
                                                 </h2>
@@ -342,7 +362,7 @@ export default function TheView() {
                         <section className="border-y border-[rgba(201,162,75,0.15)] bg-obsidian py-24 md:py-28">
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
-                                                <SectionIndex n={5} label="Infrastructure" />
+                                                <SectionIndex n={6} label="Infrastructure" />
                                                 <h2 className="font-display text-3xl tracking-[0.14em] text-ivory md:text-5xl">
                                                         Built to <span className="gold-foil-text">outlast trends.</span>
                                                 </h2>
@@ -365,12 +385,13 @@ export default function TheView() {
 
                         {/* ============================ CONNECTIVITY ============================ */}
                         <section
+                                id="location"
                                 data-testid={THE_VIEW_PAGE.connectivity}
-                                className="bg-ink py-24 md:py-28"
+                                className="scroll-mt-32 bg-ink py-24 md:py-28"
                         >
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
-                                                <SectionIndex n={6} label="Location & Connectivity" />
+                                                <SectionIndex n={7} label="Location & Connectivity" />
                                                 <h2 className="font-display text-3xl leading-tight tracking-[0.12em] text-ivory md:text-5xl">
                                                         At the heart of Hyderabad&apos;s
                                                         <br />
@@ -393,7 +414,7 @@ export default function TheView() {
                         >
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
-                                                <SectionIndex n={7} label="Editorial" />
+                                                <SectionIndex n={8} label="Editorial" />
                                                 <h2 className="font-display text-3xl tracking-[0.14em] text-ivory md:text-5xl">
                                                         The <span className="gold-foil-text">frame</span> beyond the frame.
                                                 </h2>
@@ -427,7 +448,7 @@ export default function TheView() {
                         <section data-testid={THE_VIEW_PAGE.faq} className="bg-ink py-24 md:py-28">
                                 <div className="mx-auto max-w-[1000px] px-6 md:px-12">
                                         <Reveal>
-                                                <SectionIndex n={8} label="Frequently Asked" />
+                                                <SectionIndex n={9} label="Frequently Asked" />
                                                 <h2 className="font-display text-3xl tracking-[0.14em] text-ivory md:text-5xl">
                                                         The <span className="gold-foil-text">fine print</span>, made warm.
                                                 </h2>
@@ -460,10 +481,13 @@ export default function TheView() {
                         </section>
 
                         {/* ============================ CONTACT CTA ============================ */}
-                        <section className="border-t border-[rgba(201,162,75,0.15)] bg-obsidian py-24 md:py-28">
+                        <section
+                                id="enquire"
+                                className="scroll-mt-32 border-t border-[rgba(201,162,75,0.15)] bg-obsidian py-24 md:py-28"
+                        >
                                 <div className="mx-auto max-w-[1000px] px-6 md:px-12">
                                         <Reveal>
-                                                <SectionIndex n={8} label="Book a Private Preview" />
+                                                <SectionIndex n={10} label="Book a Private Preview" />
                                                 <h2 className="font-display text-3xl leading-tight tracking-[0.12em] text-ivory md:text-5xl">
                                                         Walk the <span className="gold-foil-text">ridge</span> with us.
                                                 </h2>
