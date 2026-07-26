@@ -106,6 +106,86 @@ export const CONNECTIVITY = [
         { time: 'Adj.', unit: '',   place: 'Proposed Fourth City Growth Corridor*' },
 ];
 
+// THE VIEW project highlights, 24 interactive feature cards. `icon` maps to a
+// lucide-react icon in ProjectHighlights.jsx. Copy is authoritative (not OCR).
+export const PROJECT_HIGHLIGHTS = [
+        { icon: 'Trees', name: 'Landscaping', desc: 'Curated green pockets and avenue planting throughout the community.' },
+        { icon: 'ToyBrick', name: "Children's Play Area", desc: 'A safe, dedicated space for younger residents.' },
+        { icon: 'Tent', name: 'Gazebos', desc: 'Shaded seating pavilions across the landscaped zones.' },
+        { icon: 'Armchair', name: 'Sitting Area', desc: 'Quiet corners designed for evening conversation.' },
+        { icon: 'Landmark', name: 'Open Dayas with Granite Work', desc: 'Elevated granite platforms for gathering and rest.' },
+        { icon: 'FileCheck', name: 'Clear Title', desc: 'Fully verified ownership with transparent documentation.' },
+        { icon: 'Sofa', name: 'Granite Chairs', desc: 'Durable, elegant seating integrated into the landscape.' },
+        { icon: 'Droplet', name: 'Water Connection for Each Plot', desc: 'Individual water line provisioned to every plot.' },
+        { icon: 'Accessibility', name: 'Senior Citizens Area', desc: 'A calm, accessible space designed for elders.' },
+        { icon: 'PartyPopper', name: 'Party Lawn', desc: 'An open lawn for celebrations and community gatherings.' },
+        { icon: 'DoorOpen', name: 'Elegant Entrance Gate', desc: 'A grand architectural arrival statement.' },
+        { icon: 'Lightbulb', name: 'Street Lights on All Roads', desc: 'Designer lighting along every internal road.' },
+        { icon: 'Compass', name: '100% Vastu Layout', desc: 'Every plot planned in accordance with Vastu principles.' },
+        { icon: 'Hammer', name: 'Ready to Construction', desc: 'Begin building immediately, no waiting.' },
+        { icon: 'Waves', name: 'Underground Drainage System', desc: 'Fully concealed drainage for a clean streetscape.' },
+        { icon: 'Droplets', name: 'Underground Water Line', desc: 'Piped water infrastructure laid below ground.' },
+        { icon: 'Hash', name: 'Numbering of Each Plot', desc: 'Clearly marked and demarcated plot identification.' },
+        { icon: 'ShieldCheck', name: '24x7 Security System with Security Room', desc: 'Round-the-clock manned security at the entrance.' },
+        { icon: 'Container', name: 'Overhead Tank', desc: 'Dedicated overhead storage ensuring consistent supply.' },
+        { icon: 'Sprout', name: 'Plantation for Each Plot', desc: 'A tree planted for every plot in the community.' },
+        { icon: 'Route', name: 'All 30 Feet CC Roads', desc: 'Wide concrete roads throughout the layout.' },
+        { icon: 'Zap', name: 'Open Power', desc: 'Electrical infrastructure provisioned across the site.' },
+        { icon: 'LandPlot', name: 'Open Space', desc: 'Over 10% of the land dedicated to open green space.' },
+        { icon: 'Cctv', name: 'CC Camera at Entrance Gate', desc: 'Surveillance coverage at the point of entry.' },
+];
+
+// Categorised connectivity for THE VIEW, grouped for the tabbed block. `icon`
+// maps to a lucide-react icon in ConnectivityTabs.jsx.
+export const CONNECTIVITY_GROUPS = [
+        {
+                key: 'roads',
+                label: 'Roads & Transport',
+                icon: 'Milestone',
+                rows: [
+                        { place: 'Srisailam Highway', time: 1 },
+                        { place: 'Regional Ring Road (RRR)', time: 6 },
+                        { place: 'Ratan TATA Greenfield Road', time: 12 },
+                        { place: '6-Lane NH to Tirupati', time: 15 },
+                        { place: 'Proposed Kandukur Metrorail', time: 18 },
+                        { place: 'ORR Exit 14', time: 37 },
+                        { place: 'RGI Airport', time: 45 },
+                ],
+        },
+        {
+                key: 'employment',
+                label: 'Employment & Business',
+                icon: 'Building2',
+                rows: [
+                        { place: 'Amazon Data Center', time: 25 },
+                        { place: 'Prestigious 4th City', time: 25 },
+                        { place: 'Fab City', time: 35 },
+                        { place: 'Foxconn', time: 50 },
+                ],
+        },
+        {
+                key: 'spiritual',
+                label: 'Spiritual & Leisure',
+                icon: 'Sparkles',
+                rows: [
+                        { place: 'Maisigandi Temple', time: 3 },
+                        { place: 'Maheshwara Maha Pyramid', time: 12 },
+                ],
+        },
+        {
+                key: 'education',
+                label: 'Education',
+                icon: 'GraduationCap',
+                rows: [{ place: 'MGM School', time: 30 }],
+        },
+        {
+                key: 'civic',
+                label: 'Civic',
+                icon: 'Landmark',
+                rows: [{ place: 'Collectorate Office', time: 50 }],
+        },
+];
+
 // THE VIEW amenities, kept intact from previous version.
 export const AMENITIES = [
         {

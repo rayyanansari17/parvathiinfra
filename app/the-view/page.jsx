@@ -3,15 +3,16 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ChevronDown, MapPin, Play } from 'lucide-react';
+import { ChevronDown, Play } from 'lucide-react';
 import { Reveal, SectionIndex } from '@/components/site/Reveal';
 import LeadForm from '@/components/site/LeadForm';
 import Typewriter from '@/components/site/Typewriter';
 import AmenitiesCarousel from '@/components/site/AmenitiesCarousel';
+import ProjectHighlights from '@/components/site/ProjectHighlights';
+import ConnectivityTabs from '@/components/site/ConnectivityTabs';
 import {
         MASTER_PLAN_IMAGE,
         INFRASTRUCTURE,
-        CONNECTIVITY,
         STATS,
         FAQS,
         STOCK,
@@ -251,11 +252,31 @@ export default function TheView() {
                                 </Reveal>
                         </section>
 
+                        {/* ============================ PROJECT HIGHLIGHTS ============================ */}
+                        <section
+                                data-testid="theview-highlights"
+                                className="border-t border-[rgba(201,162,75,0.15)] bg-ink py-24 md:py-28"
+                        >
+                                <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
+                                        <Reveal>
+                                                <SectionIndex n={2} label="Project Highlights" />
+                                                <h2 className="font-display text-3xl tracking-[0.14em] text-ivory md:text-5xl">
+                                                        Every <span className="gold-foil-text">detail,</span> considered.
+                                                </h2>
+                                                <p className="mt-4 max-w-2xl font-sans font-light text-base text-ivory-dim">
+                                                        Twenty-four provisions that make THE VIEW a complete address, from
+                                                        underground infrastructure to the smallest landscaped corner.
+                                                </p>
+                                        </Reveal>
+                                        <ProjectHighlights />
+                                </div>
+                        </section>
+
                         {/* ============================ MASTER PLAN, TWO PANELS ============================ */}
                         <section className="border-t border-[rgba(201,162,75,0.15)] bg-obsidian py-24 md:py-28">
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
-                                                <SectionIndex n={2} label="Master Plan" />
+                                                <SectionIndex n={3} label="Master Plan" />
                                                 <h2 className="font-display text-3xl tracking-[0.14em] text-ivory md:text-5xl">
                                                         Choose <span className="gold-foil-text">your ridge.</span>
                                                 </h2>
@@ -304,7 +325,7 @@ export default function TheView() {
                         >
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
-                                                <SectionIndex n={3} label="Amenities" />
+                                                <SectionIndex n={4} label="Amenities" />
                                                 <h2 className="font-display text-3xl tracking-[0.14em] text-ivory md:text-5xl">
                                                         A <span className="gold-foil-text">private</span> promenade.
                                                 </h2>
@@ -321,7 +342,7 @@ export default function TheView() {
                         <section className="border-y border-[rgba(201,162,75,0.15)] bg-obsidian py-24 md:py-28">
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
-                                                <SectionIndex n={4} label="Infrastructure" />
+                                                <SectionIndex n={5} label="Infrastructure" />
                                                 <h2 className="font-display text-3xl tracking-[0.14em] text-ivory md:text-5xl">
                                                         Built to <span className="gold-foil-text">outlast trends.</span>
                                                 </h2>
@@ -347,53 +368,21 @@ export default function TheView() {
                                 data-testid={THE_VIEW_PAGE.connectivity}
                                 className="bg-ink py-24 md:py-28"
                         >
-                                <div className="mx-auto grid max-w-[1440px] gap-16 px-6 md:grid-cols-2 md:px-12 lg:px-24">
+                                <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
-                                                <SectionIndex n={5} label="Location & Connectivity" />
+                                                <SectionIndex n={6} label="Location & Connectivity" />
                                                 <h2 className="font-display text-3xl leading-tight tracking-[0.12em] text-ivory md:text-5xl">
-                                                        Kadthal,
+                                                        At the heart of Hyderabad&apos;s
                                                         <br />
-                                                        <span className="gold-foil-text">the coordinates matter.</span>
+                                                        <span className="gold-foil-text">next growth story.</span>
                                                 </h2>
- <p className="mt-6 max-w-md font-sans font-light text-base text-ivory-dim">
-                                                        Directly on NH-44 (Bengaluru Highway), ~30 minutes to RGI Airport,
-                                                        near the proposed Fourth City growth corridor.
+                                                <p className="mt-6 max-w-xl font-sans font-light text-base text-ivory-dim">
+                                                        Directly on NH-44 (Bengaluru Highway), around 30 minutes to RGI
+                                                        Airport, beside the proposed Fourth City growth corridor.
                                                 </p>
-
-                                                <div className="mt-10 aspect-video overflow-hidden border border-[rgba(201,162,75,0.25)]">
-                                                        <iframe
-                                                                data-testid="theview-map-embed"
-                                                                title="THE VIEW Location Map"
-                                                                src="https://www.google.com/maps?q=Kadthal,+Telangana&output=embed"
-                                                                className="h-full w-full grayscale"
-                                                                loading="lazy"
-                                                        />
-                                                </div>
                                         </Reveal>
 
-                                        <Reveal delay={0.1}>
-                                                <div className="grid gap-0 border border-[rgba(201,162,75,0.2)] bg-obsidian-2">
-                                                        {CONNECTIVITY.map((c, i) => (
-                                                                <div
-                                                                        key={c.place}
-                                                                        className={`flex items-center justify-between px-8 py-6 ${
-                                                                                i !== 0 ? 'border-t border-[rgba(201,162,75,0.15)]' : ''
-                                                                        }`}
-                                                                >
-                                                                        <div className="flex items-center gap-4">
-                                                                                <MapPin size={16} className="text-gold" />
- <span className="font-sans font-light text-base text-ivory">
-                                                                                        {c.place}
-                                                                                </span>
-                                                                        </div>
-                                                                        <div className="font-display text-xl tracking-[0.14em] text-ivory">
-                                                                                <span className="gold-foil-text">{c.time}</span>{' '}
-                                                                                <span className="text-xs text-ivory-dim">{c.unit}</span>
-                                                                        </div>
-                                                                </div>
-                                                        ))}
-                                                </div>
-                                        </Reveal>
+                                        <ConnectivityTabs />
                                 </div>
                         </section>
 
@@ -404,7 +393,7 @@ export default function TheView() {
                         >
                                 <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24">
                                         <Reveal>
-                                                <SectionIndex n={6} label="Editorial" />
+                                                <SectionIndex n={7} label="Editorial" />
                                                 <h2 className="font-display text-3xl tracking-[0.14em] text-ivory md:text-5xl">
                                                         The <span className="gold-foil-text">frame</span> beyond the frame.
                                                 </h2>
@@ -438,7 +427,7 @@ export default function TheView() {
                         <section data-testid={THE_VIEW_PAGE.faq} className="bg-ink py-24 md:py-28">
                                 <div className="mx-auto max-w-[1000px] px-6 md:px-12">
                                         <Reveal>
-                                                <SectionIndex n={7} label="Frequently Asked" />
+                                                <SectionIndex n={8} label="Frequently Asked" />
                                                 <h2 className="font-display text-3xl tracking-[0.14em] text-ivory md:text-5xl">
                                                         The <span className="gold-foil-text">fine print</span>, made warm.
                                                 </h2>
