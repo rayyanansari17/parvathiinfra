@@ -10,8 +10,8 @@ export const SITE = {
         establishedYear: '2019',
         phoneDisplay: '+91 90000 00000',
         phoneLink: 'tel:+919000000000',
-        whatsappNumber: '919000000000', // TODO: replace with real number
-        whatsappLink: 'https://wa.me/919000000000?text=Hello%20Parvathi%20Infra%20-%20I%20am%20interested%20in%20your%20developments',
+        whatsappNumber: '919666601829',
+        whatsappLink: 'https://wa.me/919666601829?text=Hello%20Parvathi%20Infra%20-%20I%20am%20interested%20in%20your%20developments',
         email: 'info@parvathiinfra.com',
         emails: {
                 info: 'info@parvathiinfra.com',
