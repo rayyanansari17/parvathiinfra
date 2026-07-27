@@ -8,8 +8,14 @@ export const SITE = {
         flagship: 'THE VIEW',
         founder: 'Mr. C. Gautham Yadav',
         establishedYear: '2019',
-        phoneDisplay: '+91 90000 00000',
-        phoneLink: 'tel:+919000000000',
+        phoneDisplay: '+91 96666 01828',
+        phoneLink: 'tel:+919666601828',
+        phones: [
+                { display: '+91 96666 01828', link: 'tel:+919666601828' },
+                { display: '+91 96666 01829', link: 'tel:+919666601829' },
+        ],
+        website: 'www.parvathiinfra.com',
+        websiteUrl: 'https://www.parvathiinfra.com',
         whatsappNumber: '919666601829',
         whatsappLink: 'https://wa.me/919666601829?text=Hello%20Parvathi%20Infra%20-%20I%20am%20interested%20in%20your%20developments',
         email: 'info@parvathiinfra.com',
@@ -21,6 +27,10 @@ export const SITE = {
         officeAddress:
                 'Brindavan Colony, Ootapally Village, near Tondupally Toll Gate, Shamshabad, Telangana',
         siteAddress: 'Karkalphad Village, Kadthal Mandal, Rangareddy District, Telangana',
+        socials: {
+                instagram: 'https://www.instagram.com/parvathiinfra_developers?igsh=MWw2Y2t0ODdqcjd1dg==',
+                facebook: 'https://www.facebook.com/share/1DH6LdW53K/?mibextid=wwXIfr',
+        },
 };
 
 // Six pillars of the company, hero highlights on Home.

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Instagram, Facebook } from 'lucide-react';
 import { SITE } from '@/lib/siteData';
 import { FOOTER } from '@/constants/testIds';
 
@@ -52,12 +53,38 @@ export default function Footer() {
                                                                         {SITE.email}
                                                                 </a>
                                                         </li>
-                                                        <li>
-                                                                <a href={SITE.phoneLink} className="gold-underline">
-                                                                        {SITE.phoneDisplay}
-                                                                </a>
-                                                        </li>
+                                                        {SITE.phones.map((p) => (
+                                                                <li key={p.link}>
+                                                                        <a href={p.link} className="gold-underline">
+                                                                                {p.display}
+                                                                        </a>
+                                                                </li>
+                                                        ))}
                                                 </ul>
+
+                                                <div className="micro-label mb-3 mt-8">Follow</div>
+                                                <div className="flex items-center gap-3">
+                                                        <a
+                                                                href={SITE.socials.instagram}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                aria-label="Parvathi Infra on Instagram"
+                                                                data-testid="footer-instagram"
+                                                                className="flex h-10 w-10 items-center justify-center border border-[rgba(201,162,75,0.35)] text-ivory-dim transition-colors hover:border-gold hover:text-gold"
+                                                        >
+                                                                <Instagram size={17} />
+                                                        </a>
+                                                        <a
+                                                                href={SITE.socials.facebook}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                aria-label="Parvathi Infra on Facebook"
+                                                                data-testid="footer-facebook"
+                                                                className="flex h-10 w-10 items-center justify-center border border-[rgba(201,162,75,0.35)] text-ivory-dim transition-colors hover:border-gold hover:text-gold"
+                                                        >
+                                                                <Facebook size={17} />
+                                                        </a>
+                                                </div>
                                         </div>
                                 </div>
 

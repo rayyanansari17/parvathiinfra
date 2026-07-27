@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone, Globe, Instagram, Facebook } from 'lucide-react';
 import { Reveal, SectionIndex } from '@/components/site/Reveal';
 import LeadForm from '@/components/site/LeadForm';
 import { SITE } from '@/lib/siteData';
@@ -102,6 +102,23 @@ export default function Contact() {
                                                         </div>
 
                                                         <div>
+                                                                <div className="micro-label mb-3">Call</div>
+                                                                <div className="space-y-3">
+                                                                        {SITE.phones.map((p) => (
+                                                                                <div key={p.link} className="flex items-start gap-4">
+                                                                                        <Phone className="mt-1 text-gold" size={18} />
+                                                                                        <a
+                                                                                                href={p.link}
+                                                                                                className="gold-underline font-sans font-light text-base text-ivory"
+                                                                                        >
+                                                                                                {p.display}
+                                                                                        </a>
+                                                                                </div>
+                                                                        ))}
+                                                                </div>
+                                                        </div>
+
+                                                        <div>
                                                                 <div className="micro-label mb-3">WhatsApp</div>
                                                                 <div className="flex items-start gap-4">
                                                                         <Phone className="mt-1 text-gold" size={18} />
@@ -112,6 +129,45 @@ export default function Contact() {
  className="gold-underline font-sans font-light text-base text-ivory"
                                                                         >
                                                                                 Message the concierge
+                                                                        </a>
+                                                                </div>
+                                                        </div>
+
+                                                        <div>
+                                                                <div className="micro-label mb-3">Website</div>
+                                                                <div className="flex items-start gap-4">
+                                                                        <Globe className="mt-1 text-gold" size={18} />
+                                                                        <a
+                                                                                href={SITE.websiteUrl}
+                                                                                target="_blank"
+                                                                                rel="noopener noreferrer"
+                                                                                className="gold-underline font-sans font-light text-base text-ivory"
+                                                                        >
+                                                                                {SITE.website}
+                                                                        </a>
+                                                                </div>
+                                                        </div>
+
+                                                        <div>
+                                                                <div className="micro-label mb-3">Follow Us</div>
+                                                                <div className="flex items-center gap-3">
+                                                                        <a
+                                                                                href={SITE.socials.instagram}
+                                                                                target="_blank"
+                                                                                rel="noopener noreferrer"
+                                                                                aria-label="Parvathi Infra on Instagram"
+                                                                                className="flex h-11 w-11 items-center justify-center border border-[rgba(201,162,75,0.35)] text-ivory-dim transition-colors hover:border-gold hover:text-gold"
+                                                                        >
+                                                                                <Instagram size={18} />
+                                                                        </a>
+                                                                        <a
+                                                                                href={SITE.socials.facebook}
+                                                                                target="_blank"
+                                                                                rel="noopener noreferrer"
+                                                                                aria-label="Parvathi Infra on Facebook"
+                                                                                className="flex h-11 w-11 items-center justify-center border border-[rgba(201,162,75,0.35)] text-ivory-dim transition-colors hover:border-gold hover:text-gold"
+                                                                        >
+                                                                                <Facebook size={18} />
                                                                         </a>
                                                                 </div>
                                                         </div>
